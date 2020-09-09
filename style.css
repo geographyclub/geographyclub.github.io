@@ -1,0 +1,24 @@
+/* main */
+a{color:#30A9DE; cursor:pointer; outline:0; text-decoration:none;}
+a:hover{color:#b2d8d8;}
+hr{border:0; background:#f9f9f9; height:1px; margin:5px auto; width:30%;}
+body{background-color:#f9f9f9; font-size:100%; line-height:1;}
+body, html{height:100%; margin:0; padding:0; text-align:center; width:100%;}
+
+/* sections */
+.containerBlack{background-color:#000; color:#f9f9f9; margin:0; padding:0; width:100%;}
+.containerWhite{margin:0; padding:0; width:100%;}
+.link{font-family:'Montserrat',sans-serif; font-size:12pt; margin:0; padding:0;}
+.section{box-sizing:border-box; margin:auto; padding:10px 0; position:relative; text-align:left; width:90%;}
+.title{box-sizing:border-box; margin:auto; padding:10px 0; position:relative; width:90%;}
+
+/* fonts */
+h1{font-family:'Montserrat',sans-serif; font-size:4vw; font-weight:900; margin:0; padding:0;}
+h2{font-family:'Montserrat',sans-serif; font-size:20pt; font-weight:900; margin:0; padding:0;}
+h3{font-family:'Montserrat',sans-serif; font-size:16pt; font-weight:900; margin:0; padding:0;}
+p{font-family:'Montserrat',sans-serif; font-size:16pt; margin:0; padding:0;}
+
+/* decoration */
+#bar_blue{background-color:#30A9DE; float:left; height:3px; width:33%;}
+#bar_red{background-color:#E53A40; float:left; height:3px; width:33%;}
+#bar_yellow{background-color:#EFDC05; float:left; height:3px; width:33%;}
