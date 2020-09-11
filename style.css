@@ -8,6 +8,7 @@ body, html{height:100%; margin:0; padding:0; text-align:center; width:100%;}
 /* sections */
 .containerBlack{background-color:#111; color:#f9f9f9; margin:0; padding:0; width:100%;}
 .containerWhite{background-color:#f9f9f9; color:#111; margin:0; padding:0; width:100%;}
+.indent{margin:0 0 0 10px;}
 .link{font-size:16pt; margin:0; padding:0;}
 .section{box-sizing:border-box; margin:auto; padding:10px 0; position:relative; text-align:left; width:80%;}
 .title{box-sizing:border-box; margin:auto; padding:10px 0; position:relative; width:100%;}
