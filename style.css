@@ -1,13 +1,13 @@
 /* main */
 a{color:#30A9DE; cursor:pointer; outline:0; text-decoration:none;}
 a:hover{color:#b2d8d8;}
-hr{border:0; border-top:dotted 1px #f9f9f9; height:0; margin:5px 0; width:100%;}
+hr{border:0; border-top:dotted 1px #666; height:0; margin:5px 0; width:100%;}
 body{background-color:#f9f9f9; font-family:'Montserrat',sans-serif; font-size:100%; line-height:1.2;}
 body, html{height:100%; margin:0; padding:0; text-align:center; width:100%;}
 
 /* sections */
 .containerBlack{background-color:#111; color:#f9f9f9; margin:0; padding:0; width:100%;}
-.containerWhite{margin:0; padding:0; width:100%;}
+.containerWhite{background-color:#f9f9f9; color:#111; margin:0; padding:0; width:100%;}
 .link{font-size:16pt; margin:0; padding:0;}
 .section{box-sizing:border-box; margin:auto; padding:10px 0; position:relative; text-align:left; width:80%;}
 .title{box-sizing:border-box; margin:auto; padding:10px 0; position:relative; width:100%;}
