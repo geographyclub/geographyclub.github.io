@@ -9,12 +9,12 @@ body, html{height:100%; margin:0; padding:0; text-align:center; width:100%;}
 .containerDark{background-color:#212529; color:#EEEDE7; margin:0; padding:0; width:100%;}
 .containerLight{background-color:#EEEDE7; color:#212529; margin:0; padding:0; width:100%;}
 .indent{padding:0 0 0 10px;}
-.link{font-size:14pt; margin:0; padding:0;}
+.link{font-size:12pt; margin:0; padding:0;}
 .section{box-sizing:border-box; margin:auto; padding:10px 0; position:relative; text-align:left; width:80%;}
 .title{box-sizing:border-box; margin:auto; padding:10px 0; position:relative; width:100%;}
 
 /* fonts */
-h1{font-size:16px; font-weight:700; margin:0; padding:0;}
-h2{font-size:14px; font-weight:700; margin:0; padding:0;}
-p{font-size:14px; margin:0; padding:0;}
+h1{font-size:16pt; font-weight:700; margin:0; padding:0;}
+h2{font-size:12pt; font-weight:700; margin:0; padding:0;}
+p{font-size:12pt; margin:0; padding:0;}
 
