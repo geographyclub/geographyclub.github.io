@@ -1,6 +1,6 @@
 /* main */
-a{color:#00a896; cursor:pointer; outline:0; text-decoration:none;}
-a:hover{color:#02c39a;}
+a{color:#212529; cursor:pointer; outline:0; text-decoration:underline;}
+a:hover{color:#667380;}
 hr{border:0; border-top:dotted 1px #aaa; height:0; margin:5px 0; width:100%;}
 body{background-color:#EEEDE7; font-family:'Montserrat',sans-serif; font-size:100%; line-height:1.2;}
 body, html{height:100%; margin:0; padding:0; text-align:center; width:100%;}
