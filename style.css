@@ -9,7 +9,6 @@ body, html{height:100%; margin:0; padding:0; text-align:center; width:100%;}
 .containerDark{background-color:#212529; color:#EEEDE7; margin:0; padding:0; width:100%;}
 .containerLight{background-color:#EEEDE7; color:#212529; margin:0; padding:0; width:100%;}
 .indent{padding:0 0 0 10px;}
-.link{font-size:12pt; margin:0; padding:0;}
 .section{box-sizing:border-box; margin:auto; padding:10px 0; position:relative; text-align:left; width:80%;}
 .title{box-sizing:border-box; margin:auto; padding:10px 0; position:relative; width:100%;}
 
