@@ -13,9 +13,9 @@ body, html{height:100%; margin:0; padding:0; text-align:center; width:100%;}
 .title{box-sizing:border-box; margin:auto; padding:10px 0; position:relative; width:100%;}
 
 /* fonts */
-h1{font-size:4vw; font-weight:900; margin:0; padding:0;}
-h2{font-size:2vw; font-weight:300; margin:0; padding:0;}
-h3{font-size:16pt; font-weight:600; margin:0; padding:0;}
+h1{font-size:20pt; font-weight:900; margin:0; padding:0;}
+h2{font-size:16pt; font-weight:600; margin:0; padding:0;}
+h3{font-size:14pt; font-weight:300; margin:0; padding:0;}
 p{font-size:14pt; margin:0; padding:0;}
 
 .banner{width:100%;}
