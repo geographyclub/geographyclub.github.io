@@ -14,10 +14,15 @@ body, html{height:100%; margin:0; padding:0; text-align:center; width:100%;}
 
 /* fonts */
 h1{font-size:18pt; font-weight:900; margin:0; padding:0;}
-h2{font-size:14pt; font-weight:900; margin:0; padding:0;}
-h3{font-size:12pt; font-weight:300; margin:0; padding:0;}
-p{font-size:14pt; margin:0; padding:0;}
+h2{font-size:14pt; font-weight:600; margin:0; padding:0;}
+h3{font-size:12pt; font-weight:600; margin:0; padding:0;}
+p{font-size:12pt; margin:0; padding:0;}
 
-.banner{width:100%;}
 .caption{background-color:#FFFF00; color:#000; opacity:0.8; padding:5px;}
+.banner{width:100%;}
+.banner img{width:100%;}
+.banner-third{float:left; width:33%;}
+.banner-third img{width:100%;}
+
 .indent{padding:0 0 0 10px;}
+.moveUp{position:relative; top:-50px;}
