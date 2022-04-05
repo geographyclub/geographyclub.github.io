@@ -5,24 +5,14 @@ a:visited{color:#551A8B;}
 hr{border:0; border-top:dotted 2px #aaa; height:0; margin:10px 0; width:100%;}
 body{background-color:#FFF; color:#242424; font-family:Noto Sans,sans-serif; font-size:100%; line-height:1;}
 body, html{height:100%; margin:0; padding:0; text-align:center; width:100%;}
-
-/* sections */
-.containerDark{background-color:#242424; color:#EEEDE7; margin:0; padding:0; width:100%;}
-.containerLight{background-color:#FFF; color:#242424; margin:0; padding:0; width:100%;}
-.section{box-sizing:border-box; margin:auto; padding:10px 0; position:relative; text-align:left; width:80%;}
-.title{box-sizing:border-box; margin:auto; padding:10px 0; position:relative; width:100%;}
+img{display:block;}
 
 /* fonts */
-h1{font-size:18pt; font-weight:900; margin:0; padding:0;}
-h2{font-size:14pt; font-weight:600; margin:0; padding:0;}
-h3{font-size:10pt; font-weight:600; margin:0; padding:0;}
+h1{font-size:20pt; font-weight:900; margin:0; padding:0;}
+h2{font-size:16pt; font-weight:900; margin:0; padding:0;}
+h3{font-size:12pt; font-weight:900; margin:0; padding:0;}
 p{font-size:12pt; margin:0; padding:0;}
 
-.caption{background-color:#FFFF00; color:#000; opacity:0.8; padding:5px 10px 5px 10px;}
-.banner{width:100%;}
-.banner img{width:100%;}
-.banner-third{float:left; width:33%;}
-.banner-third img{width:100%;}
-
-.indent{padding:0 0 0 10px;}
-.moveUp{position:relative; top:-50px;}
+/* classes */
+.fullpage{max-width:100%;}
+.title{background-color:#242424; box-sizing:border-box; color:#EEEDE7; padding:10px 0; width:100%;}
