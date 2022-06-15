@@ -14,6 +14,5 @@ h3{font-size:12pt; font-weight:600; margin:0; padding:0;}
 p{font-size:12pt; margin:0; padding:0;}
 
 /* classes */
-.centered{padding:100px 0 100px 0; width:100%;}
-.centered img{margin-left:auto; margin-right:auto; max-width:100%;}
+.banner{padding:50px 0 50px 0;}
 .fullpage{max-width:100%;}
