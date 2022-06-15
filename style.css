@@ -8,11 +8,11 @@ body, html{height:100%; margin:0; padding:0; text-align:center; width:100%;}
 img{display:block;}
 
 /* fonts */
-h1{font-size:30pt; font-weight:900; margin:0; padding:0;}
+h1{font-size:5vw; font-weight:900; margin:0; padding:0;}
 h2{font-size:16pt; font-weight:900; margin:0; padding:0;}
 h3{font-size:12pt; font-weight:600; margin:0; padding:0;}
 p{font-size:12pt; margin:0; padding:0;}
 
 /* classes */
-.banner{padding:50px 0 50px 0;}
+.banner{padding:50px 0 50px 0; max-width:100%; overflow:hidden;}
 .fullpage{max-width:100%;}
