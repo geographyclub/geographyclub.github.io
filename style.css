@@ -14,7 +14,7 @@ h3{font-size:12pt; font-weight:600; margin:0; padding:0;}
 p{font-size:12pt; margin:0; padding:0;}
 
 /* classes */
-.banner{padding:50px 0 50px 0; max-width:100%; overflow:hidden;}
+.banner{background-color:#f0f0e8; padding:50px 0 50px 0; max-width:100%; overflow:hidden;}
 .fullpage{max-width:100%;}
 
 /* image captions */
