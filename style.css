@@ -8,9 +8,9 @@ body, html{height:100%; margin:0; padding:0; text-align:center; width:100%;}
 img{display:block;}
 
 /* fonts */
-h1{font-size:5vw;font-weight:600; margin:0; padding:0;}
-h2{font-size:18pt; font-weight:600; margin:0; padding:0;}
-h3{font-size:12pt; font-weight:600; margin:0; padding:0;}
+h1{font-size:5vw;font-weight:900; margin:0; padding:0;}
+h2{font-size:18pt; font-weight:900; margin:0; padding:0;}
+h3{font-size:12pt; font-weight:900; margin:0; padding:0;}
 p{font-size:12pt; margin:0; padding:0;}
 
 /* classes */
