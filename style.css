@@ -19,7 +19,7 @@ p{font-size:12pt; margin:0; padding:0;}
 
 /* image captions */
 .container{position:relative; width:100%;}
-.container img{vertical-align:bottom; max-width:960px; width:100%;}
+.container img{vertical-align:bottom; max-width:960px; width:50%;}
 .caption{position: absolute; top: 0; bottom: 0; left: 0; font: 0/0 a;}
 .caption:before {content:' '; display: inline-block; height: 100%; vertical-align: top;}
 .caption h3{color:black; display: inline-block; vertical-align: middle; text-align:middle; background:yellow; width: auto; padding:10px;}
