@@ -3,7 +3,7 @@ a{color:#0000FF; cursor:pointer; outline:0; text-decoration:underline;}
 a:hover{color:#00FF00;}
 a:visited{color:#551A8B;}
 hr{border:0; border-top:dotted 2px #aaa; height:0; margin:10px 0; width:100%;}
-body{background-color:#f0f0e8; color:#000; font-family:Courier New, serif; font-size:100%; line-height:1;}
+body{background-color:#f0f0e8; color:#000; font-family:Courier New,sans-serif; font-size:100%; line-height:1;}
 body, html{height:100%; margin:0; padding:0; text-align:center; width:100%;}
 img{display:block;}
 
