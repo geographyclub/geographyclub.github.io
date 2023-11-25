@@ -135,7 +135,7 @@ left: 100%;
 transform: translate(-100%, 0%);
 color: #333;
 text-align: right;
-background: rgba(255, 255, 255, 0.7);
+background: rgba(255, 255, 0, 1);
 padding: 0 3px;
 box-sizing: border-box;
 z-index: 3;
