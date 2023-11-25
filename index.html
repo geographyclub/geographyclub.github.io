@@ -14,9 +14,9 @@
 <div><h3 style="display: inline-block;">Steven Kim</h3>&nbsp;<a href="https://github.com/geographyclub" target="_blank" style="display: inline-block;"><h4 style="font-weight:600;">Github Portfolio</h4></a></div>
 <div class="menu-icon">&#9776;</div>
 <nav>
-<a href="#">Home</a>
-<a href="#">About</a>
-<a href="#">Contact</a>
+<a href="#" onclick="closeMenu()">Home</a>
+<a href="#" onclick="closeMenu()">About</a>
+<a href="#" onclick="closeMenu()">Contact</a>
 </nav>
 </header>
 
@@ -124,22 +124,14 @@
 
 </div>
 
-<!-- navigation menu -->
 <script>
+<!-- navigation menu -->
 document.querySelector('.menu-icon').addEventListener('click', function () {
 document.querySelector('nav').classList.toggle('show');
 });
-</script>
 
-<!-- collapse -->
-<script>
-function toggleContent() {
-var content = document.getElementById("collapsibleContent");
-if (content.style.display === "block") {
-content.style.display = "none";
-} else {
-content.style.display = "block";
-}
+function closeMenu() {
+document.querySelector('nav').classList.remove('show');
 }
 </script>
 
