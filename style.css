@@ -1,26 +1,221 @@
-/* main */
-a{color:#0000FF; cursor:pointer; outline:0; text-decoration:underline;}
-a:hover{color:#00FF00;}
-a:visited{color:#551A8B;}
-hr{border:0; border-top:dotted 2px #aaa; height:0; margin:10px 0; width:100%;}
-body{background-color:#f0f0e8; color:#000; font-family:sans-serif; font-size:100%; line-height:1;}
-body, html{height:100%; margin:0; padding:0; text-align:center; width:100%;}
-img{display:block;}
+
+/* navigation */
+
+nav {
+display: none;
+flex-direction: column;
+align-items: flex-start;
+width: 100%;
+background-color: #333;
+position: absolute;
+right: 0;
+top: 50px;
+}
+
+nav.show {
+display: flex;
+}
+
+nav a {
+color: white;
+text-decoration: none;
+margin: 10px;
+}
+
+.menu-icon {
+display: block;
+cursor: pointer;
+font-size: 24px;
+position: fixed;
+right: 10px;
+}
+
+/* sections */
+
+body {
+color: #fff;
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+font-family: Sans;
+background-color:#f0f0e8
+}
+
+header {
+display: flex;
+justify-content: space-between;
+align-items: center;
+background-color: #333;
+color: white;
+padding: 0 10px;
+position: fixed;
+height: 50px;
+width: 100%;
+top: 0;
+z-index: 1000;
+}
+
+.container {
+margin-top: 50px;
+display: flex;
+flex-wrap: wrap;
+justify-content: space-around;
+padding: 0;
+}
+
+.box {
+flex: 0 0 50%;
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+
+.image-container {
+display: flex;
+overflow: hidden;
+position: relative;
+height: auto;
+width: 100%;
+max-width: 768px;
+margin: 0 auto;
+align-items: center;
+justify-content: center;
+}
+
+.background-container {
+overflow: hidden;
+position: relative;
+width: 100%;
+max-width: 768px;
+height: 1080px;
+margin: 0 auto;
+}
+
+.image {
+display: block;
+width: 100%;
+height: auto;
+display: block;
+max-height: 100%;
+max-width: 100%;
+margin: auto;
+}
+
+.text-overlay {
+position: absolute;
+top: 50%;
+left: 50%;
+transform: translate(-50%, -50%);
+color: '#333';
+text-align: center;
+background: rgba(0, 0, 0, 0);
+padding: 0;
+box-sizing: border-box;
+width: 90%;
+z-index: 2;
+}
+
+.text-left-overlay {
+position: absolute;
+top: 50%;
+left: 10%;
+transform: translate(0%, -50%);
+color: '#333';
+text-align: left;
+background: rgba(0, 0, 0, 0);
+padding: 0;
+box-sizing: border-box;
+z-index: 2;
+}
+
+.tag-overlay {
+position: absolute;
+top: 0%;
+left: 100%;
+transform: translate(-100%, 0%);
+color: #333;
+text-align: right;
+background: rgba(255, 255, 255, 0.7);
+padding: 0 3px;
+box-sizing: border-box;
+z-index: 3;
+}
+
+.color-overlay {
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+mix-blend-mode: multiply;
+z-index: 1;
+}
+
+.text-background-blue {
+display: inline-block;
+background-color: rgba(52, 152, 219, 1);
+color: fff;
+margin: 5px 0;
+padding: 5px;
+}
+
+.text-background-yellow {
+display: inline-block;
+background-color: rgba(255, 255, 0, 1);
+color: #fff;
+margin: 5px 0;
+padding: 5px;
+}
+
+.text-background-black {
+display: inline-block;
+background-color: rgba(0, 0, 0, 1);
+color: #fff;
+margin: 5px 0;
+padding: 5px;
+}
+
+.collapsible {
+cursor: pointer;
+padding: 18px;
+border: 1px solid #ddd;
+text-align: center;
+background-color: #f1f1f1;
+margin: 10px;
+}
+
+.collapsible-content {
+display: none;
+padding: 10px;
+border-top: 1px solid #ddd;
+}
+
+/* mobile */
+
+@media only screen and (max-width: 768px) {
+
+nav {
+display: none;
+flex-direction: column;
+align-items: flex-start;
+width: 100%;
+background-color: #333;
+position: absolute;
+right: 0;
+top: 50px;
+}
+
+nav.show{display:flex;}
+
+.box{flex: 0 0 100%;}
+
+}
 
 /* fonts */
-h1{font-size:24pt;font-weight:900; margin:0; padding:0;}
-h2{font-size:18pt; font-weight:900; margin:0; padding:0;}
-h3{font-size:12pt; font-weight:600; margin:0; padding:0;}
-p{font-size:12pt; margin:0; padding:0;}
 
-/* classes */
-/*.banner{background-image: url("https://geographyclub.github.io/img_bak/blueprint_seoul_2.png"); background-size:cover; color:#333; padding:50px 0 50px 0; max-width:400px; overflow:hidden;}*/
-.banner{background-color:#f0f0e8; color:#333; padding:50px 0 50px 0; max-width:100%; overflow:hidden;}
-.fullpage{max-width:100%;}
-
-/* image captions */
-.container{position:relative; text-align:center; width:100%;}
-.container img{vertical-align:bottom; margin-left:auto; margin-right:auto; max-width:400px; width:100%;}
-.caption{position: absolute; top: 0; bottom: 0; left: 0; font: 0/0 a;}
-.caption:before {content:' '; display: inline-block; height: 100%; vertical-align: top;}
-.caption h3{color:black; display: inline-block; vertical-align: middle; text-align:middle; background:yellow; width: auto; padding:10px;}
+a{color:white; text-decoration: none;}
+h1{font-family:Montserrat; font-size:45px; font-weight:900; line-height:0.8; margin:0; padding:0;}
+h2{font-family:Montserrat; font-size:30px; font-weight:900; line-height:0.8; margin:0; padding:0;}
+h3{font-family:Montserrat; font-size:20px; font-weight:900; line-height:1; margin:0; padding:0;}
+h4{font-family:Montserrat; font-size:14px; font-weight:900; line-height:1; margin:0; padding:0;}
+p{font-family:Sans; font-size:12px; font-weight:600; line-height:1.2; margin:0; padding:0;}
