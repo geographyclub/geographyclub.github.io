@@ -95,7 +95,6 @@ margin: 0 auto;
 display: block;
 width: 100%;
 height: auto;
-display: block;
 max-height: 100%;
 max-width: 100%;
 margin: auto;
@@ -214,7 +213,7 @@ nav.show{display:flex;}
 /* fonts */
 
 a{color:white; text-decoration: none;}
-h1{font-family:Montserrat; font-size:45px; font-weight:900; line-height:0.8; margin:0; padding:0;}
+h1{font-family:Montserrat; font-size:4px; font-weight:900; line-height:0.8; margin:0; padding:0;}
 h2{font-family:Montserrat; font-size:30px; font-weight:900; line-height:0.8; margin:0; padding:0;}
 h3{font-family:Montserrat; font-size:20px; font-weight:900; line-height:1; margin:0; padding:0;}
 h4{font-family:Montserrat; font-size:14px; font-weight:900; line-height:1; margin:0; padding:0;}
