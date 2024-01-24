@@ -23,6 +23,12 @@ margin: 10px;
 font-size: 14px;
 }
 
+nav p {
+color: gray;
+margin: 10px;
+font-size: 10px;
+}
+
 .menu-icon {
 display: block;
 cursor: pointer;
