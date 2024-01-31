@@ -121,7 +121,7 @@ height: auto;
 max-height: 100%;
 max-width: 100%;
 margin: auto;
-border-radius: 20px;
+border-radius: 10px;
 }
 
 .image-large {
@@ -131,9 +131,8 @@ height: auto;
 max-height: 100%;
 max-width: 100%;
 margin: auto;
-border-radius: 20px;
+border-radius: 10px;
 }
-
 
 .text-overlay {
 position: absolute;
