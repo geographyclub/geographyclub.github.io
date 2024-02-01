@@ -94,6 +94,7 @@ max-width: 768px;
 margin: 0 auto;
 align-items: center;
 justify-content: center;
+text-align: center;
 }
 
 .background-container {
@@ -132,6 +133,12 @@ max-height: 100%;
 max-width: 100%;
 margin: auto;
 border-radius: 10px;
+}
+
+.image-overlay {
+position: absolute;
+transform: translate(-50%, -50%);
+height: auto;
 }
 
 .text-overlay {
