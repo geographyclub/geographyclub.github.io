@@ -259,8 +259,8 @@ nav.show{display:flex;}
 /* fonts */
 
 a{color:white; text-decoration: none;}
-h1{font-family:'Montserrat'; font-size:20px; font-weight:900; line-height:0.8; margin:0; padding:0; letter-spacing:-1px;}
-h2{font-family:'Montserrat'; font-size:16px; font-weight:600; line-height:0.8; margin:0; padding:0;}
+h1{font-family:'Montserrat'; font-size:18px; font-weight:900; line-height:0.8; margin:0; padding:0; letter-spacing:-1px;}
+h2{font-family:'Montserrat'; font-size:14px; font-weight:600; line-height:0.8; margin:0; padding:0;}
 h3{font-family:'DM Serif Display'; font-size:30px; font-weight:900; line-height:0.8; margin:0; padding:0;}
 h4{font-family:'DM Serif Display'; font-size:16px; font-weight:900; line-height:0.8; margin:0; padding:0;}
 p{font-family:'Montserrat'; font-size:12px; font-weight:900; line-height:0.8; margin:0; padding:0;}
@@ -285,4 +285,8 @@ padding: 20px;
 display:inline;
 background: #fff; /* Set your desired background color */
 box-sizing: border-box;
+}
+
+hr {
+border:none; height:1px; background-color:#fff; width:50%;
 }
