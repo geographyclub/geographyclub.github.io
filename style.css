@@ -194,25 +194,22 @@ z-index: 1;
 .text-background-blue {
 display: inline-block;
 background-color: rgba(52, 152, 219, 1);
-color: fff;
-margin: 5px 0;
+margin: 0;
 padding: 7px;
 }
 
-.text-background-yellow {
+.text-background-white {
 display: inline-block;
-background-color: rgba(255, 255, 0, 1);
-color: #fff;
-margin: 5px 0;
-padding: 5px;
+background-color: rgba(255, 255, 255, 0.5);
+margin: 0;
+padding: 7px;
 }
 
 .text-background-black {
 display: inline-block;
-background-color: rgba(0, 0, 0, 1);
-color: #fff;
-margin: 5px 0;
-padding: 5px;
+background-color: #333;
+margin: 0;
+padding: 7px;
 }
 
 .collapsible {
