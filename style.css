@@ -49,9 +49,8 @@ nav p {color:white; margin:10px; font-size:10px;}
 .color-gradient {background:linear-gradient(to right,#ffb798,#ffe8cd);}
 .transparent-gradient {background:linear-gradient(to bottom,#ffffff,transparent);}
 
-.footer {background-color:#fff; color:#333; max-width:1920px; padding:20px 10px; background-size:cover;}
-.foooter hr {border:none; height:1px; background-color:#333; width:100%; margin:0 0 10px 0}
-.footer a{color:#333; text-decoration:underline;}
+.footer {background-color:#333; color:#fff; max-width:1920px; padding:15px 15px 30px 15px; background-size:cover;}
+.footer a{text-decoration:underline;}
 .footer h1{font-size:20px; font-weight:600;line-height:1.2;}
-.footer h2{color:#333; line-height:1.4;}
-.footer p{font-size:10px; color:#666; padding-top:10px; }
+.footer h2{line-height:1.4;}
+.footer p{font-size:10px; color:#ccc; padding-top:10px; }
