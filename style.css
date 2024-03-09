@@ -1,4 +1,4 @@
-h1 {font-family:'Montserrat'; font-size:18px; font-weight:900; line-height:1; margin:0; padding:0; letter-spacing:-1px;}
+h1 {font-family:'Montserrat'; font-size:26px; font-weight:900; line-height:1; margin:0; padding:0; letter-spacing:-1px;}
 h2 {font-family:'Montserrat'; font-size:14px; font-weight:600; line-height:1; margin:0; padding:0;}
 h3 {font-family:'DM Serif Display'; font-size:30px; font-weight:900; line-height:0.8; margin:0; padding:0;}
 h4 {font-family:'DM Serif Display'; font-size:14px; font-weight:900; line-height:0.8; margin:0; padding:0;}
@@ -33,7 +33,7 @@ nav p {color:#333; margin:10px; font-size:10px;}
 .image-overlay {position:absolute; transform:translate(-50%,-50%); height:auto;}
 
 .text-overlay {position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); color:'#333'; text-align:center; background:rgba(0,0,0,0); padding:0; box-sizing:border-box; width:90%; z-index:2;}
-.text-overlay-left {position:absolute; bottom:5px; left:5px; color:'#333'; text-align:left; background:rgba(0,0,0,0); padding:0; box-sizing:border-box; z-index:2;}
+.text-overlay-left {position:absolute; bottom:5px; left:5px; color:'#333'; text-align:left; background:rgba(0,0,0,0); padding:0; box-sizing:border-box; z-index:2; width:70%}
 .text-overlay-right {position:absolute; bottom:5px; right:5px; color:'#333'; text-align:right; background:rgba(0,0,0,0); padding:0; box-sizing:border-box; z-index:2;}
 .tag-overlay {position:absolute; top:0%; left:100%; transform:translate(-100%,0%); color:#333; text-align:right; background:rgba(255,255,0,1); padding:0 3px; box-sizing:border-box; z-index:3;}
 .text-background-blue {display:inline-block; background-color:rgba(52,152,219,1); margin:0; padding:5px;}
@@ -51,6 +51,6 @@ nav p {color:#333; margin:10px; font-size:10px;}
 
 .footer {background-color:#f0f0e8; color:#333; max-width:1920px; padding:15px 15px 30px 15px; background-size:cover;}
 .footer a{color:#333; text-decoration:underline;}
-.footer h1{font-weight:600;line-height:1.2;}
+.footer h1{font-size:18px; font-weight:600; line-height:1.2;}
 .footer h2{line-height:1.4;}
 .footer p{font-size:10px; color:#999; padding-top:10px; }
