@@ -6,7 +6,7 @@ p {font-family:'Montserrat'; font-size:12px; font-weight:600; line-height:1; mar
 a {color:#fff; text-decoration:none;}
 hr {border:none; height:1px; background-color:#fff; width:50%;}
 
-body {color:#333; background-color:#f0f0e8; margin:0; padding:0; box-sizing:border-box; font-family:Sans;}
+body {color:#333; background-color:#eee; margin:0; padding:0; box-sizing:border-box; font-family:Sans;}
 header {color:#333; background-color:#ddd; display:flex; justify-content:space-between; align-items:center; padding:0 10px; position:fixed; height:50px; width:100%; top:0; z-index:1000;}
 
 .container {margin-top:50px; display:flex; flex-wrap:wrap; justify-content:space-around; padding:0;}
