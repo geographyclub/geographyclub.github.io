@@ -25,7 +25,7 @@ nav p {color:#333; margin:10px; font-size:10px;}
   .box {flex:0 0 100%;}
 }
 
-.image-container {display:flex; overflow:hidden; position:relative; height:auto; width:100%; max-width:768px; margin:0 auto; align-items:center; justify-content:center;}
+.image-container {box-sizing:border-box; display:flex; overflow:hidden; position:relative; height:auto; width:100%; max-width:768px; margin:0 auto; align-items:center; justify-content:center;}
 .background-container {overflow:hidden; position:relative; width:100%; max-width:768px; height:1080px; margin:0 auto;}
 .image {display:block; width:100%; height:auto; max-height:100%; max-width:100%;}
 .image-small {display:block; width:50%; height:auto; max-height:100%; max-width:100%; margin:auto; border-radius:10px;}
