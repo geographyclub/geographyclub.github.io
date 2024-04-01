@@ -2,15 +2,15 @@ h1 {font-family:'Montserrat'; font-size:40px; font-weight:900; line-height:0.8; 
 h2 {font-family:'Montserrat'; font-size:14px; font-weight:600; line-height:1; margin:0; padding:0;}
 h3 {font-family:'DM Serif Display'; font-size:30px; line-height:0.8; margin:0; padding:0;}
 h4 {font-family:'DM Serif Display'; font-size:14px; line-height:0.8; margin:0; padding:0;}
-p {font-family:'Noto Sans'; font-size:12px; font-weight:600; line-height:1; margin:0; padding:0;}
+p {font-family:'Montserrat'; font-size:12px; font-weight:900; line-height:1; margin:0; padding:0; text-transform: uppercase;}
 a {color:#fff; text-decoration:none;}
 hr {border:none; height:1px; background-color:#fff; width:50%;}
-.pacifico {font-family:Pacifico; font-size:45px; font-weight:400; letter-spacing:0; margin:-7px 0 5px 0;}
+.pacifico {font-family:Pacifico; font-size:50px; font-weight:400; letter-spacing:0; margin:-10px 0 5px 0;}
 
 .black a{color:#333;}
-.black h1{text-shadow:2px 2px 2px #eee;}
-.white a{color:#fff;}
-.white h1{text-shadow:2px 2px 0 #888;}
+.black h1{text-shadow:2px 2px 2px #666;}
+.white h1{text-shadow:2px 2px 2px #666;}
+.white p{text-shadow:2px 2px 2px #666; margin-top:5px;}
 
 body {color:#333; background-color:#eee; margin:0; padding:0; box-sizing:border-box;}
 header {color:#333; background-color:#ddd; display:flex; justify-content:space-between; align-items:center; padding:0 10px; position:fixed; height:50px; width:100%; top:0; z-index:1000;}
@@ -38,15 +38,15 @@ nav p {color:#333; margin:10px; font-size:10px;}
 .image-large {display:block; width:90%; height:auto; max-height:100%; max-width:100%; margin:auto; border-radius:10px;}
 .image-overlay {position:absolute; transform:translate(-50%,-50%); height:auto;}
 
-.text-overlay {position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); color:'#333'; text-align:center; background:rgba(0,0,0,0); padding:0; box-sizing:border-box; z-index:2;}
+.text-overlay {position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); color:'#333'; text-align:center; background:rgba(0,0,0,0); margin:0; padding:0; box-sizing:border-box; z-index:2; width:80%;}
 .text-overlay-left {position:absolute; top:15px; left:15px; color:'#333'; text-align:left; background:rgba(0,0,0,0); padding:0; box-sizing:border-box; z-index:2;}
 .text-overlay-right {position:absolute; top:15px; right:15px; color:'#333'; text-align:right; background:rgba(0,0,0,0); padding:0; box-sizing:border-box; z-index:2;}
 .tag-overlay {position:absolute; top:0%; left:100%; transform:translate(-100%,0%); color:#333; text-align:right; background:rgba(255,255,0,1); padding:0 3px; box-sizing:border-box; z-index:3;}
 .text-background-blue {display:inline-block; background-color:rgba(52,152,219,1); margin:0; padding:5px;}
-.text-background-white {display:inline-block; background-color:rgba(255,255,255,0.5); margin:0; padding:7px;}
 .text-background-yellow {display:inline-block; background-color:#ffff00; margin:0; padding:7px;}
 .text-background-orange {display:inline-block; background-color:#ffa500; margin:0; padding:3px 5px;}
 .text-background-black {display:inline-block; background-color:rgba(0,0,0,0.5); margin:5px auto; padding:5px;}
+.text-background-white {display:inline-block; background-color:rgba(255,255,255,0.5); color:#333; margin:5px auto; padding:5px;}
 
 .collapsible {cursor:pointer; padding:18px; border:1px solid #ddd; text-align:center; background-color:#f1f1f1; margin:10px;}
 .collapsible-content {display:none; padding:10px; border-top:1px solid #ddd;}
@@ -58,4 +58,4 @@ nav p {color:#333; margin:10px; font-size:10px;}
 .footer {background-color:#ddd; color:#333; max-width:1920px; padding:15px 15px 30px 15px;}
 .footer a{color:#333; text-decoration:underline;}
 .footer h1{font-family:'Noto Sans'; font-size:14px; font-weight:400; line-height:1.2; letter-spacing:0;}
-.footer p{font-family:'Noto Sans'; font-size:9px; color:#999; padding-top:10px; }
+.footer p{font-family:'Noto Sans'; font-size:9px; font-weight:400; color:#999; padding-top:10px; }
