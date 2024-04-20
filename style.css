@@ -8,7 +8,7 @@ hr {border:none; height:1px; background-color:#fff; width:50%;}
 .pacifico {font-family:Pacifico; font-size:50px; font-weight:400; letter-spacing:0; margin:-10px 0 5px 0;}
 
 .black a{color:#333;}
-.black h1{text-shadow:2px 2px 2px #555;}
+.black h1{color:#333;}
 .white h1{text-shadow:2px 2px 2px #555;}
 .white p{text-shadow:2px 2px 2px #555; margin-top:5px;}
 
