@@ -1,8 +1,8 @@
 h1 {font-family:'Montserrat'; font-size:35px; font-weight:900; line-height:0.8; margin:0; padding:0; letter-spacing:-2px;}
 h2 {font-family:'Montserrat'; font-size:14px; font-weight:600; line-height:1; margin:0; padding:0;}
 h3 {font-family:'Libre Baskerville'; font-size:24px; font-weight:400; line-height:1.4; margin:0; padding:0; letter-spacing:-1px;}
-h4 {font-family:'Noto Sans'; font-size:18px; font-weight:400; line-height:1.4; margin:0; padding:0;}
-p {font-family:'Noto Sans'; font-size:18px; font-weight:400; line-height:1.2; margin:0; padding:0;}
+h4 {font-family:'Libre Baskerville'; font-size:18px; font-weight:400; line-height:1.4; margin:0; padding:0;}
+p {font-family:'Montserrat'; font-size:18px; font-weight:400; line-height:1.2; margin:0; padding:0;}
 a {color:#fff; text-decoration:none;}
 hr {border:none; height:1px; background-color:#333; width:100%; margin:5px 0 0 0; padding:0;}
 .pacifico {font-family:Pacifico; font-size:50px; font-weight:400; letter-spacing:0; margin:-10px 0 5px 0;}
@@ -66,5 +66,5 @@ nav p {font-family:'Montserrat'; color:#999; margin:5px 0; font-size:10px;}
 .footer {background-color:#fff; color:#333; max-width:1920px;}
 .footer a{color:#333; text-decoration:underline;}
 .footer h1{font-size:11px; font-weight:600; color:#333; letter-spacing:2px;}
-.footer h2{font-family:'Montserrat'; font-size:9px; font-weight:400; color:#666; padding-top:10px; letter-spacing:1px;}
-.footer p{font-family:'Noto Sans'; font-size:16px; font-weight:400; line-height:1.4; letter-spacing:0;}
+.footer h2{font-size:9px; font-weight:400; color:#666; padding-top:10px; letter-spacing:1px;}
+.footer p{font-size:16px; font-weight:400; line-height:1.4; letter-spacing:0;}
