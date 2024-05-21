@@ -63,7 +63,7 @@ nav p {font-family:'Montserrat'; color:#999; margin:5px 0; font-size:10px;}
 .color-gradient {background:linear-gradient(to right,#ffb798,#ffe8cd);}
 .transparent-gradient {background:linear-gradient(to bottom,#ffffff,transparent);}
 
-.footer {background-color:#fff; color:#333; max-width:1920px;}
+.footer {background-color:#fff; color:#333; max-width:1920px; padding-bottom:40px;}
 .footer a{color:#333; text-decoration:underline;}
 .footer h1{font-size:11px; font-weight:600; color:#333; letter-spacing:2px;}
 .footer h2{font-size:9px; font-weight:400; color:#666; padding-top:10px; letter-spacing:1px;}
