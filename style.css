@@ -6,7 +6,7 @@ p {font-family:'Montserrat'; font-size:18px; font-weight:400; line-height:1.2; m
 a {color:#fff; text-decoration:none;}
 hr {border:none; height:1px; background-color:#333; width:100%; margin:5px 0 0 0; padding:0;}
 .pacifico {font-family:Pacifico; font-size:50px; font-weight:400; letter-spacing:0; margin:-10px 0 5px 0;}
-.gowun{font-family:'Gowun Batang'; font-weight:400; font-size:26px; letter-spacing:0;}
+.gowun{font-family:'Gowun Batang'; font-weight:400; font-size:24px; letter-spacing:0;}
 
 .black a{color:#333;}
 .black h1{color:#333;}
@@ -21,13 +21,9 @@ header h2{font-size:11px; font-weight:600; color:#333; letter-spacing:2px;}
 .container {margin-top:40px; display:flex; flex-wrap:wrap; justify-content:space-around; padding:0;}
 .box {flex:0 0 50%; margin:0; padding:0; box-sizing:border-box;}
 .box h3 {padding:0 20px 20px 20px;}
-.box-thin {flex:0 0 33%; margin:0; padding:0; box-sizing:border-box;}
-.box-thin p {font-size:12px; font-weight:500; line-height:1; padding:0 20px 20px 20px; text-align:center;}
 .box-wide {width:100%; margin:0; padding:40px 20px 15px 20px; box-sizing:border-box;}
 .box-wide-title {width:100%; margin:0; padding:30px 20px 10px 20px; box-sizing:border-box;}
 .box-wide-title h2{font-size:11px; font-weight:600; color:#333; letter-spacing:2px;}
-.box-wide-websites {width:100%; margin:0; padding:0px 20px 10px 20px; text-align:center;}
-.box-wide-websites img{display:inline-block; width:32%; padding:0; margin:0;}
 
 nav {background-color:#fff; display:none; flex-direction:column; align-items:flex-start; width:100%; position:absolute; right:0; top:41px; border-bottom: 1px solid #333; padding:15px 0 15px 20px; box-sizing:border-box;}
 nav.show {display:flex;}
@@ -43,19 +39,13 @@ nav p {font-family:'Montserrat'; color:#999; margin:5px 0; font-size:10px;}
 }
 
 .image-container {box-sizing:border-box; display:flex; overflow:hidden; position:relative; height:auto; width:100%; max-width:768px; padding:5px 20px; align-items:center; justify-content:center; box-sizing:border-box;}
-.image-container-small {box-sizing:border-box; display:flex; overflow:hidden; position:relative; height:auto; width:100%; max-width:768px; padding:5px; align-items:center; justify-content:center; box-sizing:border-box;}
-.background-container {overflow:hidden; position:relative; width:100%; max-width:768px; height:1080px; margin:0 auto;}
 .image {display:block; width:100%; height:auto; max-height:100%; max-width:100%;}
-.image-small {display:block; width:100%; height:auto; border-radius:5px;}
-.image-overlay {position:absolute; transform:translate(-50%,-50%); height:auto;}
+.image-website {display:block; width:100%; height:auto; max-height:100%; max-width:100%;}
 
 .text-overlay {position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); color:'#333'; text-align:center; background:rgba(0,0,0,0); margin:0; padding:0; box-sizing:border-box; z-index:2; width:80%;}
 .text-overlay-left {position:absolute; top:15px; left:15px; color:'#333'; text-align:left; background:rgba(0,0,0,0); padding:0; box-sizing:border-box; z-index:2;}
 .text-overlay-right {position:absolute; top:15px; right:15px; color:'#333'; text-align:right; background:rgba(0,0,0,0); padding:0; box-sizing:border-box; z-index:2;}
 .tag-overlay {position:absolute; top:0%; left:100%; transform:translate(-100%,0%); color:#333; text-align:right; background:rgba(255,255,0,1); padding:0 3px; box-sizing:border-box; z-index:3;}
-.text-background-blue {display:inline-block; background-color:rgba(52,152,219,1); margin:0; padding:5px;}
-.text-background-yellow {display:inline-block; background-color:#ffff00; margin:0; padding:7px;}
-.text-background-orange {display:inline-block; background-color:#ffa500; margin:0; padding:3px 5px;}
 .text-background-black {display:inline-block; background-color:rgba(0,0,0,0.5); margin:5px auto; padding:5px;}
 .text-background-white {display:inline-block; background-color:rgba(255,255,255,0.5); color:#333; margin:5px auto; padding:5px;}
 
