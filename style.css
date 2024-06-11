@@ -27,7 +27,7 @@ header h2{font-size:11px; font-weight:600; color:#333; letter-spacing:2px;}
 .box-wide-title {width:100%; margin:0; padding:30px 20px 10px 20px; box-sizing:border-box;}
 .box-wide-title h2{font-size:11px; font-weight:600; color:#333; letter-spacing:2px;}
 .box-wide-websites {width:100%; margin:0; padding:0px 20px 10px 20px; text-align:center;}
-.box-wide-websites img{display:inline-block; width:32.5%; padding:0; margin:0;}
+.box-wide-websites img{display:inline-block; width:32%; padding:0; margin:0;}
 
 nav {background-color:#fff; display:none; flex-direction:column; align-items:flex-start; width:100%; position:absolute; right:0; top:41px; border-bottom: 1px solid #333; padding:15px 0 15px 20px; box-sizing:border-box;}
 nav.show {display:flex;}
