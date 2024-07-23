@@ -16,10 +16,10 @@ body {color:#333; margin:0; padding:0; box-sizing:border-box; font-family:Sans; 
 .flex-column {box-sizing:border-box; flex:0 0 50%; padding:20px 20px; margin:0; width:100%; max-width:768px; text-align:center;}
 .flex-column-wide {box-sizing:border-box; flex:0 0 100%; padding:20px 20px 0 20px; text-align:left; text-align:center}
 
-.box-1{background-color:#B5C0D0; width:80%; margin:20px auto; padding:20px 10px; text-align:center; border-radius:5px;}
-.box-2{background-color:#CCD3CA; width:80%; margin:20px auto; padding:20px 10px; text-align:center; border-radius:5px;}
-.box-3{background-color:#F5E8DD; width:80%; margin:20px auto; padding:20px 10px; text-align:center; border-radius:5px;}
-.box-4{background-color:#EED3D9; width:80%; margin:20px auto; padding:20px 10px; text-align:center; border-radius:5px;}
+.box-1{background-color:#f0f0f0; width:80%; margin:20px auto; padding:20px 10px; text-align:center; border-radius:5px;}
+.box-2{background-color:#f7bae3; width:80%; margin:20px auto; padding:20px 10px; text-align:center; border-radius:5px;}
+.box-3{background-color:#fdd035; width:80%; margin:20px auto; padding:20px 10px; text-align:center; border-radius:5px;}
+.box-4{background-color:#7ebffb; width:80%; margin:20px auto; padding:20px 10px; text-align:center; border-radius:5px;}
 
 .image-container {display:flex; overflow:hidden; position:relative; height:auto; width:100%; max-width:768px; padding:0; margin-top:30px; align-items:center; justify-content:center; box-sizing:border-box;}
 .image {display:block; width:60%; height:auto; border-radius:5px;}
