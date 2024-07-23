@@ -1,10 +1,11 @@
 a {color:#333;}
 h1 {font-family:'Montserrat',sans-serif; font-size:28px; font-weight:700; line-height:1; margin:0; padding:0; letter-spacing:-2px;}
-h2 {font-family:'Noto Sans',sans-serif; font-size:18px; font-weight:300; line-height:1; margin:0; padding:0;}
-h3 {font-family:'Noto Sans',sans-serif; font-size:22px; font-weight:400; line-height:1; margin:0; padding:0;}
+h2 {font-family:'Noto Sans',sans-serif; font-size:16px; font-weight:300; line-height:1; margin:0; padding:0;}
+h3 {font-family:'Noto Sans',serif; font-size:30px; font-weight:400; line-height:1; margin:0; padding:0;}
 h4 {font-family:'Noto Sans',sans-serif; font-size:14px; font-weight:800; line-height:1; margin:0; padding:0;}
-p {font-family:'Noto Sans',sans-serif; font-size:12px; font-weight:400; line-height:1; margin:0; padding:0;}
-hr {border:none; height:1px; background-color:#ccc; margin:40px auto; padding:0; width:50%;}
+p {font-family:'Noto Sans',sans-serif; font-size:11px; font-weight:400; line-height:1; margin:0; padding:0;}
+hr {border:none; height:1px; background-color:#333; margin:20px auto; padding:0; width:50%;}
+hr-long {width:100%;}
 
 .h1-thin{font-weight:400;}
 .h1-large{font-size:40px; font-weight:400;}
@@ -12,17 +13,20 @@ hr {border:none; height:1px; background-color:#ccc; margin:40px auto; padding:0;
 
 body {color:#333; margin:0; padding:0; box-sizing:border-box; font-family:Sans; background-color:#fcfaf0;}
 .flex-container {box-sizing:border-box; display:flex; flex-wrap:wrap; align-items:flex-start; text-align:left; width:100%; padding:0; margin:0; position:relative;}
-.flex-column {box-sizing:border-box; flex:0 0 50%; padding:50px 20px; margin:0; width:100%; max-width:768px; text-align:center;}
+.flex-column {box-sizing:border-box; flex:0 0 50%; padding:20px 20px; margin:0; width:100%; max-width:768px; text-align:center;}
 .flex-column-wide {box-sizing:border-box; flex:0 0 100%; padding:20px 20px 0 20px; text-align:left; text-align:center}
 
-.box-blue{background-color:#7ebffb; width:80%; margin:20px auto; padding:20px 10px; text-align:center; border-radius:5px;}
-.box-pink{background-color:#f7bae3; width:80%; margin:20px auto; padding:20px 10px; text-align:center; border-radius:5px;}
-.box-orange{background-color:#fdd035; width:80%; margin:20px auto; padding:20px 10px; text-align:center; border-radius:5px;}
-.box-grey{background-color:#f0f0f0; width:80%; margin:20px auto; padding:20px 10px; text-align:center; border-radius:5px;}
+.box-1{background-color:#B5C0D0; width:80%; margin:20px auto; padding:20px 10px; text-align:center; border-radius:5px;}
+.box-2{background-color:#CCD3CA; width:80%; margin:20px auto; padding:20px 10px; text-align:center; border-radius:5px;}
+.box-3{background-color:#F5E8DD; width:80%; margin:20px auto; padding:20px 10px; text-align:center; border-radius:5px;}
+.box-4{background-color:#EED3D9; width:80%; margin:20px auto; padding:20px 10px; text-align:center; border-radius:5px;}
+
+.image-container {display:flex; overflow:hidden; position:relative; height:auto; width:100%; max-width:768px; padding:0; margin-top:30px; align-items:center; justify-content:center; box-sizing:border-box;}
+.image {display:block; width:60%; height:auto; border-radius:5px;}
+
+.banner{color:#fff; background: linear-gradient(135deg, #1a2a6c, #b21f1f, #fdbb2d); height:275px; width:100%; padding-top:100px;}
+.footer {color:#fff; background: linear-gradient(135deg, #1a2a6c, #b21f1f, #fdbb2d); height:275px; width:100%; padding-top:20px; text-align:right;}
 
 @media only screen and (max-width: 768px) {
   .flex-column {flex:0 0 100%;}
 }
-
-.banner{color:#fff; background: linear-gradient(135deg, #1a2a6c, #b21f1f, #fdbb2d); height:275px; width:100%; padding-top:100px;}
-.footer {color:#fff; background: linear-gradient(135deg, #1a2a6c, #b21f1f, #fdbb2d); height:275px; width:100%; padding-top:20px; text-align:right;}
