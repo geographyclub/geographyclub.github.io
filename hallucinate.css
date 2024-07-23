@@ -16,16 +16,13 @@ body {color:#333; margin:0; padding:0; box-sizing:border-box; font-family:Sans; 
 .flex-column {box-sizing:border-box; flex:0 0 50%; padding:20px 20px; margin:0; width:100%; max-width:768px; text-align:center;}
 .flex-column-wide {box-sizing:border-box; flex:0 0 100%; padding:20px 20px 0 20px; text-align:left; text-align:center}
 
-.box-1{background-color:#f0f0f0; width:80%; margin:20px auto; padding:20px 10px; text-align:center; border-radius:5px;}
-.box-2{background-color:#f7bae3; width:80%; margin:20px auto; padding:20px 10px; text-align:center; border-radius:5px;}
-.box-3{background-color:#fdd035; width:80%; margin:20px auto; padding:20px 10px; text-align:center; border-radius:5px;}
-.box-4{background-color:#7ebffb; width:80%; margin:20px auto; padding:20px 10px; text-align:center; border-radius:5px;}
+.box{width:80%; margin:20px auto; padding:20px 10px; text-align:center; border-radius:5px; border:1px #ccc solid;}
 
 .image-container {display:flex; overflow:hidden; position:relative; height:auto; width:100%; max-width:768px; padding:0; margin-top:30px; align-items:center; justify-content:center; box-sizing:border-box;}
 .image {display:block; width:60%; height:auto; border-radius:5px;}
 
-.banner{color:#fff; background: linear-gradient(135deg, #1a2a6c, #b21f1f, #fdbb2d); height:275px; width:100%; padding-top:100px;}
-.footer {color:#fff; background: linear-gradient(135deg, #1a2a6c, #b21f1f, #fdbb2d); height:275px; width:100%; padding-top:20px; text-align:right;}
+.banner{color:#fff; background: linear-gradient(135deg, #1a2a6c 0%, #b21f1f 33%, #fdbb2d 66%, #1a2a6c 100%); height:275px; width:100%; padding-top:120px;}
+.footer {color:#fff; background: linear-gradient(135deg, #1a2a6c 0%, #b21f1f 33%, #fdbb2d 66%, #1a2a6c 100%); height:275px; width:100%; padding-top:50px; text-align:right;}
 
 @media only screen and (max-width: 768px) {
   .flex-column {flex:0 0 100%;}
