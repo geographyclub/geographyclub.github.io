@@ -31,7 +31,7 @@ nav p {font-family:'Montserrat'; color:#999; margin:5px 0; font-size:10px;}
 @media only screen and (max-width: 768px) {
   nav {background-color:#fff; display:none; flex-direction:column; align-items:flex-start; width:100%; position:absolute; right:0; top:41px;}
   nav.show {display:flex;}
-  .box {flex:0 0 100%; padding:10px 0;}
+  .box {flex:0 0 100%;}
   .image{border-radius:10px;}
 }
 
