@@ -25,7 +25,7 @@ header {color:#333; background-color:#fff; display:flex; justify-content:space-b
 
 nav {background-color:#fff; display:none; flex-direction:column; align-items:flex-start; width:100%; position:absolute; right:0; top:41px; border-bottom: 1px solid #333; padding:15px 0 15px 20px; box-sizing:border-box;}
 nav.show {display:flex;}
-nav a {font-family:'Montserrat'; color:#333; text-decoration:none; margin:10px 0; font-size:14px;}
+nav a {font-family:'Montserrat'; color:#333; text-decoration:none; margin:5px 0; font-size:14px;}
 nav p {font-family:'Montserrat'; color:#999; margin:5px 0; font-size:10px;}
 .menu-icon {display:block; cursor:pointer; font-size:20px; position:fixed; right:20px;}
 
