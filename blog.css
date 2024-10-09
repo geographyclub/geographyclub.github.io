@@ -17,7 +17,7 @@ hr {border:none; height:1px; background-color:#333; width:100%; margin:20px 0; p
 .white p{text-shadow:2px 2px 2px #555; margin-top:5px;}
 
 body {color:#333; background-color:#fff; margin:0; padding:0; box-sizing:border-box; text-align:center;}
-header {color:#333; background-color:#fff; display:flex; justify-content:space-between; align-items:center; padding:0 20px; position:fixed; height:40px; width:100%; top:0; z-index:1000;}
+header {color:#333; background-color:#fff; display:flex; justify-content:space-between; align-items:center; padding:0 30px; position:fixed; height:40px; width:100%; top:0; z-index:1000;}
 header h1{font-size:18px;}
 
 .container {margin:41px auto 0 auto; display:flex; flex-wrap:wrap; justify-content:space-around; padding:0; text-align:left;}
@@ -37,9 +37,9 @@ nav p {font-family:'Montserrat'; color:#333; margin:5px 0; font-size:10px;}
   .box {flex:1 1 100%;}
 }
 
-.banner{box-sizing:border-box; text-align:left; padding:30px 20px 20px 20px; margin: 0 auto 20px auto; width:100%;}
+.banner{box-sizing:border-box; text-align:left; padding:30px 30px 20px 30px; margin: 0 auto 20px auto; width:100%;}
 
-.footer {background-color:#fff; color:#333; padding:40px 20px 40px 20px; text-align:left;}
+.footer {background-color:#fff; color:#333; padding:40px 30px 40px 30px; text-align:left;}
 .footer a{color:#333; text-decoration:underline;}
 .footer h3{font-size:9px; font-weight:400; color:#666; padding-top:10px; letter-spacing:1px;}
 .footer p{font-size:14px; font-weight:400; line-height:1.2; letter-spacing:0;}
@@ -65,7 +65,7 @@ nav p {font-family:'Montserrat'; color:#333; margin:5px 0; font-size:10px;}
 .topic{margin:0; padding:0;}
 .topic span{display:inline-block; background-color:#333; color:#fff; font-size:9px; font-weight:600; padding:3px 5px 3px 5px; margin:5px 2px 5px 0px; position:relative; top:-2px; border-radius:2px;}
 
-.content{margin:0; padding:0 20px;}
+.content{margin:0; padding:0 30px;}
 .content p{margin-bottom:10px;}
 .content p.first::first-letter {font-family:'Playfair Display'; font-size:45px; font-weight:400; float:left; margin:7px 3px 0 0; line-height:0.6; vertical-align:top;}
 .content p.right{font-size:14px; text-align:right; font-style:italic; margin:0;}
