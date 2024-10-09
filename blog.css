@@ -28,7 +28,7 @@ header h1{font-size:18px;}
 nav {background-color:#fff; display:none; flex-direction:column; align-items:flex-start; width:100%; position:absolute; right:0; top:41px; border-bottom: 1px solid #333; padding:15px 0 15px 20px; box-sizing:border-box;}
 nav.show {display:flex;}
 nav a {font-family:'Montserrat'; color:#333; text-decoration:none; margin:5px 0; font-size:14px;}
-nav p {font-family:'Montserrat'; color:#333; margin:5px 0; font-size:10px;}
+nav p {font-family:'Montserrat'; color:#333; margin:5px 0 0 0; font-size:10px;}
 .menu-icon {display:block; cursor:pointer; font-size:20px; position:fixed; right:20px;}
 
 @media only screen and (max-width: 768px) {
@@ -38,6 +38,7 @@ nav p {font-family:'Montserrat'; color:#333; margin:5px 0; font-size:10px;}
 }
 
 .banner{box-sizing:border-box; text-align:left; padding:30px 30px 20px 30px; margin: 0 auto 20px auto; width:100%;}
+.banner p{font-size:14px;}
 
 .footer {background-color:#fff; color:#333; padding:40px 30px 40px 30px; text-align:left;}
 .footer a{color:#333; text-decoration:underline;}
@@ -58,12 +59,12 @@ nav p {font-family:'Montserrat'; color:#333; margin:5px 0; font-size:10px;}
 .text-overlay-right {position:absolute; top:15px; right:15px; color:'#333'; text-align:right; background:rgba(0,0,0,0); padding:0; box-sizing:border-box; z-index:2;}
 .tag-overlay {position:absolute; top:0%; left:100%; transform:translate(-100%,0%); color:#333; text-align:right; background:rgba(255,255,0,1); padding:0 3px; box-sizing:border-box; z-index:3;}
 .text-background-brown {display:inline-block; background-color:#c3a76b; color:#fff; margin:5px auto; padding:2px 5px; font-size:9px; font-weight:600; border-radius:2px;}
-.text-background-black {display:inline-block; background-color:#333; color:#fff; padding:5px 5px 15px 5px; margin:0;}
+.text-background-black {display:inline-block; background-color:#333; color:#fff; padding:5px 10px 15px 5px; margin:0;}
 
 .quote{width:70%; padding:0; margin:auto; text-align:center;}
 .quote h4{font-weight:600;}
 .topic{margin:0; padding:0;}
-.topic span{display:inline-block; background-color:#333; color:#fff; font-size:9px; font-weight:600; padding:3px 5px 3px 5px; margin:5px 2px 5px 0px; position:relative; top:-2px; border-radius:2px;}
+.topic span{display:inline-block; background-color:#333; color:#fff; font-family:'Montserrat'; font-size:9px; font-weight:600; padding:3px 5px 3px 5px; margin:5px 2px 5px 0px; position:relative; top:-2px; border-radius:2px;}
 
 .content{margin:0; padding:0 30px;}
 .content p{margin-bottom:10px;}
