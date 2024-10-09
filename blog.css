@@ -65,5 +65,5 @@ nav p {font-family:'Montserrat'; color:#333; margin:5px 0; font-size:10px;}
 .topic{display:inline-block; background-color:#333; color:#fff; font-size:9px; font-weight:600; padding:3px 5px 3px 5px; margin:5px 2px 5px 0px; position:relative; top:-2px; border-radius:2px;}
 
 .content{margin:0; padding:0 20px;}
-.content p.first::first-letter {font-family:'Playfair Display'; font-size:45px; font-weight:400; float:left; margin:7px 3px 0 0; line-height:0.6;}
+.content p.first::first-letter {font-family:'Playfair Display'; font-size:45px; font-weight:400; float:left; margin:7px 3px 0 0; line-height:0.6; vertical-align:top;}
 .content p.right{font-size:14px; text-align:right; font-style:italic;}
