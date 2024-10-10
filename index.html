@@ -4,134 +4,87 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta property="og:image" content="img/ascii_space_blue.png">
-<meta name="twitter:image" content="img/ascii_space_blue.png">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&display=swap">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
-<title>Steve Kim Work</title>
+<title>Steve Kim</title>
 </head>
 <body>
 
 <header>
-<div><a style="text-decoration:none;" href="https://geographyclub.github.io/"><h2>STEVE KIM</h2></a></div>
+<div><a href="https://geographyclub.github.io/"><h1 style="display:inline-block; font-size:18px;"></h1></a></div>
 <div class="menu-icon">&#9776;</div>
 <nav>
 <a href="index.html" onclick="closeMenu()">Home</a>
 <a href="#" onclick="scrollToSection('contact');">Contact</a>
-<p style="font-weight:400">SOCIALS</p>
+<p style="font-weight:400">--SOCIALS--</p>
 <a href="https://github.com/geographyclub" onclick="closeMenu()" target="_blank">GitHub</a>
 <a href="https://twitter.com/newgeographer2" onclick="closeMenu()" target="_blank">Twitter</a>
 <a href="https://www.linkedin.com/in/steve-kim-38a38b295/" onclick="closeMenu()" target="_blank">LinkedIn</a>
-<p style="font-weight:400">WEBSITES</p>
+<p style="font-weight:400">--WEBSITES--</p>
 <a href="https://geographyclub.github.io/factbook/" onclick="closeMenu()" target="_blank">World Factbook Scraper</a>
 <a href="https://geographyclub.github.io/american-geography/" onclick="closeMenu()" target="_blank">American Geography</a>
 <a href="https://geographyclub.github.io/asean/" onclick="closeMenu()" target="_blank">Asean Primer</a>
 </nav>
 </header>
 
-<div class="container">
+<div class="flex-container">
 
-<div class="box-wide">
-<h3>Writing, designing and coding creative content for social media and the web.</h3>
-<h3 class="gowun" style="margin:5px auto 25px auto;">글쓰기, 디자인, 코딩으로 소셜 미디어와 웹을 위한 창의적인 콘텐츠.</h3>
+<div class="flex-column-wide banner">
+<h1>Writing, designing and coding creative content for social media and the web.</h1>
+<h1 class="gowun">글쓰기, 디자인, 코딩으로 소셜 미디어와 웹을 위한 창의적인 콘텐츠.</h1>
+</div>
+
+<div class="flex-column">
 <div class="image-container">
-<img class="image" src="img/ascii_space_blue.png" alt="">
+<img class="image" src="img/planets3.png">
 </div>
 </div>
 
-<div class="box-wide-title" style="margin-top:15px;">
-<h2>WEBSITES</h2><hr>
+<div class="flex-column">
+<h2 id="websites">WEBSITES</h2><hr>
+<p><a href="https://geographyclub.github.io/factbook/" target="_blank">World Factbook Scraper</a>: An endless feed of random facts for geography lovers</p>
+<p><a href="https://geographyclub.github.io/asean/" target="_blank">ASEAN Primer</a>: Economic summaries of ASEAN countries, neatly formatted</p>
+<p><a href="https://geographyclub.github.io/american-geography/" target="_blank">U.S. State Ranker</a>: How they stack up in random census categories</p>
+<h2 id="blogs" style="margin-top:10px;">BLOGS</h2><hr>
+<p><a href="https://geographyclub.github.io/blog.html" target="_blank">Misc Blog</a>: Thoughts on creating content</p>
+<p><a href="https://geographyclub.github.io/technomicon.html" target="_blank">Technomicon</a>: Quotes on technology and society from anonymous users on the web</p>
+<h2 id="socialmedia" style="margin-top:10px;">SOCIAL MEDIA</h2><hr>
+<p><a href="https://twitter.com/newgeographer2" target="_blank">Twitter</a>: Everything geospatial. Posting consistently since 2022.</p>
 </div>
 
-<div class="box-wide">
-<p>• <a href="https://geographyclub.github.io/factbook/" target="_blank">World Factbook Scraper</a>: An endless feed of random facts for geography lovers</p>
-<p>• <a href="https://geographyclub.github.io/asean/" target="_blank">ASEAN Primer</a>: Economic summaries of ASEAN countries, neatly formatted</p>
-<p>• <a href="https://geographyclub.github.io/american-geography/" target="_blank">U.S. State Ranker</a>: How they stack up in random census categories</p>
+<div class="flex-column">
+<div class="image-container">
+<img class="image" src="img/planets4.png">
+</div>
 </div>
 
-<div class="box-wide-title">
-<h2>BLOGS</h2><hr>
-</div>
-
-<div class="box-wide">
-<p>• <a href="https://geographyclub.github.io/blog.html" target="_blank">Misc Blog</a>: Thoughts on creating content</p>
-<p>• <a href="https://geographyclub.github.io/technomicon.html" target="_blank">Technomicon</a>: Quotes about technology and society from anonymous users on the web</p>
-</div>
-
-<div class="box-wide-title">
-<h2>TECHNICAL WRITING</h2><hr>
-</div>
-
-<div class="box-wide">
-<p>• <a href="https://github.com/geographyclub/gis-from-command-line" target="_blank">GIS From Command Line</a>: How to turn Linux into a complete <i>Geographic Information System</i> from command line</p>
-<p>• <a href="https://github.com/geographyclub/postgis-cookbook" target="_blank">PostGIS Cookbook</a>: Recipes for working with geospatial data in <i>PostgreSQL</i> and <i>PostGIS</i></p>
-<p>• <a href="https://github.com/geographyclub/qgis-expressions" target="_blank">QGIS Expressions</a>: Create and style geometries on-the-fly with these <i>QGIS</i> expressions</p>
-<p>• <a href="https://github.com/geographyclub/american-geography" target="_blank">American Geography</a>: Wrangling <i>US Census</i> data from database to the web</p>
-</div>
-
-<div class="box-wide-title">
-<h2>SOCIAL MEDIA</h2><hr>
-</div>
-
-<div class="box-wide">
-<p>• <a href="https://twitter.com/newgeographer2" target="_blank">Twitter</a>: Mostly educational content around geospatial data. Posting consistently since 2022.</p>
-</div>
-
-<div class="box-wide-title">
-<h2>COPYWRITING / EDITING</h2><hr>
-</div>
-
-<div class="box-wide">
+<div class="flex-column">
+<h2 id="technicalwriting">TECHNICAL WRITING</h2><hr>
+<p><a href="https://github.com/geographyclub/gis-from-command-line" target="_blank">GIS From Command Line</a>: How to turn Linux into a complete <i>Geographic Information System</i> from command line</p>
+<p><a href="https://github.com/geographyclub/postgis-cookbook" target="_blank">PostGIS Cookbook</a>: Recipes for working with geospatial data in <i>PostgreSQL</i> and <i>PostGIS</i></p>
+<p><a href="https://github.com/geographyclub/qgis-expressions" target="_blank">QGIS Expressions</a>: Create and style geometries on-the-fly with these <i>QGIS</i> expressions</p>
+<p><a href="https://github.com/geographyclub/american-geography" target="_blank">American Geography</a>: Wrangling <i>US Census</i> data from database to the web</p>
+<h2 id="copywriting" style="margin-top:10px;">COPYWRITING / EDITING</h2><hr>
 <p>• Hyundai Motor</p>
 <p>• JoongAng Ilbo/International Herald Tribune</p>
 <p>• Desjardins Securities</p>
 </div>
 
-<!--
-<div class="box-wide-title">
-<h2>SKILLS</h2><hr>
-</div>
-
-<div class="box-wide">
-<p>• Web: HTML/CSS/JS, Leaflet, MapLibre</p>
-<p>• Data: R, SQL, BASH</p>
-<p>• GIS: QGIS, GRASS GIS, PostGIS</p>
-<p>• Image: Inkscape, GIMP, ImageMagick</p>
-</div>
-
-<div class="box-wide-title">
-<h2>EDUCATION</h2><hr>
-</div>
-
-<div class="box-wide">
-<p>• BA English Literature, <i>University of Toronto</i></p>
-<p>• BSc Geography, <i>University of Toronto</i></p>
-</div>
--->
-
-<div class="box-wide-title">
-<h2>CONTACT</h2><hr>
-</div>
-
-<div class="box-wide">
-<div class="footer">
-<h2 id="contact">EMAIL</h2>
+<div id="contact" class="flex-column-wide footer">
+<h2>EMAIL</h2>
 <a href="mailto:emailstevekim@gmail.com"><p>emailstevekim@gmail.com</p></a>
 <h2>TWITTER</h2>
 <a href="https://twitter.com/newgeographer2" target="_blank"><p>@newgeographer2</p></a>
 <h2>GITHUB</h2>
 <a href="https://github.com/geographyclub" target="_blank"><p>geographyclub</p></a>
-<h2>LINKEDIN</h2>
-<a href="https://www.linkedin.com/in/steve-kim-38a38b295/" target="_blank"><p>Steve Kim</p></a>
 </div>
 </div>
 
-</div> <!-- end container -->
-
+<!-- close menu -->
 <script>
-<!-- navigation menu -->
 document.querySelector('.menu-icon').addEventListener('click', function () {
 document.querySelector('nav').classList.toggle('show');
 });
@@ -141,21 +94,21 @@ document.querySelector('nav').classList.remove('show');
 }
 </script>
 
-<!-- Scroll to section with offset -->
+<!-- scroll to section with offset -->
 <script>
-  function scrollToSection(sectionId) {
-    const targetSection = document.getElementById(sectionId);
-    const offset = 40;
+function scrollToSection(sectionId) {
+const targetSection = document.getElementById(sectionId);
+const offset = 60;
 
-    if (targetSection) {
-      window.scrollTo({
-        top: targetSection.offsetTop - offset,
-        behavior: 'smooth'
-      });
-    }
-    event.preventDefault();
-    closeMenu();
-  }
+if (targetSection) {
+window.scrollTo({
+top: targetSection.offsetTop - offset,
+behavior: 'smooth'
+});
+}
+event.preventDefault();
+closeMenu();
+}
 </script>
 
 </body>
