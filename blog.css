@@ -20,8 +20,8 @@ body {color:#333; background-color:#fff; margin:0; padding:0; box-sizing:border-
 header {color:#333; background-color:#fff; display:flex; justify-content:space-between; align-items:center; padding:0 30px; position:fixed; height:40px; width:100%; top:0; z-index:1000;}
 header h1{font-size:18px;}
 
-.container {margin:41px auto 0 auto; display:flex; flex-wrap:wrap; justify-content:space-around; padding:0; text-align:left;}
-.box {flex:1 1 50%; margin:0; padding:0 0 20px 0; box-sizing:border-box;}
+.container {margin:41px auto 0 auto; display:flex; flex-wrap:wrap; justify-content:flex-start; padding:0; text-align:left;}
+.box {flex:0 0 50%; margin:0; padding:0 0 20px 0; box-sizing:border-box;}
 .box-wide {width:100%; margin:0; padding:0 0 20px 0; box-sizing:border-box; max-width:768px;}
 .box-wide-title {width:100%; margin:0; padding:0 20px; box-sizing:border-box;}
 
@@ -34,7 +34,7 @@ nav p {font-family:'Montserrat'; color:#333; margin:5px 0 0 0; font-size:10px;}
 @media only screen and (max-width: 768px) {
   nav {display:none; flex-direction:column; align-items:flex-start; width:100%; position:absolute; right:0; top:41px;}
   nav.show {display:flex;}
-  .box {flex:1 1 100%;}
+  .box {flex:0 0 100%;}
 }
 
 .banner{box-sizing:border-box; text-align:left; padding:30px 30px 20px 30px; margin: 0 auto 20px auto; width:100%;}
