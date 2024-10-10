@@ -23,7 +23,7 @@ header {color:#333; background-color:#fff; box-sizing:border-box; display:flex; 
 .text-background-black {display:inline-block; background-color:rgba(0,0,0,0.5); margin:0; padding:0 2px;}
 .text-background-white {display:inline-block; background-color:rgba(255,255,255,0.5); margin:0; padding:0 2px;}
 
-.image-container{display:flex; overflow:hidden; position:relative; height:auto; width:100%; margin:0 auto 10px auto; align-items:center; justify-content:center;}
+.image-container{display:flex; overflow:hidden; position:relative; height:auto; width:100%; margin:0 auto 15px auto; align-items:center; justify-content:center;}
 .image {display:block; width:100%; height:auto; max-height:100%; border-radius:5px;}
 .image-small {display:block; width:50%; height:auto; max-height:100%; max-width:100%; margin:auto; border-radius:0;}
 .image-large {display:block; width:90%; height:auto; max-height:100%; max-width:100%; margin:auto; border-radius:10px;}
