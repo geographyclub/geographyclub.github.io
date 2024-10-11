@@ -9,7 +9,7 @@ hr {border:none; height:1px; background-color:#333; margin:2px auto 10px auto; p
 
 body {color:#333; background-color:#fff; box-sizing:border-box; margin:0; padding:0;  font-family:Sans;}
 header {color:#333; background-color:#fff; box-sizing:border-box; display:flex; justify-content:space-between; align-items:center; padding:0 20px; margin:0; position:fixed; height:50px; width:100%; top:0; left:0; z-index:1000; border-bottom:1px #333 solid;}
-header h2{display:inline-block; font-size:11px;}
+header h2{display:inline-block; font-size:10px;}
 
 .flex-container {box-sizing:border-box; display:flex; flex-wrap:wrap; align-items:flex-start; text-align:left; width:100%; padding:0; margin:0; position:relative;}
 .flex-column {box-sizing:border-box; flex:0 0 50%; padding:10px 20px; margin:0; width:100%; max-width:768px;}
