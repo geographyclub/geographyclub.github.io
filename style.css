@@ -43,7 +43,7 @@ nav a {color:#333; text-decoration:none; font-family:'Montserrat'; font-weight:5
 }
 
 .banner{color:#333; background-color:#fff; width:100%; max-width:768px; padding-top:80px; margin-bottom:40px; position:relative;}
-.footer {background-color:#fff; color:#333; box-sizing:border-box; padding:20px 20px; text-align:left;}
+.footer {background-color:#fff; color:#333; box-sizing:border-box; padding:20px 20px 60px 20px; text-align:right;}
 .footer a{color:#333;}
 
 .tag-blue{display:inline-block; color:#fff; padding:2px 3px 1px 3px; margin:2px; position:relative; top:-2px; background-color:#3498db;}
