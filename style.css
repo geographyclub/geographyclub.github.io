@@ -14,7 +14,7 @@ header h2{display:inline-block; font-size:10px;}
 
 .flex-container {box-sizing:border-box; display:flex; flex-wrap:wrap; align-items:flex-start; text-align:left; width:100%; padding:0; margin:0; position:relative;}
 .flex-column {box-sizing:border-box; flex:0 0 50%; padding:20px 20px; margin:0; width:100%; max-width:768px;}
-.flex-column-wide {box-sizing:border-box; flex:0 0 100%; padding:20px 20px; margin:0;}
+.flex-column-wide {box-sizing:border-box; flex:0 0 100%; padding:0 20px; margin:0;}
 
 .text-overlay{position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); color:'#333'; text-align:center; background:rgba(0,0,0,0); padding:0; box-sizing:border-box; width:90%; z-index:2;}
 .text-overlay-left{position:absolute; right:0; left:0; text-align:right; color:#333; background:#EEEEEE; padding:5px; box-sizing:border-box; z-index:2; height:100%; width:50%;}
@@ -42,8 +42,8 @@ nav a {color:#333; text-decoration:none; font-family:'Montserrat'; font-weight:5
   .image-container{padding-top:0;}
 }
 
-.banner{color:#333; background-color:#fff; width:100%; max-width:768px; padding-top:80px; margin-bottom:20px; position:relative;}
-.footer {background-color:#fff; color:#333; box-sizing:border-box; padding:30px 20px; margin-top:20px; text-align:left;}
+.banner{color:#333; background-color:#fff; width:100%; max-width:768px; padding-top:80px; margin-bottom:40px; position:relative;}
+.footer {background-color:#fff; color:#333; box-sizing:border-box; padding:20px 20px; text-align:left;}
 .footer a{color:#333;}
 
 .tag-blue{display:inline-block; color:#fff; padding:2px 3px 1px 3px; margin:2px; position:relative; top:-2px; background-color:#3498db;}
