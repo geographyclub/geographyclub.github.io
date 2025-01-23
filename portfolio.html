@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:image" content="img/ascii_space_blue.png">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&display=swap">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<title>Steve Kim</title>
+</head>
+<body>
+
+<header>
+<div><a href="#"><h2>STEVE KIM</h2></a></div>
+<div class="menu-icon">&#9776;</div>
+<nav>
+<a href="index.html" onclick="closeMenu()">HOME</a>
+<a href="#" onclick="scrollToSection('contact');">CONTACT</a>
+<a href="https://www.linkedin.com/in/steve-kim-38a38b295/" onclick="closeMenu()" target="_blank">LINKEDIN</a>
+<a href="https://twitter.com/newgeographer2" onclick="closeMenu()" target="_blank">TWITTER</a>
+<a href="https://github.com/geographyclub" onclick="closeMenu()" target="_blank">GITHUB</a>
+</nav>
+</header>
+
+<div class="flex-container">
+
+<div class="flex-column-wide banner">
+<h1>Writing, designing and coding creative content for social media and the web.</h1>
+<h1 class="gowun">글쓰기, 디자인, 코딩으로 소셜 미디어와 웹을 위한 창의적인 콘텐츠.</h1>
+</div>
+
+<div class="flex-column">
+<div class="image-container">
+<img class="image" src="img/ascii_space_blue.png">
+</div>
+</div>
+
+<div class="flex-column">
+<h2 id="websites">WEBSITES</h2><hr>
+<p><a href="https://geographyclub.github.io/factbook/" target="_blank">World Factbook Scraper</a>: An endless feed of random facts for geography lovers</p>
+<p><a href="https://geographyclub.github.io/asean/" target="_blank">ASEAN Primer</a>: Economic summaries of ASEAN countries, neatly formatted</p>
+<p><a href="https://geographyclub.github.io/american-geography/" target="_blank">U.S. State Ranker</a>: How they stack up in random census categories</p>
+<h2 id="blogs" style="margin-top:10px;">BLOGS</h2><hr>
+<p><a href="https://geographyclub.github.io/blog.html" target="_blank">/misc/blog</a>: Thoughts on creating content</p>
+<p><a href="https://geographyclub.github.io/technomicon.html" target="_blank">Technomicon</a>: Quotes on technology and society from anonymous users on the web</p>
+<h2 id="socialmedia" style="margin-top:10px;">SOCIAL MEDIA</h2><hr>
+<p><a href="https://twitter.com/newgeographer2" target="_blank">Twitter</a>: Everything geospatial. Posting consistently since 2022.</p>
+</div>
+
+<div class="flex-column">
+<div class="image-container">
+<img class="image" src="img/brooklyn.png">
+</div>
+</div>
+
+<div class="flex-column">
+<h2 id="technicalwriting">TECHNICAL WRITING</h2><hr>
+<p><a href="https://github.com/geographyclub/gis-from-command-line" target="_blank">GIS From Command Line</a>: How to turn Linux into a complete <i>Geographic Information System</i> from command line</p>
+<p><a href="https://github.com/geographyclub/postgis-cookbook" target="_blank">PostGIS Cookbook</a>: Recipes for working with geospatial data in <i>PostgreSQL</i> and <i>PostGIS</i></p>
+<p><a href="https://github.com/geographyclub/qgis-expressions" target="_blank">QGIS Expressions</a>: Create and style geometries on-the-fly with these <i>QGIS</i> expressions</p>
+<p><a href="https://github.com/geographyclub/american-geography" target="_blank">American Geography</a>: Wrangling <i>US Census</i> data from database to the web</p>
+<h2 id="copywriting" style="margin-top:10px;">COPYWRITING / EDITING</h2><hr>
+<p>• Hyundai Motor</p>
+<p>• JoongAng Ilbo/International Herald Tribune</p>
+<p>• Desjardins Securities</p>
+</div>
+
+<div id="contact" class="flex-column-wide footer">
+<h2>EMAIL</h2>
+<a href="mailto:emailstevekim@gmail.com"><p>emailstevekim@gmail.com</p></a>
+<h2>LINKEDIN</h2>
+<a href="https://www.linkedin.com/in/steve-kim-38a38b295/" target="_blank"><p>steve-kim-38a38b295</p></a>
+<h2>TWITTER</h2>
+<a href="https://twitter.com/newgeographer2" target="_blank"><p>@newgeographer2</p></a>
+<h2>GITHUB</h2>
+<a href="https://github.com/geographyclub" target="_blank"><p>geographyclub</p></a>
+</div>
+</div>
+
+<!-- close menu -->
+<script>
+document.querySelector('.menu-icon').addEventListener('click', function () {
+document.querySelector('nav').classList.toggle('show');
+});
+
+function closeMenu() {
+document.querySelector('nav').classList.remove('show');
+}
+</script>
+
+<!-- scroll to section with offset -->
+<script>
+function scrollToSection(sectionId) {
+const targetSection = document.getElementById(sectionId);
+const offset = 60;
+
+if (targetSection) {
+window.scrollTo({
+top: targetSection.offsetTop - offset,
+behavior: 'smooth'
+});
+}
+event.preventDefault();
+closeMenu();
+}
+</script>
+
+</body>
+</html>
