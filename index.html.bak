@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:image" content="img/ascii_space_blue.png">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<title>Steve Kim</title>
+</head>
+<body>
+
+<header>
+    <div class="menu-icon">&#9776;</div>
+    <nav>
+        <a href="index.html" onclick="closeMenu()">HOME</a>
+        <a href="#" onclick="scrollToSection('contact');">CONTACT</a>
+        <a href="https://www.linkedin.com/in/steve-kim-38a38b295/" onclick="closeMenu()" target="_blank">LINKEDIN</a>
+        <a href="https://twitter.com/newgeographer2" onclick="closeMenu()" target="_blank">TWITTER</a>
+        <a href="https://github.com/geographyclub" onclick="closeMenu()" target="_blank">GITHUB</a>
+    </nav>
+</header>
+
+<div class="flex-container">
+    <div class="flex-column-wide banner">
+        <h2>Steve Kim</h2>
+        <h1>Web</h1><h1>Design</h1>
+    </div>
+
+    <div class="flex-column">
+        <div class="image-container">
+            <a href="https://jamiefletcher.github.io/toronto-transit/" target="_blank"><img class="image" src="img/portfolio_transit.png"></a>
+        </div>
+    </div>
+
+    <div class="flex-column">
+        <div class="image-container">
+            <a href="https://geographyclub.github.io/asean/" target="_blank"><img class="image" src="img/portfolio_asean.png"></a>
+        </div>
+    </div>
+
+    <div class="flex-column">
+        <div class="image-container">
+            <a href="https://geographyclub.github.io/american-geography/" target="_blank"><img class="image" src="img/portfolio_american.png"></a>
+        </div>
+    </div>
+
+    <div class="flex-column">
+        <div class="image-container">
+            <a href="https://geographyclub.github.io/factbook/" target="_blank"><img class="image" src="img/portfolio_factbook.png"></a>
+        </div>
+    </div>
+
+    <div id="contact" class="flex-column-wide footer">
+        <p><span><i class="fa-solid fa-envelope"></i></span> <a href="mailto:emailstevekim@gmail.com">emailstevekim@gmail.com</a></p>
+        <p><span><i class="fa-brands fa-linkedin"></i></span> <a href="https://www.linkedin.com/in/steve-kim-38a38b295/" target="_blank">steve-kim-38a38b295</a></p>
+        <p><span><i class="fa-brands fa-twitter"></i></span> <a href="https://twitter.com/newgeographer2" target="_blank">@newgeographer2</a></p>
+        <p><span><i class="fa-brands fa-github"></i></span> <a href="https://github.com/geographyclub" target="_blank">geographyclub</a></p>
+    </div>
+
+</div>
+
+
+<script>
+// close menu
+document.querySelector('.menu-icon').addEventListener('click', function () {
+    document.querySelector('nav').classList.toggle('show');
+});
+
+function closeMenu() {
+    document.querySelector('nav').classList.remove('show');
+}
+
+// scroll to section with offset
+function scrollToSection(sectionId) {
+    const targetSection = document.getElementById(sectionId);
+    const offset = 60;
+
+    if (targetSection) {
+        window.scrollTo({
+            top: targetSection.offsetTop - offset,
+            behavior: 'smooth'
+        });
+    }
+
+    event.preventDefault();
+    closeMenu();
+}
+</script>
+
+</body>
+</html>

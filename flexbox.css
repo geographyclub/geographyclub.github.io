@@ -1,0 +1,80 @@
+* {
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+body {
+    background:#111;
+    padding:1rem;
+    font-family:system-ui,sans-serif;
+}
+
+
+.flex {
+    display:flex;
+    flex-wrap:wrap;
+    align-items:flex-start;
+}
+
+
+.box {
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    color:white;
+    font-size:2rem;
+    font-weight:bold;
+
+    background:#2563eb;
+}
+
+
+/* widths */
+
+.w-12 {
+    width:100%;
+}
+
+.w-8 {
+    width:66.666%;
+}
+
+.w-6 {
+    width:50%;
+}
+
+.w-4 {
+    width:33.333%;
+}
+
+.w-3 {
+    width:25%;
+}
+
+
+/* heights */
+
+.h-1 {
+    height:150px;
+}
+
+.h-2 {
+    height:300px;
+}
+
+.h-3 {
+    height:450px;
+}
+
+
+/* demo colors */
+
+.box:nth-child(2n) {
+    background:#16a34a;
+}
+
+.box:nth-child(3n) {
+    background:#9333ea;
+}
