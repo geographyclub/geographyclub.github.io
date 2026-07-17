@@ -15,10 +15,10 @@
             "source": "osm",
             "paint": {
                 "raster-hue-rotate": 0,
-                "raster-contrast": 0,
-                "raster-saturation": 0,
-                "raster-brightness-min": 0,
-                "raster-brightness-max": 1
+                "raster-contrast": 0.2,
+                "raster-saturation": 0.2,
+                "raster-brightness-min": 0.1,
+                "raster-brightness-max": 0.9
             }
         }
     ]
