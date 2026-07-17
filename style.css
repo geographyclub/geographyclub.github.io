@@ -64,8 +64,17 @@ body {
     overflow: hidden;
     z-index: 10;
     box-shadow:
-        0 10px 25px rgba(0,0,0,0.35),
-        inset 0 0 20px rgba(0,0,0,0.25);
+        5px -5px 10px rgba(0,0,0,0.35)
+}
+
+#globe::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    box-shadow: inset -5px 5px 10px rgba(0,0,0,0.25);
+    pointer-events: none;
+    z-index: 999;
 }
 
 #infobox {

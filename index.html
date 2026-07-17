@@ -36,33 +36,33 @@
             touchPitch: false
         });
 
-const globe = new maplibregl.Map({
-    container: "globe",
-    style: "osm_raster.json",
-    fitBounds: [[-180, -85], [180, 85]],
-    center: [-79.381394, 43.656482],
-    zoom: -0.7,
-    attributionControl: false,
-    interactive: false,
-    dragRotate: false,
-    touchPitch: false
-});
+        const globe = new maplibregl.Map({
+            container: "globe",
+            style: "osm_raster.json",
+            fitBounds: [[-180, -85], [180, 85]],
+            center: [-79.381394, 43.656482],
+            zoom: -0.7,
+            attributionControl: false,
+            interactive: false,
+            dragRotate: false,
+            touchPitch: false
+        });
 
-globe.on("load", () => {
-    globe.setProjection({
-        type: "globe"
-    });
-});
+        globe.on("load", () => {
+            globe.setProjection({
+                type: "globe"
+            });
+        });
 
         map.on("load", async () => {
 
-function syncGlobe() {
-    globe.jumpTo({
-        center: map.getCenter()
-    });
-}
+            function syncGlobe() {
+                globe.jumpTo({
+                    center: map.getCenter()
+                });
+            }
 
-map.on("move", syncGlobe);
+            map.on("move", syncGlobe);
 
             map.scrollZoom.disable();
             map.boxZoom.disable();
