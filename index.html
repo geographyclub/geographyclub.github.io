@@ -13,9 +13,9 @@
 
 <body>
     <div class="container">
-        <div id="toronto-events"></div>
         <div class="map-wrapper">
             <div id="map"></div>
+            <div id="globe"></div>
         </div>
     </div>
 
@@ -30,98 +30,119 @@
             maxZoom: 4,
             bearing: 0,
             pitch: 0,
-            fadeDuration: 0,
             hash: true,
-            pixelRatio: 1
+            pixelRatio: 1,
+            dragRotate: false,
+            touchPitch: false
         });
+
+const globe = new maplibregl.Map({
+    container: "globe",
+    style: "osm_raster.json",
+    fitBounds: [[-180, -85], [180, 85]],
+    center: [-79.381394, 43.656482],
+    zoom: -0.7,
+    attributionControl: false,
+    interactive: false,
+    dragRotate: false,
+    touchPitch: false
+});
+
+globe.on("load", () => {
+    globe.setProjection({
+        type: "globe"
+    });
+});
 
         map.on("load", async () => {
 
-    //         // 1. load markers
-    //         const imageNames = [
-    //             "finger",
-    //             "red_pin",
-    //             "dots_medium"
-    //         ];
-    //         for (const name of imageNames) {
-    //             const img = await map.loadImage(
-    //                 `assets/markers/${name}.png`
-    //             );
-    //             if (!map.hasImage(name)) {
-    //                 map.addImage(name, img.data);
-    //             }
-    //         }
+function syncGlobe() {
+    globe.jumpTo({
+        center: map.getCenter()
+    });
+}
 
-    //         map.on("styleimagemissing", async (e) => {
-    //             const id = e.id;
-    //             try {
-    //                 const img = await map.loadImage(
-    //                     `assets/markers/${id}.png`
-    //                 );
-    //                 if (!map.hasImage(id)) {
-    //                     map.addImage(id, img.data);
-    //                 }
-    //             } catch (err) {
-    //                 console.error(
-    //                     "missing image failed:",
-    //                     id,
-    //                     err
-    //                 );
-    //             }
-    //         });
+map.on("move", syncGlobe);
 
-    //         // 2. load geojson
-    //         // const res = await fetch("data/toronto_events.geojson");
-    //         // const geojson = await res.json();
+            map.scrollZoom.disable();
+            map.boxZoom.disable();
+            map.doubleClickZoom.disable();
+            map.keyboard.disable();
+            map.touchZoomRotate.disable();
 
-    //         // // 3. add source
-    //         // map.addSource("toronto-events", {
-    //         //     type: "geojson",
-    //         //     data: geojson
-    //         // });
+            //         // 1. load markers
+            //         const imageNames = [
+            //             "finger",
+            //             "red_pin",
+            //             "dots_medium"
+            //         ];
+            //         for (const name of imageNames) {
+            //             const img = await map.loadImage(
+            //                 `assets/markers/${name}.png`
+            //             );
+            //             if (!map.hasImage(name)) {
+            //                 map.addImage(name, img.data);
+            //             }
+            //         }
 
-    //         // 4. add symbol layer
-    //         // map.addLayer({
-    //         //     id: "toronto-events",
-    //         //     type: "symbol",
-    //         //     source: "toronto-events",
+            //         map.on("styleimagemissing", async (e) => {
+            //             const id = e.id;
+            //             try {
+            //                 const img = await map.loadImage(
+            //                     `assets/markers/${id}.png`
+            //                 );
+            //                 if (!map.hasImage(id)) {
+            //                     map.addImage(id, img.data);
+            //                 }
+            //             } catch (err) {
+            //                 console.error(
+            //                     "missing image failed:",
+            //                     id,
+            //                     err
+            //                 );
+            //             }
+            //         });
 
-    //         //     layout: {
-    //         //         "icon-image": "red_pin",
-    //         //         "icon-size":  ["interpolate", ["linear"], ["zoom"], 10, 0, 16, 0.6],
-    //         //         "icon-anchor": "bottom",
-    //         //         "icon-allow-overlap": true,
-    //         //         "icon-ignore-placement": true
-    //         //     },
-    //         //     paint: {
-    //         //         "icon-color": "#fff"
-    //         //     }
-    //         // });
+            //         // 2. load geojson
+            //         // const res = await fetch("data/toronto_events.geojson");
+            //         // const geojson = await res.json();
 
-    //         // map.addLayer({
-    //         //     id: "toronto-green-spaces",
-    //         //     type: "fill",
-    //         //     source: "toronto_green_spaces",
-    //         //     "source-layer": "toronto_green_spaces",
-    //         //     paint: {
-    //         //         "fill-pattern": "dots_medium",
-    //         //         "fill-opacity": 0.2
-    //         //     }
-    //         // });
+            //         // // 3. add source
+            //         // map.addSource("toronto-events", {
+            //         //     type: "geojson",
+            //         //     data: geojson
+            //         // });
 
+            //         // 4. add symbol layer
+            //         // map.addLayer({
+            //         //     id: "toronto-events",
+            //         //     type: "symbol",
+            //         //     source: "toronto-events",
 
-    //         // map.on("click", (e) => {
-    //         //     const features = map.queryRenderedFeatures(
-    //         //         e.point
-    //         //     );
-    //         //     console.log(features);
-    //         // });
+            //         //     layout: {
+            //         //         "icon-image": "red_pin",
+            //         //         "icon-size":  ["interpolate", ["linear"], ["zoom"], 10, 0, 16, 0.6],
+            //         //         "icon-anchor": "bottom",
+            //         //         "icon-allow-overlap": true,
+            //         //         "icon-ignore-placement": true
+            //         //     },
+            //         //     paint: {
+            //         //         "icon-color": "#fff"
+            //         //     }
+            //         // });
 
-    //         //map.showCollisionBoxes = true;
+            //         // map.on("click", (e) => {
+            //         //     const features = map.queryRenderedFeatures(
+            //         //         e.point
+            //         //     );
+            //         //     console.log(features);
+            //         // });
+
+            //         //map.showCollisionBoxes = true;
 
         });
 
-    // </script>
+        // </script>
 
 </body>
 

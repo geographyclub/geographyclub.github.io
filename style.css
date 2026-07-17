@@ -54,6 +54,20 @@ body {
     height: 100%;
 }
 
+#globe {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    overflow: hidden;
+    z-index: 10;
+    box-shadow:
+        0 10px 25px rgba(0,0,0,0.35),
+        inset 0 0 20px rgba(0,0,0,0.25);
+}
+
 #infobox {
     position: relative;
     overflow-y: auto;
