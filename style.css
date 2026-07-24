@@ -29,7 +29,7 @@ html {
 }
 
 body {
-    background-color: #aad3df;
+    background-color: #fff;
     color: var(--color-sand);
     font-family:
         Inter,
@@ -64,7 +64,7 @@ body {
     overflow: hidden;
     z-index: 10;
     box-shadow:
-        5px -5px 10px rgba(0,0,0,0.2)
+        5px -5px 10px rgba(0,0,0,0.1)
 }
 
 #globe::after {

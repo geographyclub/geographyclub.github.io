@@ -26,7 +26,7 @@
             style: "osm_raster.json",
             center: [-79.381394, 43.656482],
             zoom: 4,
-            minZoom: 4,
+            minZoom: 2,
             maxZoom: 4,
             bearing: 0,
             pitch: 0,
@@ -64,11 +64,11 @@
 
             map.on("move", syncGlobe);
 
-            map.scrollZoom.disable();
-            map.boxZoom.disable();
-            map.doubleClickZoom.disable();
-            map.keyboard.disable();
-            map.touchZoomRotate.disable();
+            // map.scrollZoom.disable();
+            // map.boxZoom.disable();
+            // map.doubleClickZoom.disable();
+            // map.keyboard.disable();
+            // map.touchZoomRotate.disable();
 
             //         // 1. load markers
             //         const imageNames = [
@@ -131,12 +131,12 @@
             //         //     }
             //         // });
 
-            //         // map.on("click", (e) => {
-            //         //     const features = map.queryRenderedFeatures(
-            //         //         e.point
-            //         //     );
-            //         //     console.log(features);
-            //         // });
+            // map.on("click", (e) => {
+            //     const features = map.queryRenderedFeatures(
+            //         e.point
+            //     );
+            //     console.log(features);
+            // });
 
             //         //map.showCollisionBoxes = true;
 
