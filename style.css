@@ -48,9 +48,9 @@ body {
 }
 
 .content p::first-letter {
-    font-family: 'Playfair Display';
+    font-family: 'Playfair Display', serif;
     font-size: 3rem;
-    font-weight: 400;
+    font-weight: 700;
     float: left;
     margin: 0.2rem 0.4rem 0 0;
     line-height: 2rem;
@@ -58,13 +58,22 @@ body {
 }
 
 h1 {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 2.5rem;
-    font-weight: 900;
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    font-weight: 700;
     line-height: 1;
-    letter-spacing: -0.1rem;
-    text-decoration: underline;
-    text-transform: uppercase;
+    text-transform: capitalize;
+    margin: 0 0 0.3rem 0;
+    padding: 0;
+}
+
+h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem;
+    font-weight: 700;
+    line-height: 1;
+    margin: 0 0 1rem 0;
+    padding: 0;
 }
 
 p {
