@@ -44,11 +44,22 @@ body {
     flex-direction: column;
 }
 
-.content img {
-    width: 70%;
+figure {
+    margin: 1rem 0;
+}
+
+figure img {
+    width: 100%;
     height: auto;
     display: block;
-    margin: 1rem auto;
+}
+
+figcaption {
+    font-size: 0.75rem;
+    color: var(--muted-color);
+    font-style: italic;
+    text-align: center;
+    margin-top: 0.5rem;
 }
 
 .content p.first::first-letter {
