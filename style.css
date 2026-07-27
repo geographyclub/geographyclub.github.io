@@ -1,8 +1,12 @@
 :root {
-  --bg-color: #f7f3e8;     /* warm paper */
-  --text-color: #2b2b2b;   /* soft black */
-  --muted-color: #6b6b6b;  /* secondary text */
-  --accent-color: #8b5e3c; /* optional warm accent */
+    --bg-color: #f7f3e8;
+    /* warm paper */
+    --text-color: #2b2b2b;
+    /* soft black */
+    --muted-color: #6b6b6b;
+    /* secondary text */
+    --accent-color: #8b5e3c;
+    /* optional warm accent */
 }
 
 * {
@@ -22,7 +26,7 @@ html {
 body {
     margin: 0;
     padding: 0;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Libre Baskerville', serif;
     font-size: 1rem;
     line-height: 1.4;
     background-color: white;
@@ -48,34 +52,43 @@ body {
 }
 
 .content p::first-letter {
-    font-family: 'Playfair Display', serif;
-    font-size: 3rem;
-    font-weight: 700;
+    font-size: 2.5rem;
+    font-weight: 400;
     float: left;
-    margin: 0.2rem 0.4rem 0 0;
+    margin: 0.5rem 0.4rem 0 0;
     line-height: 2rem;
     vertical-align: top;
 }
 
 h1 {
-    font-family: 'Playfair Display', serif;
     font-size: 2rem;
     font-weight: 700;
     line-height: 1;
+    text-align: center;
     text-transform: capitalize;
     margin: 0 0 0.3rem 0;
     padding: 0;
 }
 
 h2 {
-    font-family: 'Playfair Display', serif;
     font-size: 1.4rem;
     font-weight: 700;
     line-height: 1;
+    text-align: center;
+    text-transform: capitalize;
     margin: 0 0 1rem 0;
     padding: 0;
 }
 
 p {
     text-align: justify;
+}
+
+hr {
+    border: none;
+    height: 1px;
+    background-color: var(--text-color);
+    margin: 0.5rem auto;
+    padding: 0;
+    width: 50%;
 }
