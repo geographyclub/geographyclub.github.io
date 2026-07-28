@@ -39,7 +39,7 @@ body {
 }
 
 .content {
-    padding: 2rem;
+    padding: 2.5rem;
     display: flex;
     flex-direction: column;
 }
@@ -93,6 +93,7 @@ h2 {
 
 p {
     text-align: justify;
+    hyphens: auto;
 }
 
 hr {
