@@ -39,7 +39,7 @@ body {
 }
 
 .content {
-    padding: 1rem;
+    padding: 2.5rem;
     display: flex;
     flex-direction: column;
 }
@@ -84,7 +84,7 @@ h1 {
 h2 {
     font-size: 1.4rem;
     font-weight: 700;
-    line-height: 1;
+    line-height: 1.1;
     text-align: center;
     text-transform: capitalize;
     margin: 0.5rem 0;
@@ -93,6 +93,7 @@ h2 {
 
 p {
     text-align: justify;
+    hyphens: auto;
 }
 
 hr {
@@ -102,4 +103,18 @@ hr {
     margin: 0.5rem auto;
     padding: 0;
     width: 50%;
+}
+
+ul,
+ol {
+    display: block;
+    margin: 1rem;
+}
+
+li {
+    margin-bottom: 0.75rem;
+}
+
+li:last-child {
+    margin-bottom: 0;
 }
