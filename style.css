@@ -103,3 +103,17 @@ hr {
     padding: 0;
     width: 50%;
 }
+
+ul,
+ol {
+    display: block;
+    margin: 1rem;
+}
+
+li {
+    margin-bottom: 0.75rem;
+}
+
+li:last-child {
+    margin-bottom: 0;
+}
