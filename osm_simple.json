@@ -70,7 +70,7 @@
 			"source-layer": "land",
 			"filter": [ "all", [ "in", "kind", "brownfield", "farmland", "farmyard", "greenfield", "greenhouse_horticulture", "orchard", "plant_nursery", "vineyard", "landfill", "park", "village_green", "recreation_ground", "allotments", "garden", "cemetery", "grave_yard", "miniature_golf", "playground", "golf_course", "scree", "shingle", "forest", "grassland", "meadow", "wet_meadow", "heath", "scrub", "beach", "sand", "marsh", "string_bog", "swamp" ] ],
 			"paint": {
-				"fill-color": "#f0e7d1",
+				"fill-color": "#C8E6C9",
 				"fill-opacity": { "stops": [ [ 10, 0 ], [ 11, 1 ] ] }
 			}
 		},

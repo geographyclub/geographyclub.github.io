@@ -2996,7 +2996,7 @@
 			"filter": [ "==", "kind", "motorway" ],
 			"layout": {
 				"text-field": "{ref}",
-				"text-font": [ "noto_sans_bold" ],
+				"text-font": [ "notosans" ],
 				"symbol-placement": "line",
 				"text-anchor": "center",
 				"text-size": { "stops": [ [ 14, 10 ], [ 18, 12 ], [ 20, 16 ] ] }

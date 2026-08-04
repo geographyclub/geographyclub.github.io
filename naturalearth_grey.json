@@ -1,0 +1,176 @@
+{
+	"version": 8,
+	"name": "naturalearth",
+	"glyphs": "https://jamiefletcher.github.io/weather-bob/assets/fonts/{fontstack}/{range}.pbf",
+	"sprite": "https://jamiefletcher.github.io/weather-bob/assets/sprites/sprites-trees",
+	"sources": {
+		"countries": {
+			"type": "vector",
+			"tiles": [
+				"https://jamiefletcher.github.io/weather-bob/data/naturalearth/countries/{z}/{x}/{y}.pbf"
+			]
+		},
+		"lakes": {
+			"type": "vector",
+			"tiles": [
+				"https://jamiefletcher.github.io/weather-bob/data/naturalearth/lakes/{z}/{x}/{y}.pbf"
+			]
+		},
+		"provinces_lines": {
+			"type": "vector",
+			"tiles": [
+				"https://jamiefletcher.github.io/weather-bob/data/naturalearth/provinces_lines/{z}/{x}/{y}.pbf"
+			]
+		},
+		"coastline": {
+			"type": "vector",
+			"tiles": [
+				"https://jamiefletcher.github.io/weather-bob/data/naturalearth/coastline/{z}/{x}/{y}.pbf"
+			]
+		},
+		"boundaries": {
+			"type": "vector",
+			"tiles": [
+				"https://jamiefletcher.github.io/weather-bob/data/naturalearth/boundaries/{z}/{x}/{y}.pbf"
+			]
+		},
+		"roads": {
+			"type": "vector",
+			"tiles": [
+				"https://jamiefletcher.github.io/weather-bob/data/naturalearth/roads/{z}/{x}/{y}.pbf"
+			]
+		},
+		"rivers": {
+			"type": "vector",
+			"tiles": [
+				"https://jamiefletcher.github.io/weather-bob/data/naturalearth/rivers/{z}/{x}/{y}.pbf"
+			]
+		}
+	},
+	"layers": [
+		{
+			"id": "background",
+			"type": "background",
+			"paint": {
+				"background-color": "hsl(205, 45%, 78%)"
+			}
+		},		
+		{
+			"id": "countries",
+			"type": "fill",
+			"source": "countries",
+			"source-layer": "countries",
+			"paint": {
+				"fill-color": "hsl(210, 15%, 92%)"
+			}
+		},
+		{
+			"id": "rivers",
+			"type": "line",
+			"source": "rivers",
+			"source-layer": "rivers",
+			"paint": {
+				"line-color": "hsl(205, 45%, 78%)",
+				"line-width": 1
+			}
+		},
+		{
+			"id": "lakes",
+			"type": "fill",
+			"source": "lakes",
+			"source-layer": "lakes",
+			"paint": {
+				"fill-color": "hsl(205, 45%, 78%)"
+			}
+		},
+		{
+			"id": "roads",
+			"type": "line",
+			"source": "roads",
+			"source-layer": "roads",
+			"filter": [
+				"!in",
+				"featurecla",
+				"Ferry"
+			],
+			"paint": {
+				"line-color": "hsl(210, 15%, 100%)",
+				"line-width": 1,
+				"line-opacity": [
+					"interpolate",
+					["linear"],
+					["zoom"],
+					4, 0,
+					5, 1
+				]				
+			}
+		},
+		{
+			"id": "provinces-lines",
+			"type": "line",
+			"source": "provinces_lines",
+			"source-layer": "provinces_lines",
+			"paint": {
+				"line-color": "hsl(210, 15%, 72%)",
+				"line-width": 2,
+				"line-dasharray": [2, 2],
+				"line-opacity": [
+					"interpolate",
+					["linear"],
+					["zoom"],
+					3, 0,
+					4, 1
+				]
+			}
+		},
+		{
+			"id": "boundaries",
+			"type": "line",
+			"source": "boundaries",
+			"source-layer": "boundaries",
+			"paint": {
+				"line-color": "hsl(210, 15%, 72%)",
+				"line-width": 2,
+				"line-dasharray": [2, 2, 1, 2],
+				"line-opacity": [
+					"interpolate",
+					["linear"],
+					["zoom"],
+					3, 0,
+					4, 1
+				]
+			}
+		},
+		{
+			"id": "lakes-labels",
+			"type": "symbol",
+			"source": "lakes",
+			"source-layer": "lakes",
+			"layout": {
+				"text-field": [
+					"get",
+					"name"
+				],
+				"text-size": 12,
+				"text-max-width": 6,
+				"text-font": [
+					"libre-baskerville"
+				],
+				"text-anchor": "center",
+				"text-allow-overlap": false,
+				"text-ignore-placement": false
+			},
+			"paint": {
+				"text-color": "hsl(205, 45%, 48%)",
+				"text-halo-color": "hsl(0, 0%, 100%)",
+				"text-halo-width": 1,
+				"text-opacity": [
+					"step",
+					["zoom"],
+					0,
+					6, 1
+				]
+			}
+		}
+	]
+}
