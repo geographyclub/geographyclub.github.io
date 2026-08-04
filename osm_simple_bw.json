@@ -57,27 +57,12 @@
 		},
 		{
 			"source": "osm",
-			"id": "street:outline",
-			"type": "line",
-			"source-layer": "streets",
-			"filter": [ "in", "kind", "motorway", "trunk", "primary", "secondary", "tertiary" ],
-			"paint": {
-				"line-color": "#e9ac77",
-				"line-width": { "stops": [ [ 5, 0 ], [ 6, 2 ], [ 10, 5 ], [ 14, 5 ], [ 16, 14 ], [ 18, 38 ], [ 19, 84 ], [ 20, 168 ] ] }
-			},
-			"layout": {
-				"line-join": "round",
-				"line-cap": "round"
-			}
-		},
-		{
-			"source": "osm",
 			"id": "street",
 			"type": "line",
 			"source-layer": "streets",
 			"filter": [ "in", "kind", "motorway", "trunk", "primary", "secondary", "tertiary" ],
 			"paint": {
-				"line-color": "#ffcc88",
+				"line-color": "#333",
 				"line-width": { "stops": [ [ 5, 0 ], [ 6, 1 ], [ 10, 4 ], [ 14, 4 ], [ 16, 12 ], [ 18, 36 ], [ 19, 80 ], [ 20, 160 ] ] },
 				"line-opacity": { "stops": [ [ 5, 0 ], [ 6, 1 ] ] }
 			},
@@ -106,7 +91,7 @@
 				"symbol-sort-key": 100
 			},
 			"paint": {
-				"text-color": "hsl(202, 90%, 16%)",
+				"text-color": "#fff",
 				"text-opacity": [ "interpolate", [ "linear" ], [ "zoom" ], 10, 0, 11, 1 ]
 			}
 		}		
