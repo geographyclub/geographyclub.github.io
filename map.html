@@ -129,12 +129,12 @@
             //         //     }
             //         // });
 
-            // map.on("click", (e) => {
-            //     const features = map.queryRenderedFeatures(
-            //         e.point
-            //     );
-            //     console.log(features);
-            // });
+            map.on("click", (e) => {
+                const features = map.queryRenderedFeatures(
+                    e.point
+                );
+                console.log(features);
+            });
 
             //         //map.showCollisionBoxes = true;
 

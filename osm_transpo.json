@@ -2990,51 +2990,201 @@
 		},
 		{
 			"source": "osm",
-			"id": "highway-name-minor",
+			"id": "label-motorway-shield",
 			"type": "symbol",
 			"source-layer": "street_labels",
-			"filter": [ "in", "kind", "unclassified", "residential", "living_street" ],
+			"filter": [ "==", "kind", "motorway" ],
 			"layout": {
-				"text-field": "{name}",
-				"text-transform": "uppercase",
-				"text-rotation-alignment": "map",
-				"text-font": [ "notosans" ],
-				"text-letter-spacing": 0.2,
-				"text-allow-overlap": false,
-				"text-ignore-placement": false,
+				"text-field": "{ref}",
+				"text-font": [ "noto_sans_bold" ],
 				"symbol-placement": "line",
 				"text-anchor": "center",
-				"text-size": [ "interpolate", [ "linear" ], [ "zoom" ], 10, 0, 20, 14 ],
-				"symbol-sort-key": 10
+				"text-size": { "stops": [ [ 14, 10 ], [ 18, 12 ], [ 20, 16 ] ] }
 			},
 			"paint": {
-				"text-color": "hsl(202, 90%, 16%)",
-				"text-opacity": [ "interpolate", [ "linear" ], [ "zoom" ], 10, 0, 11, 1 ]
-			}
+				"icon-color": "#ffffff",
+				"text-color": "#ffffff",
+				"text-halo-color": "#ffcc88",
+				"text-halo-width": 0.1,
+				"text-halo-blur": 1
+			},
+			"minzoom": 14
 		},
 		{
 			"source": "osm",
-			"id": "highway-name-major",
+			"id": "label-street-pedestrian",
 			"type": "symbol",
 			"source-layer": "street_labels",
-			"filter": [ "in", "kind", "motorway", "trunk", "primary", "secondary", "tertiary" ],
+			"filter": [ "==", "kind", "pedestrian" ],
 			"layout": {
 				"text-field": "{name}",
-				"text-transform": "uppercase",
-				"text-rotation-alignment": "map",
 				"text-font": [ "notosans" ],
-				"text-letter-spacing": 0.2,
-				"text-allow-overlap": false,
-				"text-ignore-placement": false,
 				"symbol-placement": "line",
 				"text-anchor": "center",
-				"text-size": [ "interpolate", [ "linear" ], [ "zoom" ], 10, 0, 20, 20 ],
-				"symbol-sort-key": 100
+				"text-size": { "stops": [ [ 12, 10 ], [ 15, 13 ] ] }
 			},
 			"paint": {
-				"text-color": "hsl(202, 90%, 16%)",
-				"text-opacity": [ "interpolate", [ "linear" ], [ "zoom" ], 10, 0, 11, 1 ]
-			}
-		}		
+				"icon-color": "#333344",
+				"text-color": "#333344",
+				"text-halo-color": "rgba(255, 255, 255, 0.8)",
+				"text-halo-width": 2,
+				"text-halo-blur": 1
+			},
+			"minzoom": 12
+		},
+		{
+			"source": "osm",
+			"id": "label-street-livingstreet",
+			"type": "symbol",
+			"source-layer": "street_labels",
+			"filter": [ "==", "kind", "living_street" ],
+			"layout": {
+				"text-field": "{name}",
+				"text-font": [ "notosans" ],
+				"symbol-placement": "line",
+				"text-anchor": "center",
+				"text-size": { "stops": [ [ 12, 10 ], [ 15, 13 ] ] }
+			},
+			"paint": {
+				"icon-color": "#333344",
+				"text-color": "#333344",
+				"text-halo-color": "rgba(255, 255, 255, 0.8)",
+				"text-halo-width": 2,
+				"text-halo-blur": 1
+			},
+			"minzoom": 12
+		},
+		{
+			"source": "osm",
+			"id": "label-street-residential",
+			"type": "symbol",
+			"source-layer": "street_labels",
+			"filter": [ "==", "kind", "residential" ],
+			"layout": {
+				"text-field": "{name}",
+				"text-font": [ "notosans" ],
+				"symbol-placement": "line",
+				"text-anchor": "center",
+				"text-size": { "stops": [ [ 12, 10 ], [ 15, 13 ] ] }
+			},
+			"paint": {
+				"icon-color": "#333344",
+				"text-color": "#333344",
+				"text-halo-color": "rgba(255, 255, 255, 0.8)",
+				"text-halo-width": 2,
+				"text-halo-blur": 1
+			},
+			"minzoom": 12
+		},
+		{
+			"source": "osm",
+			"id": "label-street-unclassified",
+			"type": "symbol",
+			"source-layer": "street_labels",
+			"filter": [ "==", "kind", "unclassified" ],
+			"layout": {
+				"text-field": "{name}",
+				"text-font": [ "notosans" ],
+				"symbol-placement": "line",
+				"text-anchor": "center",
+				"text-size": { "stops": [ [ 12, 10 ], [ 15, 13 ] ] }
+			},
+			"paint": {
+				"icon-color": "#333344",
+				"text-color": "#333344",
+				"text-halo-color": "rgba(255, 255, 255, 0.8)",
+				"text-halo-width": 2,
+				"text-halo-blur": 1
+			},
+			"minzoom": 12
+		},
+		{
+			"source": "osm",
+			"id": "label-street-tertiary",
+			"type": "symbol",
+			"source-layer": "street_labels",
+			"filter": [ "==", "kind", "tertiary" ],
+			"layout": {
+				"text-field": "{name}",
+				"text-font": [ "notosans" ],
+				"symbol-placement": "line",
+				"text-anchor": "center",
+				"text-size": { "stops": [ [ 12, 10 ], [ 15, 13 ] ] }
+			},
+			"paint": {
+				"icon-color": "#333344",
+				"text-color": "#333344",
+				"text-halo-color": "rgba(255, 255, 255, 0.8)",
+				"text-halo-width": 2,
+				"text-halo-blur": 1
+			},
+			"minzoom": 12
+		},
+		{
+			"source": "osm",
+			"id": "label-street-secondary",
+			"type": "symbol",
+			"source-layer": "street_labels",
+			"filter": [ "==", "kind", "secondary" ],
+			"layout": {
+				"text-field": "{name}",
+				"text-font": [ "notosans" ],
+				"symbol-placement": "line",
+				"text-anchor": "center",
+				"text-size": { "stops": [ [ 12, 10 ], [ 15, 13 ] ] }
+			},
+			"paint": {
+				"icon-color": "#333344",
+				"text-color": "#333344",
+				"text-halo-color": "rgba(255, 255, 255, 0.8)",
+				"text-halo-width": 2,
+				"text-halo-blur": 1
+			},
+			"minzoom": 12
+		},
+		{
+			"source": "osm",
+			"id": "label-street-primary",
+			"type": "symbol",
+			"source-layer": "street_labels",
+			"filter": [ "==", "kind", "primary" ],
+			"layout": {
+				"text-field": "{name}",
+				"text-font": [ "notosans" ],
+				"symbol-placement": "line",
+				"text-anchor": "center",
+				"text-size": { "stops": [ [ 12, 10 ], [ 15, 13 ] ] }
+			},
+			"paint": {
+				"icon-color": "#333344",
+				"text-color": "#333344",
+				"text-halo-color": "rgba(255, 255, 255, 0.8)",
+				"text-halo-width": 2,
+				"text-halo-blur": 1
+			},
+			"minzoom": 12
+		},
+		{
+			"source": "osm",
+			"id": "label-street-trunk",
+			"type": "symbol",
+			"source-layer": "street_labels",
+			"filter": [ "==", "kind", "trunk" ],
+			"layout": {
+				"text-field": "{name}",
+				"text-font": [ "notosans" ],
+				"symbol-placement": "line",
+				"text-anchor": "center",
+				"text-size": { "stops": [ [ 12, 10 ], [ 15, 13 ] ] }
+			},
+			"paint": {
+				"icon-color": "#333344",
+				"text-color": "#333344",
+				"text-halo-color": "rgba(255, 255, 255, 0.8)",
+				"text-halo-width": 2,
+				"text-halo-blur": 1
+			},
+			"minzoom": 12
+		}	
 	]
 }

@@ -175,7 +175,7 @@
 		},
 		{
 			"source": "osm",
-			"id": "street-motorway:outline",
+			"id": "street:outline",
 			"type": "line",
 			"source-layer": "streets",
 			"filter": [ "in", "kind", "motorway", "trunk", "primary", "secondary", "tertiary" ],
@@ -190,7 +190,7 @@
 		},
 		{
 			"source": "osm",
-			"id": "street-motorway",
+			"id": "street",
 			"type": "line",
 			"source-layer": "streets",
 			"filter": [ "in", "kind", "motorway", "trunk", "primary", "secondary", "tertiary" ],
@@ -206,7 +206,7 @@
 		},
 		{
 			"source": "osm",
-			"id": "highway-name-major",
+			"id": "highway-name",
 			"type": "symbol",
 			"source-layer": "street_labels",
 			"filter": [ "in", "kind", "motorway", "trunk", "primary", "secondary", "tertiary" ],
