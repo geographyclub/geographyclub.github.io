@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="https://unpkg.com/maplibre-gl@5.1.0/dist/maplibre-gl.js"></script>
     <link href="https://unpkg.com/maplibre-gl@5.1.0/dist/maplibre-gl.css" rel="stylesheet" />
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="map.css">
 </head>
 
 <body>
@@ -23,17 +23,15 @@
 
         const map = new maplibregl.Map({
             container: "map",
-            style: "osm_raster.json",
+            style: "osm_transpo_simple.json",
             center: [-79.381394, 43.656482],
-            zoom: 4,
-            minZoom: 2,
-            maxZoom: 4,
+            zoom: 13,
+            minZoom: 0,
+            maxZoom: 20,
             bearing: 0,
             pitch: 0,
             hash: true,
-            pixelRatio: 1,
-            dragRotate: false,
-            touchPitch: false
+            pixelRatio: 1
         });
 
         const globe = new maplibregl.Map({

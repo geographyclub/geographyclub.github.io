@@ -45,7 +45,8 @@ body {
 }
 
 figure {
-    margin: 1rem 0;
+    width: 80%;
+    margin: 1rem auto;
 }
 
 figure img {
@@ -55,6 +56,7 @@ figure img {
 }
 
 figcaption {
+    width: 100%;
     font-size: 0.75rem;
     color: var(--muted-color);
     font-style: italic;
