@@ -27,7 +27,7 @@
 			"type": "fill",
 			"source-layer": "ocean",
 			"paint": {
-				"fill-color": "hsl(0, 0%, 90%)"
+				"fill-color": "hsl(0, 0%, 85%)"
 			}
 		},
 		{
@@ -36,7 +36,7 @@
 			"type": "line",
 			"source-layer": "water_lines",
 			"paint": {
-				"line-color": "hsl(0, 0%, 90%)",
+				"line-color": "hsl(0, 0%, 85%)",
 				"line-width": { "stops": [ [ 9, 0 ], [ 10, 3 ], [ 15, 5 ], [ 17, 9 ], [ 18, 20 ], [ 20, 60 ] ] }
 			},
 			"layout": {
@@ -50,10 +50,21 @@
 			"type": "fill",
 			"source-layer": "water_polygons",
 			"paint": {
-				"fill-color": "hsl(0, 0%, 90%)",
+				"fill-color": "hsl(0, 0%, 85%)",
 				"fill-opacity": { "stops": [ [ 4, 0 ], [ 6, 1 ] ] }
 			}
 		},
+		{
+			"source": "osm",
+			"id": "building",
+			"type": "fill",
+			"source-layer": "buildings",
+			"paint": {
+				"fill-color": "hsl(0, 0%, 90%)",
+				"fill-opacity": { "stops": [ [ 14, 0 ], [ 15, 1 ] ] },
+				"fill-translate": [ -2, -2 ]
+			}
+		},		
 		{
 			"source": "osm",
 			"id": "street:outline",
@@ -84,7 +95,7 @@
 				"line-join": "round",
 				"line-cap": "round"
 			}
-		},
+		},	
 		{
 			"source": "osm",
 			"id": "highway-name",
