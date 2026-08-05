@@ -18,7 +18,7 @@
 			"id": "background",
 			"type": "background",
 			"paint": {
-				"background-color": "#fff"
+				"background-color": "hsl(0, 0%, 95%)"
 			}
 		},
 		{
@@ -27,7 +27,7 @@
 			"type": "fill",
 			"source-layer": "ocean",
 			"paint": {
-				"fill-color": "#eee"
+				"fill-color": "hsl(0, 0%, 90%)"
 			}
 		},
 		{
@@ -36,7 +36,7 @@
 			"type": "line",
 			"source-layer": "water_lines",
 			"paint": {
-				"line-color": "#eee",
+				"line-color": "hsl(0, 0%, 90%)",
 				"line-width": { "stops": [ [ 9, 0 ], [ 10, 3 ], [ 15, 5 ], [ 17, 9 ], [ 18, 20 ], [ 20, 60 ] ] }
 			},
 			"layout": {
@@ -50,7 +50,7 @@
 			"type": "fill",
 			"source-layer": "water_polygons",
 			"paint": {
-				"fill-color": "#eee",
+				"fill-color": "hsl(0, 0%, 90%)",
 				"fill-opacity": { "stops": [ [ 4, 0 ], [ 6, 1 ] ] }
 			}
 		},
@@ -61,7 +61,7 @@
 			"source-layer": "streets",
 			"filter": [ "in", "kind", "motorway", "trunk", "primary", "secondary", "tertiary" ],
 			"paint": {
-				"line-color": "#eee",
+				"line-color": "hsl(0, 0%, 90%)",
 				"line-width": { "stops": [ [ 8, 0 ], [ 9, 1 ], [ 10, 4 ], [ 14, 6 ], [ 16, 12 ], [ 18, 36 ], [ 19, 74 ], [ 20, 144 ] ] }
 			},
 			"layout": {
@@ -76,7 +76,7 @@
 			"source-layer": "streets",
 			"filter": [ "in", "kind", "motorway", "trunk", "primary", "secondary", "tertiary" ],
 			"paint": {
-				"line-color": "#eee",
+				"line-color": "hsl(0, 0%, 100%)",
 				"line-width": { "stops": [ [ 8, 0 ], [ 9, 2 ], [ 10, 3 ], [ 14, 5 ], [ 16, 10 ], [ 18, 34 ], [ 19, 70 ], [ 20, 140 ] ] },
 				"line-opacity": { "stops": [ [ 5, 0 ], [ 6, 1 ] ] }
 			},
@@ -105,7 +105,7 @@
 				"symbol-sort-key": 100
 			},
 			"paint": {
-				"text-color": "#fff",
+				"text-color": "hsl(0, 0%, 90%)",
 				"text-opacity": [ "interpolate", [ "linear" ], [ "zoom" ], 10, 0, 11, 1 ]
 			}
 		}		
