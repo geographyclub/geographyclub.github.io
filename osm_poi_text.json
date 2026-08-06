@@ -2997,6 +2997,7 @@
 			"layout": {
 				"text-field": ["get", "name"],
 				"text-font": ["notosans"],
+				"text-transform": "uppercase",
 				"text-size": 10,
 				"text-max-width": 10,
 				"text-line-height": 1.1
