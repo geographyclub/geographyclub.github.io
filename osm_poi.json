@@ -3221,7 +3221,85 @@
 				"icon-color": "#555555",
 				"text-color": "#555555"
 			}
+		},
+		{
+			"source": "osm",
+			"id": "symbol-transit-water",
+			"type": "symbol",
+			"source-layer": "public_transport",
+			"filter": ["in", "kind", "ferry", "funicular", "aerialway"],
+			"layout": {
+				"icon-size": 0.5,
+				"icon-anchor": "bottom",
+				"icon-optional": true,
+				"text-field": ["get", "name"],
+				"text-font": ["notosans"],
+				"text-size": 10,
+				"text-max-width": 10,
+				"text-line-height": 1.1,
+				"text-anchor": "top",
+				"text-offset": [0, 0],
+				"icon-image": ["match", ["get", "kind"], "ferry", "icon-transport", "funicular", "icon-rail", "aerialway", "icon-viewpoint", "monorail", "icon-rail_metro", "icon-rail"]
+			},
+			"paint": {
+				"icon-opacity": { "stops": [ [ 16, 0 ], [ 17, 0.4 ] ] },
+				"text-opacity": { "stops": [ [ 16, 0 ], [ 17, 0.4 ] ] },
+				"icon-color": "#555555",
+				"text-color": "#555555"
+			}
 		},		
+		{
+			"source": "osm",
+			"id": "symbol-transit-bus",
+			"type": "symbol",
+			"source-layer": "public_transport",
+			"filter": ["in", "kind", "bus_stop", "bus_station"],
+			"layout": {
+				"icon-size": 0.5,
+				"icon-anchor": "bottom",
+				"icon-optional": true,
+				"text-field": ["get", "name"],
+				"text-font": ["notosans"],
+				"text-size": 10,
+				"text-max-width": 10,
+				"text-line-height": 1.1,
+				"text-anchor": "top",
+				"text-offset": [0, 0],
+				"icon-image": ["match", ["get", "kind"], "bus_stop", "icon-bus", "bus_station", "icon-bus", "icon-bus"]
+			},
+			"paint": {
+				"icon-opacity": { "stops": [ [ 16, 0 ], [ 17, 0.4 ] ] },
+				"text-opacity": { "stops": [ [ 16, 0 ], [ 17, 0.4 ] ] },
+				"icon-color": "#555555",
+				"text-color": "#555555"
+			}
+		},
+		{
+			"source": "osm",
+			"id": "symbol-transit-subway",
+			"type": "symbol",
+			"source-layer": "public_transport",
+			"filter": ["in", "kind", "station", "rail", "train", "light_rail", "tram_stop", "subway", "halt", "monorail"],
+			"layout": {
+				"icon-size": 0.5,
+				"icon-anchor": "bottom",
+				"icon-optional": true,
+				"text-field": ["get", "name"],
+				"text-font": ["notosans"],
+				"text-size": 10,
+				"text-max-width": 10,
+				"text-line-height": 1.1,
+				"text-anchor": "top",
+				"text-offset": [0, 0],
+				"icon-image": ["match", ["get", "kind"], "station", "icon-rail_metro", "subway", "icon-rail_metro", "rail", "icon-rail", "train", "icon-rail", "light_rail", "transport-tram", "tram_stop", "transport-tram", "halt", "icon-rail", "icon-rail"]
+			},
+			"paint": {
+				"icon-opacity": { "stops": [ [ 16, 0 ], [ 17, 0.4 ] ] },
+				"text-opacity": { "stops": [ [ 16, 0 ], [ 17, 0.4 ] ] },
+				"icon-color": "#555555",
+				"text-color": "#555555"
+			}
+		},				
 		{
 			"source": "osm",
 			"id": "label-street-pedestrian",
