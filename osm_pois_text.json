@@ -2990,6 +2990,24 @@
 		},
 		{
 			"source": "osm",
+			"id": "poi",
+			"type": "symbol",
+			"source-layer": "pois",
+			"filter": ["has", "name"],
+			"layout": {
+				"text-field": ["get", "name"],
+				"text-font": ["notosans"],
+				"text-size": 10,
+				"text-max-width": 10,
+				"text-line-height": 1.1
+			},
+			"paint": {
+				"text-opacity": { "stops": [ [ 14, 0 ], [ 15, 0.7 ] ] },
+				"text-color": "#555555"
+			}
+		},		
+		{
+			"source": "osm",
 			"id": "label-street-pedestrian",
 			"type": "symbol",
 			"source-layer": "street_labels",
@@ -3185,24 +3203,6 @@
 				"text-halo-blur": 1
 			},
 			"minzoom": 12
-		},				
-		{
-			"source": "osm",
-			"id": "poi",
-			"type": "symbol",
-			"source-layer": "pois",
-			"filter": ["has", "name"],
-			"layout": {
-				"text-field": ["get", "name"],
-				"text-font": ["notosans"],
-				"text-size": 10,
-				"text-max-width": 10,
-				"text-line-height": 1.1
-			},
-			"paint": {
-				"text-opacity": { "stops": [ [ 14, 0 ], [ 15, 0.7 ] ] },
-				"text-color": "#555555"
-			}
-		}			
+		}		
 	]
 }

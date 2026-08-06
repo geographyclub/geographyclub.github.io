@@ -2990,6 +2990,32 @@
 		},
 		{
 			"source": "osm",
+			"id": "poi",
+			"type": "symbol",
+			"source-layer": "pois",
+			"filter": ["has", "name"],
+			"layout": {
+				"icon-size": { "stops": [ [ 16, 0.5 ], [ 19, 0.5 ], [ 20, 1 ] ] },
+				"symbol-placement": "point",
+				"icon-optional": true,
+				"text-field": ["get", "name"],
+				"text-font": ["notosans"],
+				"text-size": 10,
+				"text-max-width": 10,
+				"text-line-height": 1.1,
+				"text-anchor": "top",
+				"text-offset": [0, 0.5],
+				"icon-image": [ "match", [ "get", "amenity" ], "arts_centre", "icon-art_gallery", "atm", "icon-atm", "bank", "icon-bank", "bar", "icon-bar", "bench", "icon-bench", "bicycle_rental", "icon-bicycle_share", "biergarten", "icon-beergarden", "cafe", "icon-cafe", "car_rental", "icon-car_rental", "car_sharing", "icon-car_rental", "car_wash", "icon-car_wash", "cinema", "icon-cinema", "college", "icon-college", "community_centre", "icon-community", "dentist", "icon-dentist", "doctors", "icon-doctor", "dog_park", "icon-dog_park", "drinking_water", "icon-drinking_water", "embassy", "icon-embassy", "fast_food", "icon-fast_food", "fire_station", "icon-fire_station", "fountain", "icon-fountain", "grave_yard", "icon-cemetery", "hospital", "icon-hospital", "hunting_stand", "icon-huntingstand", "library", "icon-library", "marketplace", "icon-marketplace", "nightclub", "icon-nightclub", "nursing_home", "icon-nursinghome", "pharmacy", "icon-pharmacy", "place_of_worship", "icon-place_of_worship", "playground", "icon-playground", "police", "icon-police", "post_box", "icon-postbox", "post_office", "icon-post", "prison", "icon-prison", "pub", "icon-beer", "recycling", "icon-recycling", "restaurant", "icon-restaurant", "school", "icon-school", "shelter", "icon-shelter", "telephone", "icon-telephone", "theatre", "icon-theatre", "toilets", "icon-toilet", "townhall", "icon-town_hall", "vending_machine", "icon-vendingmachine", "veterinary", "icon-veterinary", "waste_basket", "icon-waste_basket", "transport-information" ]
+			},
+			"paint": {
+				"icon-opacity": { "stops": [ [ 14, 0 ], [ 15, 0.7 ] ] },
+				"text-opacity": { "stops": [ [ 14, 0 ], [ 15, 0.7 ] ] },
+				"icon-color": "#555555",
+				"text-color": "#555555"
+			}
+		},		
+		{
+			"source": "osm",
 			"id": "label-street-pedestrian",
 			"type": "symbol",
 			"source-layer": "street_labels",
@@ -3185,32 +3211,6 @@
 				"text-halo-blur": 1
 			},
 			"minzoom": 12
-		},		
-		{
-			"source": "osm",
-			"id": "poi",
-			"type": "symbol",
-			"source-layer": "pois",
-			"filter": ["has", "name"],
-			"layout": {
-				"icon-size": { "stops": [ [ 16, 0.5 ], [ 19, 0.5 ], [ 20, 1 ] ] },
-				"symbol-placement": "point",
-				"icon-optional": true,
-				"text-field": ["get", "name"],
-				"text-font": ["notosans"],
-				"text-size": 10,
-				"text-max-width": 10,
-				"text-line-height": 1.1,
-				"text-anchor": "top",
-				"text-offset": [0, 0.5],
-				"icon-image": [ "match", [ "get", "amenity" ], "arts_centre", "icon-art_gallery", "atm", "icon-atm", "bank", "icon-bank", "bar", "icon-bar", "bench", "icon-bench", "bicycle_rental", "icon-bicycle_share", "biergarten", "icon-beergarden", "cafe", "icon-cafe", "car_rental", "icon-car_rental", "car_sharing", "icon-car_rental", "car_wash", "icon-car_wash", "cinema", "icon-cinema", "college", "icon-college", "community_centre", "icon-community", "dentist", "icon-dentist", "doctors", "icon-doctor", "dog_park", "icon-dog_park", "drinking_water", "icon-drinking_water", "embassy", "icon-embassy", "fast_food", "icon-fast_food", "fire_station", "icon-fire_station", "fountain", "icon-fountain", "grave_yard", "icon-cemetery", "hospital", "icon-hospital", "hunting_stand", "icon-huntingstand", "library", "icon-library", "marketplace", "icon-marketplace", "nightclub", "icon-nightclub", "nursing_home", "icon-nursinghome", "pharmacy", "icon-pharmacy", "place_of_worship", "icon-place_of_worship", "playground", "icon-playground", "police", "icon-police", "post_box", "icon-postbox", "post_office", "icon-post", "prison", "icon-prison", "pub", "icon-beer", "recycling", "icon-recycling", "restaurant", "icon-restaurant", "school", "icon-school", "shelter", "icon-shelter", "telephone", "icon-telephone", "theatre", "icon-theatre", "toilets", "icon-toilet", "townhall", "icon-town_hall", "vending_machine", "icon-vendingmachine", "veterinary", "icon-veterinary", "waste_basket", "icon-waste_basket", "transport-information" ]
-			},
-			"paint": {
-				"icon-opacity": { "stops": [ [ 14, 0 ], [ 15, 0.7 ] ] },
-				"text-opacity": { "stops": [ [ 14, 0 ], [ 15, 0.7 ] ] },
-				"icon-color": "#555555",
-				"text-color": "#555555"
-			}
-		}			
+		}		
 	]
 }
