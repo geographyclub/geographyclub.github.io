@@ -2990,28 +2990,6 @@
 		},
 		{
 			"source": "osm",
-			"id": "label-motorway-shield",
-			"type": "symbol",
-			"source-layer": "street_labels",
-			"filter": [ "==", "kind", "motorway" ],
-			"layout": {
-				"text-field": "{ref}",
-				"text-font": [ "notosans" ],
-				"symbol-placement": "line",
-				"text-anchor": "center",
-				"text-size": { "stops": [ [ 14, 10 ], [ 18, 12 ], [ 20, 16 ] ] }
-			},
-			"paint": {
-				"icon-color": "#ffffff",
-				"text-color": "#ffffff",
-				"text-halo-color": "#ffcc88",
-				"text-halo-width": 0.1,
-				"text-halo-blur": 1
-			},
-			"minzoom": 14
-		},
-		{
-			"source": "osm",
 			"id": "label-street-pedestrian",
 			"type": "symbol",
 			"source-layer": "street_labels",
@@ -3185,6 +3163,28 @@
 				"text-halo-blur": 1
 			},
 			"minzoom": 12
-		}	
+		},
+		{
+			"source": "osm",
+			"id": "label-street-motorway",
+			"type": "symbol",
+			"source-layer": "street_labels",
+			"filter": [ "==", "kind", "motorway" ],
+			"layout": {
+				"text-field": "{name}",
+				"text-font": [ "notosans" ],
+				"symbol-placement": "line",
+				"text-anchor": "center",
+				"text-size": { "stops": [ [ 12, 10 ], [ 15, 13 ] ] }
+			},
+			"paint": {
+				"icon-color": "#333344",
+				"text-color": "#333344",
+				"text-halo-color": "rgba(255, 255, 255, 0.8)",
+				"text-halo-width": 2,
+				"text-halo-blur": 1
+			},
+			"minzoom": 12
+		}			
 	]
 }

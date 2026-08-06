@@ -149,7 +149,7 @@
 				"symbol-sort-key": 100
 			},
 			"paint": {
-				"text-color": "hsl(202, 90%, 16%)",
+				"text-color": "#e9ac77",
 				"text-opacity": [ "interpolate", [ "linear" ], [ "zoom" ], 10, 0, 11, 1 ]
 			}
 		}		

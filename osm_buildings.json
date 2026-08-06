@@ -366,187 +366,22 @@
 			}
 		},
 		{
-			"source": "osm",
-			"id": "label-place-neighbourhood",
+			"id": "building-labels",
 			"type": "symbol",
-			"source-layer": "place_labels",
-			"filter": [ "==", "kind", "neighbourhood" ],
+			"source": "osm",
+			"source-layer": "buildings",
+			"minzoom": 15,
+			"filter": ["has", "name"],
 			"layout": {
-				"text-field": "{name}",
-				"text-font": [ "notosans" ],
-				"text-size": { "stops": [ [ 14, 12 ] ] },
-				"text-transform": "uppercase"
+				"text-field": ["get", "name"],
+				"text-size": 12,
+				"text-anchor": "center"
 			},
 			"paint": {
-				"icon-color": "#284349",
-				"text-color": "#284349",
-				"text-halo-color": "rgba(255, 255, 255, 0.8)",
-				"text-halo-width": 2,
-				"text-halo-blur": 1
-			},
-			"minzoom": 14
-		},
-		{
-			"source": "osm",
-			"id": "label-place-quarter",
-			"type": "symbol",
-			"source-layer": "place_labels",
-			"filter": [ "==", "kind", "quarter" ],
-			"layout": {
-				"text-field": "{name}",
-				"text-font": [ "notosans" ],
-				"text-size": { "stops": [ [ 13, 13 ] ] },
-				"text-transform": "uppercase"
-			},
-			"paint": {
-				"icon-color": "#283e49",
-				"text-color": "#283e49",
-				"text-halo-color": "rgba(255, 255, 255, 0.8)",
-				"text-halo-width": 2,
-				"text-halo-blur": 1
-			},
-			"minzoom": 13
-		},
-		{
-			"source": "osm",
-			"id": "label-place-suburb",
-			"type": "symbol",
-			"source-layer": "place_labels",
-			"filter": [ "==", "kind", "suburb" ],
-			"layout": {
-				"text-field": "{name}",
-				"text-font": [ "notosans" ],
-				"text-size": { "stops": [ [ 11, 11 ], [ 13, 14 ] ] },
-				"text-transform": "uppercase"
-			},
-			"paint": {
-				"icon-color": "#283949",
-				"text-color": "#283949",
-				"text-halo-color": "rgba(255, 255, 255, 0.8)",
-				"text-halo-width": 2,
-				"text-halo-blur": 1
-			},
-			"minzoom": 11
-		},
-		{
-			"source": "osm",
-			"id": "label-place-hamlet",
-			"type": "symbol",
-			"source-layer": "place_labels",
-			"filter": [ "==", "kind", "hamlet" ],
-			"layout": {
-				"text-field": "{name}",
-				"text-font": [ "notosans" ],
-				"text-size": { "stops": [ [ 10, 11 ], [ 12, 14 ] ] }
-			},
-			"paint": {
-				"icon-color": "#283049",
-				"text-color": "#283049",
-				"text-halo-color": "rgba(255, 255, 255, 0.8)",
-				"text-halo-width": 2,
-				"text-halo-blur": 1
-			},
-			"minzoom": 13
-		},
-		{
-			"source": "osm",
-			"id": "label-place-village",
-			"type": "symbol",
-			"source-layer": "place_labels",
-			"filter": [ "==", "kind", "village" ],
-			"layout": {
-				"text-field": "{name}",
-				"text-font": [ "notosans" ],
-				"text-size": { "stops": [ [ 9, 11 ], [ 12, 14 ] ] }
-			},
-			"paint": {
-				"icon-color": "#283049",
-				"text-color": "#283049",
-				"text-halo-color": "rgba(255, 255, 255, 0.8)",
-				"text-halo-width": 2,
-				"text-halo-blur": 1
-			},
-			"minzoom": 11
-		},
-		{
-			"source": "osm",
-			"id": "label-place-town",
-			"type": "symbol",
-			"source-layer": "place_labels",
-			"filter": [ "==", "kind", "town" ],
-			"layout": {
-				"text-field": "{name}",
-				"text-font": [ "notosans" ],
-				"text-size": { "stops": [ [ 8, 11 ], [ 12, 14 ] ] }
-			},
-			"paint": {
-				"icon-color": "#283049",
-				"text-color": "#283049",
-				"text-halo-color": "rgba(255, 255, 255, 0.8)",
-				"text-halo-width": 2,
-				"text-halo-blur": 1
-			},
-			"minzoom": 9
-		},
-		{
-			"source": "osm",
-			"id": "label-place-city",
-			"type": "symbol",
-			"source-layer": "place_labels",
-			"filter": [ "==", "kind", "city" ],
-			"layout": {
-				"text-field": "{name}",
-				"text-font": [ "notosans" ],
-				"text-size": { "stops": [ [ 7, 11 ], [ 10, 14 ] ] }
-			},
-			"paint": {
-				"icon-color": "#283049",
-				"text-color": "#283049",
-				"text-halo-color": "rgba(255, 255, 255, 0.8)",
-				"text-halo-width": 2,
-				"text-halo-blur": 1
-			},
-			"minzoom": 7
-		},
-		{
-			"source": "osm",
-			"id": "label-place-statecapital",
-			"type": "symbol",
-			"source-layer": "place_labels",
-			"filter": [ "==", "kind", "state_capital" ],
-			"layout": {
-				"text-field": "{name}",
-				"text-font": [ "notosans" ],
-				"text-size": { "stops": [ [ 6, 11 ], [ 10, 15 ] ] }
-			},
-			"paint": {
-				"icon-color": "#283049",
-				"text-color": "#283049",
-				"text-halo-color": "rgba(255, 255, 255, 0.8)",
-				"text-halo-width": 2,
-				"text-halo-blur": 1
-			},
-			"minzoom": 6
-		},
-		{
-			"source": "osm",
-			"id": "label-place-capital",
-			"type": "symbol",
-			"source-layer": "place_labels",
-			"filter": [ "==", "kind", "capital" ],
-			"layout": {
-				"text-field": "{name}",
-				"text-font": [ "notosans" ],
-				"text-size": { "stops": [ [ 5, 12 ], [ 10, 16 ] ] }
-			},
-			"paint": {
-				"icon-color": "#283049",
-				"text-color": "#283049",
-				"text-halo-color": "rgba(255, 255, 255, 0.8)",
-				"text-halo-width": 2,
-				"text-halo-blur": 1
-			},
-			"minzoom": 5
-		}				
+				"text-color": "#666666",
+				"text-halo-color": "#ffffff",
+				"text-halo-width": 1
+			}
+		}						
 	]
 }

@@ -61,8 +61,7 @@
 			"source-layer": "buildings",
 			"paint": {
 				"fill-color": "hsl(0, 0%, 90%)",
-				"fill-opacity": { "stops": [ [ 14, 0 ], [ 15, 1 ] ] },
-				"fill-translate": [ -2, -2 ]
+				"fill-opacity": { "stops": [ [ 12, 0 ], [ 13, 1 ] ] }
 			}
 		},		
 		{
