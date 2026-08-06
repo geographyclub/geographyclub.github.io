@@ -100,6 +100,22 @@
 		},
 		{
 			"source": "osm",
+			"id": "street-residential:outline",
+			"type": "line",
+			"source-layer": "streets",
+			"filter": [ "==", "kind", "residential" ],
+			"paint": {
+				"line-color": "#e9ac77",
+				"line-width": { "stops": [ [ 12, 2 ], [ 14, 3 ], [ 16, 6 ], [ 18, 26 ], [ 19, 64 ], [ 20, 128 ] ] },
+				"line-opacity": { "stops": [ [ 14.5, 0 ], [ 15, 1 ] ] }
+			},
+			"layout": {
+				"line-join": "round",
+				"line-cap": "round"
+			}
+		},		
+		{
+			"source": "osm",
 			"id": "street:outline",
 			"type": "line",
 			"source-layer": "streets",
@@ -113,6 +129,22 @@
 				"line-cap": "round"
 			}
 		},		
+		{
+			"source": "osm",
+			"id": "street-residential",
+			"type": "line",
+			"source-layer": "streets",
+			"filter": [ "==", "kind", "residential" ],
+			"paint": {
+				"line-color": "#ffeeaa",
+				"line-width": { "stops": [ [ 12, 1 ], [ 14, 2 ], [ 16, 5 ], [ 18, 24 ], [ 19, 60 ], [ 20, 120 ] ] },
+				"line-opacity": { "stops": [ [ 14.5, 0 ], [ 15, 1 ] ] }
+			},
+			"layout": {
+				"line-join": "round",
+				"line-cap": "round"
+			}
+		},			
 		{
 			"source": "osm",
 			"id": "street",
@@ -138,7 +170,7 @@
 			"layout": {
 				"text-field": ["get", "name"],
 				"text-font": ["notosans"],
-				"text-size": 10,
+				"text-size": 8,
 				"text-max-width": 10,
 				"text-line-height": 1.1,
 				"text-anchor": "center",
@@ -158,8 +190,8 @@
 			"layout": {
 				"text-field": ["get", "name"],
 				"text-font": ["notosans"],
-				"text-size": 10,
-				"text-max-width": 10,
+				"text-size": 8,
+				"text-max-width": 5,
 				"text-line-height": 1.1,
 				"text-anchor": "center",
 				"text-offset": [0, 0]
