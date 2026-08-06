@@ -3268,8 +3268,8 @@
 				"icon-image": ["match", ["get", "kind"], "bus_stop", "icon-bus", "bus_station", "icon-bus", "icon-bus"]
 			},
 			"paint": {
-				"icon-opacity": { "stops": [ [ 16, 0 ], [ 17, 0.4 ] ] },
-				"text-opacity": { "stops": [ [ 16, 0 ], [ 17, 0.4 ] ] },
+				"icon-opacity": {"stops": [[14, 0], [15, 1]]},
+				"text-opacity": {"stops": [[15, 0], [16, 1]]},
 				"icon-color": "#555555",
 				"text-color": "#555555"
 			}
@@ -3294,8 +3294,8 @@
 				"icon-image": ["match", ["get", "kind"], "station", "icon-rail_metro", "subway", "icon-rail_metro", "rail", "icon-rail", "train", "icon-rail", "light_rail", "transport-tram", "tram_stop", "transport-tram", "halt", "icon-rail", "icon-rail"]
 			},
 			"paint": {
-				"icon-opacity": { "stops": [ [ 16, 0 ], [ 17, 0.4 ] ] },
-				"text-opacity": { "stops": [ [ 16, 0 ], [ 17, 0.4 ] ] },
+				"icon-opacity": {"stops": [[12, 0], [13, 1]]},
+				"text-opacity": {"stops": [[12, 0], [13, 1]]},
 				"icon-color": "#555555",
 				"text-color": "#555555"
 			}

@@ -2990,23 +2990,243 @@
 		},
 		{
 			"source": "osm",
-			"id": "poi",
+			"id": "poi-amenity",
 			"type": "symbol",
 			"source-layer": "pois",
-			"filter": ["has", "name"],
+			"filter": ["all", ["to-boolean", ["get", "amenity"]], ["has", "name"]],
 			"layout": {
 				"text-field": ["get", "name"],
 				"text-font": ["notosans"],
-				"text-transform": "uppercase",
 				"text-size": 10,
 				"text-max-width": 10,
-				"text-line-height": 1.1
+				"text-line-height": 1.1,
+				"text-anchor": "center",
+				"text-offset": [0, 0]
 			},
 			"paint": {
-				"text-opacity": { "stops": [ [ 14, 0 ], [ 15, 0.7 ] ] },
+				"text-opacity": { "stops": [ [ 16, 0 ], [ 17, 0.4 ] ] },
+				"text-color": "#555555"
+			}
+		},
+		{
+			"source": "osm",
+			"id": "poi-leisure",
+			"type": "symbol",
+			"source-layer": "pois",
+			"filter": ["all", ["to-boolean", ["get", "leisure"]], ["has", "name"]],
+			"layout": {
+				"text-field": ["get", "name"],
+				"text-font": ["notosans"],
+				"text-size": 10,
+				"text-max-width": 10,
+				"text-line-height": 1.1,
+				"text-anchor": "center",
+				"text-offset": [0, 0]
+			},
+			"paint": {
+				"text-opacity": { "stops": [ [ 16, 0 ], [ 17, 0.4 ] ] },
+				"text-color": "#555555"
+			}
+		},
+		{
+			"source": "osm",
+			"id": "poi-tourism",
+			"type": "symbol",
+			"source-layer": "pois",
+			"filter": ["all", ["to-boolean", ["get", "tourism"]], ["has", "name"]],
+			"layout": {
+				"text-field": ["get", "name"],
+				"text-font": ["notosans"],
+				"text-size": 10,
+				"text-max-width": 10,
+				"text-line-height": 1.1,
+				"text-anchor": "center",
+				"text-offset": [0, 0]
+			},
+			"paint": {
+				"text-opacity": { "stops": [ [ 16, 0 ], [ 17, 0.4 ] ] },
+				"text-color": "#555555"
+			}
+		},
+		{
+			"source": "osm",
+			"id": "poi-shop",
+			"type": "symbol",
+			"source-layer": "pois",
+			"filter": ["all", ["to-boolean", ["get", "shop"]], ["has", "name"]],
+			"layout": {
+				"text-field": ["get", "name"],
+				"text-font": ["notosans"],
+				"text-size": 10,
+				"text-max-width": 10,
+				"text-line-height": 1.1,
+				"text-anchor": "center",
+				"text-offset": [0, 0]
+			},
+			"paint": {
+				"text-opacity": { "stops": [ [ 16, 0 ], [ 17, 0.4 ] ] },
+				"text-color": "#555555"
+			}
+		},
+		{
+			"source": "osm",
+			"id": "poi-man_made",
+			"type": "symbol",
+			"source-layer": "pois",
+			"filter": ["all", ["to-boolean", ["get", "man_made"]], ["has", "name"]],
+			"layout": {
+				"text-field": ["get", "name"],
+				"text-font": ["notosans"],
+				"text-size": 10,
+				"text-max-width": 10,
+				"text-line-height": 1.1,
+				"text-anchor": "center",
+				"text-offset": [0, 0]
+			},
+			"paint": {
+				"text-opacity": { "stops": [ [ 16, 0 ], [ 17, 0.4 ] ] },
+				"text-color": "#555555"
+			}
+		},
+		{
+			"source": "osm",
+			"id": "poi-historic",
+			"type": "symbol",
+			"source-layer": "pois",
+			"filter": ["all", ["to-boolean", ["get", "historic"]], ["has", "name"]],
+			"layout": {
+				"text-field": ["get", "name"],
+				"text-font": ["notosans"],
+				"text-size": 10,
+				"text-max-width": 10,
+				"text-line-height": 1.1,
+				"text-anchor": "center",
+				"text-offset": [0, 0]
+			},
+			"paint": {
+				"text-opacity": { "stops": [ [ 16, 0 ], [ 17, 0.4 ] ] },
+				"text-color": "#555555"
+			}
+		},
+		{
+			"source": "osm",
+			"id": "poi-emergency",
+			"type": "symbol",
+			"source-layer": "pois",
+			"filter": ["all", ["to-boolean", ["get", "emergency"]], ["has", "name"]],
+			"layout": {
+				"text-field": ["get", "name"],
+				"text-font": ["notosans"],
+				"text-size": 10,
+				"text-max-width": 10,
+				"text-line-height": 1.1,
+				"text-anchor": "center",
+				"text-offset": [0, 0]
+			},
+			"paint": {
+				"text-opacity": { "stops": [ [ 16, 0 ], [ 17, 0.4 ] ] },
+				"text-color": "#555555"
+			}
+		},
+		{
+			"source": "osm",
+			"id": "poi-highway",
+			"type": "symbol",
+			"source-layer": "pois",
+			"filter": ["all", ["to-boolean", ["get", "highway"]], ["has", "name"]],
+			"layout": {
+				"text-field": ["get", "name"],
+				"text-font": ["notosans"],
+				"text-size": 10,
+				"text-max-width": 10,
+				"text-line-height": 1.1,
+				"text-anchor": "center",
+				"text-offset": [0, 0]
+			},
+			"paint": {
+				"text-opacity": { "stops": [ [ 16, 0 ], [ 17, 0.4 ] ] },
+				"text-color": "#555555"
+			}
+		},
+		{
+			"source": "osm",
+			"id": "poi-office",
+			"type": "symbol",
+			"source-layer": "pois",
+			"filter": ["all", ["to-boolean", ["get", "office"]], ["has", "name"]],
+			"layout": {
+				"text-field": ["get", "name"],
+				"text-font": ["notosans"],
+				"text-size": 10,
+				"text-max-width": 10,
+				"text-line-height": 1.1,
+				"text-anchor": "center",
+				"text-offset": [0, 0]
+			},
+			"paint": {
+				"text-opacity": { "stops": [ [ 16, 0 ], [ 17, 0.4 ] ] },
+				"text-color": "#555555"
+			}
+		},
+		{
+			"source": "osm",
+			"id": "symbol-transit-water",
+			"type": "symbol",
+			"source-layer": "public_transport",
+			"filter": ["in", "kind", "ferry", "funicular", "aerialway"],
+			"layout": {
+				"text-field": ["get", "name"],
+				"text-font": ["notosans"],
+				"text-size": 10,
+				"text-max-width": 10,
+				"text-line-height": 1.1,
+				"text-anchor": "center",
+				"text-offset": [0, 0]
+			},
+			"paint": {
+				"text-opacity": { "stops": [ [ 16, 0 ], [ 17, 0.4 ] ] },
 				"text-color": "#555555"
 			}
 		},		
+		{
+			"source": "osm",
+			"id": "symbol-transit-bus",
+			"type": "symbol",
+			"source-layer": "public_transport",
+			"filter": ["in", "kind", "bus_stop", "bus_station"],
+			"layout": {
+				"text-field": ["get", "name"],
+				"text-font": ["notosans"],
+				"text-size": 10,
+				"text-max-width": 10,
+				"text-line-height": 1.1,
+				"text-anchor": "center",
+				"text-offset": [0, 0]
+			},
+			"paint": {
+				"text-opacity": { "stops": [ [ 16, 0 ], [ 17, 0.4 ] ] },
+				"text-color": "#555555"
+			}
+		},
+		{
+			"source": "osm",
+			"id": "symbol-transit-subway",
+			"type": "symbol",
+			"source-layer": "public_transport",
+			"filter": ["in", "kind", "station", "rail", "train", "light_rail", "tram_stop", "subway", "halt", "monorail"],
+			"layout": {
+				"text-field": ["get", "name"],
+				"text-font": ["notosans"],
+				"text-size": 10,
+				"text-max-width": 10,
+				"text-line-height": 1.1,
+				"text-anchor": "center"
+			},
+			"paint": {
+				"text-opacity": { "stops": [ [ 16, 0 ], [ 17, 0.4 ] ] },
+				"text-color": "#555555"
+			}
+		},				
 		{
 			"source": "osm",
 			"id": "label-street-pedestrian",
