@@ -56,29 +56,20 @@
 		},
 		{
 			"source": "osm",
-			"id": "building",
-			"type": "fill",
-			"source-layer": "buildings",
-			"paint": {
-				"fill-color": "hsl(0, 0%, 90%)",
-				"fill-opacity": { "stops": [ [ 12, 0 ], [ 13, 1 ] ] }
-			}
-		},		
-		{
-			"source": "osm",
-			"id": "street:outline",
+			"id": "street-residential",
 			"type": "line",
 			"source-layer": "streets",
-			"filter": [ "in", "kind", "motorway", "trunk", "primary", "secondary", "tertiary" ],
+			"filter": [ "==", "kind", "residential" ],
 			"paint": {
-				"line-color": "hsl(0, 0%, 90%)",
-				"line-width": { "stops": [ [ 8, 0 ], [ 9, 1 ], [ 10, 4 ], [ 14, 6 ], [ 16, 12 ], [ 18, 36 ], [ 19, 74 ], [ 20, 144 ] ] }
+				"line-color": "hsl(0, 0%, 100%)",
+				"line-width": { "stops": [ [ 12, 1 ], [ 14, 2 ], [ 16, 5 ], [ 18, 24 ], [ 19, 60 ], [ 20, 120 ] ] },
+				"line-opacity": { "stops": [ [ 14.5, 0 ], [ 15, 1 ] ] }
 			},
 			"layout": {
 				"line-join": "round",
 				"line-cap": "round"
 			}
-		},		
+		},					
 		{
 			"source": "osm",
 			"id": "street",
