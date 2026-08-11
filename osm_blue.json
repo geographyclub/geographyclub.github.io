@@ -18,7 +18,7 @@
 			"id": "background",
 			"type": "background",
 			"paint": {
-				"background-color": "hsl(0, 0%, 95%)"
+				"background-color": "hsl(196 100% 11%)"
 			}
 		},
 		{
@@ -27,7 +27,7 @@
 			"type": "fill",
 			"source-layer": "ocean",
 			"paint": {
-				"fill-color": "hsl(0, 0%, 90%)"
+				"fill-color": "hsl(196 100% 21%)"
 			}
 		},
 		{
@@ -36,7 +36,7 @@
 			"type": "line",
 			"source-layer": "water_lines",
 			"paint": {
-				"line-color": "hsl(0, 0%, 90%)",
+				"line-color": "hsl(196 100% 21%)",
 				"line-width": { "stops": [ [ 9, 0 ], [ 10, 3 ], [ 15, 5 ], [ 17, 9 ], [ 18, 20 ], [ 20, 60 ] ] }
 			},
 			"layout": {
@@ -50,7 +50,7 @@
 			"type": "fill",
 			"source-layer": "water_polygons",
 			"paint": {
-				"fill-color": "hsl(0, 0%, 90%)",
+				"fill-color": "hsl(196 100% 21%)",
 				"fill-opacity": { "stops": [ [ 4, 0 ], [ 6, 1 ] ] }
 			}
 		},
@@ -106,7 +106,7 @@
 				"symbol-sort-key": 100
 			},
 			"paint": {
-				"text-color": "hsl(0, 0%, 90%)",
+				"text-color": "hsl(196 100% 11%)",
 				"text-opacity": [ "interpolate", [ "linear" ], [ "zoom" ], 10, 0, 11, 1 ]
 			}
 		}		

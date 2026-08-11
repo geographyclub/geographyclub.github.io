@@ -1,0 +1,40 @@
+{
+    "version": 8,
+    "name": "versatiles-colorful",
+    "metadata": {
+        "maputnik:renderer": "mbgljs",
+        "license": "https://creativecommons.org/publicdomain/zero/1.0/"
+    },
+    "glyphs": "https://geographyclub.github.io/toronto-map/assets/fonts/{fontstack}/{range}.pbf",
+    "sprite": "https://geographyclub.github.io/toronto-map/assets/sprites/sprites-maki",
+    "sources": {
+        "osm": {
+            "type": "vector",
+            "url": "https://vector.openstreetmap.org/shortbread_v1/tilejson.json"
+        }
+    },
+    "layers": [
+        {
+            "id": "background",
+            "type": "background",
+            "paint": {
+                "background-color": "#f9f4ee"
+            }
+        },
+        {
+            "id": "admin-boundaries",
+            "type": "line",
+            "source": "osm",
+            "source-layer": "boundaries",
+            "layout": {
+                "line-cap": "round",
+                "line-join": "round"
+            },
+            "paint": {
+                "line-color": "#a0a0a0",
+                "line-width": [ "interpolate", ["linear"], ["zoom"], 3, 0.5, 8, 2 ],
+                "line-dasharray": [2, 2]
+            }
+        }
+    ]
+}
