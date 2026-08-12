@@ -23,7 +23,7 @@
 
         const map = new maplibregl.Map({
             container: "map",
-            style: "osm_blue.json",
+            style: "osm_grey_no_labels.json",
             center: [-79.381394, 43.656482],
             zoom: 13,
             minZoom: 0,
@@ -68,66 +68,93 @@
             // map.keyboard.disable();
             // map.touchZoomRotate.disable();
 
-            //         // 1. load markers
-            //         const imageNames = [
-            //             "finger",
-            //             "red_pin",
-            //             "dots_medium"
-            //         ];
-            //         for (const name of imageNames) {
-            //             const img = await map.loadImage(
-            //                 `assets/markers/${name}.png`
-            //             );
-            //             if (!map.hasImage(name)) {
-            //                 map.addImage(name, img.data);
-            //             }
-            //         }
+            // 1. load markers
+            const imageNames = [
+                "finger",
+                "red_pin",
+                "dots_medium"
+            ];
+            for (const name of imageNames) {
+                const img = await map.loadImage(
+                    `assets/markers/${name}.png`
+                );
+                if (!map.hasImage(name)) {
+                    map.addImage(name, img.data);
+                }
+            }
 
-            //         map.on("styleimagemissing", async (e) => {
-            //             const id = e.id;
-            //             try {
-            //                 const img = await map.loadImage(
-            //                     `assets/markers/${id}.png`
-            //                 );
-            //                 if (!map.hasImage(id)) {
-            //                     map.addImage(id, img.data);
-            //                 }
-            //             } catch (err) {
-            //                 console.error(
-            //                     "missing image failed:",
-            //                     id,
-            //                     err
-            //                 );
-            //             }
-            //         });
+            map.on("styleimagemissing", async (e) => {
+                const id = e.id;
+                try {
+                    const img = await map.loadImage(
+                        `assets/markers/${id}.png`
+                    );
+                    if (!map.hasImage(id)) {
+                        map.addImage(id, img.data);
+                    }
+                } catch (err) {
+                    console.error(
+                        "missing image failed:",
+                        id,
+                        err
+                    );
+                }
+            });
 
-            //         // 2. load geojson
-            //         // const res = await fetch("data/toronto_events.geojson");
-            //         // const geojson = await res.json();
+            // 2. load geojson
+            const res = await fetch("data/seoul_cheonggyecheon.geojson");
+            const geojson = await res.json();
 
-            //         // // 3. add source
-            //         // map.addSource("toronto-events", {
-            //         //     type: "geojson",
-            //         //     data: geojson
-            //         // });
+// Filter features to only include points
+geojson.features = geojson.features.filter(
+  feature => feature.geometry.type === 'Point'
+);
 
-            //         // 4. add symbol layer
-            //         // map.addLayer({
-            //         //     id: "toronto-events",
-            //         //     type: "symbol",
-            //         //     source: "toronto-events",
+// Get the bounds of the data
+const bounds = new maplibregl.LngLatBounds();
+geojson.features.forEach(feature => {
+    if (feature.geometry.type === 'Point') {
+        bounds.extend(feature.geometry.coordinates);
+    } else if (feature.geometry.type === 'LineString') {
+        feature.geometry.coordinates.forEach(coord => {
+            bounds.extend(coord);
+        });
+    } else if (feature.geometry.type === 'Polygon') {
+        feature.geometry.coordinates[0].forEach(coord => {
+            bounds.extend(coord);
+        });
+    }
+});
 
-            //         //     layout: {
-            //         //         "icon-image": "red_pin",
-            //         //         "icon-size":  ["interpolate", ["linear"], ["zoom"], 10, 0, 16, 0.6],
-            //         //         "icon-anchor": "bottom",
-            //         //         "icon-allow-overlap": true,
-            //         //         "icon-ignore-placement": true
-            //         //     },
-            //         //     paint: {
-            //         //         "icon-color": "#fff"
-            //         //     }
-            //         // });
+// Fit the map to the bounds
+map.fitBounds(bounds, {
+    padding: 50,
+    maxZoom: 15
+});
+
+            // 3. add source
+            map.addSource("features", {
+                type: "geojson",
+                data: geojson
+            });
+
+            // 4. add symbol layer
+            map.addLayer({
+                id: "features",
+                type: "symbol",
+                source: "features",
+
+                layout: {
+                    "icon-image": "red_pin",
+                    "icon-size": ["interpolate", ["linear"], ["zoom"], 10, 0, 16, 0.6],
+                    "icon-anchor": "bottom",
+                    "icon-allow-overlap": true,
+                    "icon-ignore-placement": true
+                },
+                paint: {
+                    "icon-color": "#fff"
+                }
+            });
 
             map.on("click", (e) => {
                 const features = map.queryRenderedFeatures(
@@ -136,7 +163,7 @@
                 console.log(features);
             });
 
-            //         //map.showCollisionBoxes = true;
+            //map.showCollisionBoxes = true;
 
         });
 
