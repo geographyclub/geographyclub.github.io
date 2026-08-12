@@ -23,9 +23,10 @@
 
         const map = new maplibregl.Map({
             container: "map",
-            style: "osm_grey_no_labels.json",
-            center: [-79.381394, 43.656482],
-            zoom: 13,
+            style: "osm_poi.json",
+            // center: [-79.381394, 43.656482], //toronto
+            center: [126.978, 37.566], // seoul
+            zoom: 17,
             minZoom: 0,
             maxZoom: 20,
             bearing: 0,
@@ -101,60 +102,60 @@
                 }
             });
 
-            // 2. load geojson
-            const res = await fetch("data/seoul_cheonggyecheon.geojson");
-            const geojson = await res.json();
+            // // 2. load geojson
+            // const res = await fetch("data/seoul_cheonggyecheon.geojson");
+            // const geojson = await res.json();
 
-// Filter features to only include points
-geojson.features = geojson.features.filter(
-  feature => feature.geometry.type === 'Point'
-);
+            // // Filter features to only include points
+            // geojson.features = geojson.features.filter(
+            //     feature => feature.geometry.type === 'Point'
+            // );
 
-// Get the bounds of the data
-const bounds = new maplibregl.LngLatBounds();
-geojson.features.forEach(feature => {
-    if (feature.geometry.type === 'Point') {
-        bounds.extend(feature.geometry.coordinates);
-    } else if (feature.geometry.type === 'LineString') {
-        feature.geometry.coordinates.forEach(coord => {
-            bounds.extend(coord);
-        });
-    } else if (feature.geometry.type === 'Polygon') {
-        feature.geometry.coordinates[0].forEach(coord => {
-            bounds.extend(coord);
-        });
-    }
-});
+            // // Get the bounds of the data
+            // const bounds = new maplibregl.LngLatBounds();
+            // geojson.features.forEach(feature => {
+            //     if (feature.geometry.type === 'Point') {
+            //         bounds.extend(feature.geometry.coordinates);
+            //     } else if (feature.geometry.type === 'LineString') {
+            //         feature.geometry.coordinates.forEach(coord => {
+            //             bounds.extend(coord);
+            //         });
+            //     } else if (feature.geometry.type === 'Polygon') {
+            //         feature.geometry.coordinates[0].forEach(coord => {
+            //             bounds.extend(coord);
+            //         });
+            //     }
+            // });
 
-// Fit the map to the bounds
-map.fitBounds(bounds, {
-    padding: 50,
-    maxZoom: 15
-});
+            // // Fit the map to the bounds
+            // map.fitBounds(bounds, {
+            //     padding: 50,
+            //     maxZoom: 15
+            // });
 
-            // 3. add source
-            map.addSource("features", {
-                type: "geojson",
-                data: geojson
-            });
+            // // 3. add source
+            // map.addSource("features", {
+            //     type: "geojson",
+            //     data: geojson
+            // });
 
-            // 4. add symbol layer
-            map.addLayer({
-                id: "features",
-                type: "symbol",
-                source: "features",
+            // // 4. add symbol layer
+            // map.addLayer({
+            //     id: "features",
+            //     type: "symbol",
+            //     source: "features",
 
-                layout: {
-                    "icon-image": "red_pin",
-                    "icon-size": ["interpolate", ["linear"], ["zoom"], 10, 0, 16, 0.6],
-                    "icon-anchor": "bottom",
-                    "icon-allow-overlap": true,
-                    "icon-ignore-placement": true
-                },
-                paint: {
-                    "icon-color": "#fff"
-                }
-            });
+            //     layout: {
+            //         "icon-image": "red_pin",
+            //         "icon-size": ["interpolate", ["linear"], ["zoom"], 10, 0, 16, 0.6],
+            //         "icon-anchor": "bottom",
+            //         "icon-allow-overlap": true,
+            //         "icon-ignore-placement": true
+            //     },
+            //     paint: {
+            //         "icon-color": "#fff"
+            //     }
+            // });
 
             map.on("click", (e) => {
                 const features = map.queryRenderedFeatures(
