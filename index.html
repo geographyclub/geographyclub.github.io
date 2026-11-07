@@ -1,81 +1,647 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GeoClub</title>
-    <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
-</head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Toronto! - City & Campus Portal</title>
+  <style>
+    /* Reset & Base */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      background-color: #FFFFFF;
+      color: #000000;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 12px;
+      line-height: 1.35;
+      padding: 4px;
+    }
+    a {
+      color: #0000CC;
+      text-decoration: underline;
+    }
+    a:visited {
+      color: #551A8B;
+    }
+    a:hover {
+      color: #FF0000;
+    }
 
+    /* Overall Layout Shell */
+    .portal-shell {
+      max-width: 980px;
+      margin: 0 auto;
+    }
+
+    /* Top Strip */
+    .top-strip {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 4px;
+      font-size: 10px;
+      border-bottom: 1px solid #EEEEEE;
+      padding-bottom: 4px;
+      margin-bottom: 4px;
+    }
+    .top-strip-left {
+      font-weight: bold;
+    }
+
+    /* Logo & Nav Header */
+    .header-wrap {
+      text-align: center;
+      margin-bottom: 6px;
+    }
+    .retro-logo {
+      font-family: 'Times New Roman', Times, serif;
+      font-size: 34px;
+      font-weight: bold;
+      font-style: italic;
+      color: #005A9C;
+      letter-spacing: -1px;
+    }
+    .tagline {
+      font-size: 11px;
+      color: #666666;
+      font-style: italic;
+      display: inline-block;
+      margin-left: 4px;
+    }
+    .header-nav {
+      font-size: 11px;
+      margin-top: 3px;
+    }
+
+    /* Alert Notice */
+    .alert-banner {
+      background-color: #FFFFCC;
+      border: 1px solid #CCCC99;
+      padding: 6px 8px;
+      text-align: center;
+      font-size: 11px;
+      margin-bottom: 8px;
+    }
+
+    /* Search Box */
+    .search-section {
+      text-align: center;
+      margin-bottom: 10px;
+    }
+    .search-input-row {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 4px;
+      margin-bottom: 4px;
+    }
+    .search-input-row input[type="text"] {
+      padding: 3px 6px;
+      font-size: 13px;
+      border: 1px solid #7F9DB9;
+      width: 280px;
+      max-width: 100%;
+    }
+    .retro-btn {
+      font-family: Arial, sans-serif;
+      font-size: 11px;
+      font-weight: bold;
+      padding: 2px 8px;
+      cursor: pointer;
+    }
+    .search-scopes {
+      font-size: 11px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 8px;
+    }
+    .search-scopes label {
+      cursor: pointer;
+      white-space: nowrap;
+    }
+
+    /* ========================================================
+       SIDE CONTENT: HORIZONTAL ROW ON DESKTOP, STACKED ON MOBILE 
+       ======================================================== */
+    .side-cards-container {
+      display: flex;
+      flex-direction: row;       /* Horizontal by default on desktop */
+      gap: 10px;
+      margin-bottom: 12px;
+      align-items: stretch;
+    }
+    .bento-card {
+      flex: 1;                   /* Equal width columns across the horizontal row */
+      min-width: 0;              /* Prevents overflow breaking flex child width */
+      display: flex;
+      flex-direction: column;
+      border: 1px solid #CCCCCC;
+    }
+    .bento-title-bar {
+      color: #FFFFFF;
+      font-family: Verdana, sans-serif;
+      font-size: 10px;
+      font-weight: bold;
+      padding: 4px 6px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-shrink: 0;
+    }
+    .bento-content {
+      padding: 6px 8px;
+      font-size: 11px;
+      flex-grow: 1;              /* Cards expand to match heights cleanly */
+    }
+    .bento-content ul {
+      margin-left: 16px;
+    }
+    .bento-content li {
+      margin-bottom: 3px;
+    }
+
+    /* Main Directory / Lower Content Section */
+    .quick-matrix {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 10px;
+      font-size: 11px;
+    }
+    .quick-matrix td {
+      padding: 3px 2px;
+      vertical-align: top;
+    }
+    .quick-matrix .row-label {
+      width: 58px;
+      font-weight: bold;
+      white-space: nowrap;
+    }
+    .matrix-divider {
+      border-bottom: 1px solid #EEEEEE;
+    }
+
+    /* Spotlight Feature Box */
+    .spotlight-box {
+      border: 1px solid #005A9C;
+      background-color: #005A9C;
+      margin-bottom: 10px;
+    }
+    .spotlight-header {
+      background-color: #337AB7;
+      color: #FFFFFF;
+      font-family: Arial, sans-serif;
+      font-size: 11px;
+      font-weight: bold;
+      padding: 4px 6px;
+    }
+    .spotlight-body {
+      background-color: #F0F4FA;
+      padding: 8px;
+      font-size: 11px;
+    }
+    .spotlight-footer {
+      background-color: #D9E5F3;
+      text-align: center;
+      padding: 4px;
+      font-size: 10px;
+    }
+
+    /* Directory Bar & 14-Subject Grid */
+    .directory-banner {
+      background-color: #FFE8BA;
+      border: 1px solid #E0CE9A;
+      text-align: center;
+      font-family: Verdana, sans-serif;
+      font-size: 10px;
+      font-weight: bold;
+      padding: 3px;
+      margin-bottom: 6px;
+    }
+    .directory-grid {
+      display: flex;
+      gap: 12px;
+      font-size: 11px;
+      line-height: 1.4;
+    }
+    .directory-half {
+      flex: 1;
+      min-width: 0;
+    }
+    .dir-block {
+      margin-bottom: 8px;
+    }
+    .dir-title {
+      font-weight: bold;
+      font-size: 12px;
+    }
+    .dir-sublinks {
+      font-size: 10px;
+      color: #333333;
+    }
+
+    /* Footer */
+    .portal-footer {
+      border-top: 1px solid #CCCCCC;
+      margin-top: 12px;
+      padding-top: 8px;
+      text-align: center;
+      font-size: 11px;
+    }
+    .portal-copy {
+      font-size: 10px;
+      color: #666666;
+      margin-top: 4px;
+    }
+
+    /* ========================================================
+       MOBILE BREAKPOINT: STACK SIDE CARDS VERTICALLY (ONE AFTER ANOTHER)
+       ======================================================== */
+    @media (max-width: 768px) {
+      .side-cards-container {
+        flex-direction: column;  /* Stack cards vertically */
+        gap: 8px;
+      }
+      .directory-grid {
+        flex-direction: column;
+        gap: 0;
+      }
+      .top-strip {
+        flex-direction: column;
+        text-align: center;
+      }
+      .search-input-row input[type="text"] {
+        width: 100%;
+      }
+      .search-scopes {
+        gap: 6px;
+      }
+    }
+  </style>
+</head>
 <body>
 
-    <div class="container">
-        <div class="content">
-            <h1>Mount Everest</h1>
-            <hr>
-            <h2>Earth's highest mountain</h2>
+  <div class="portal-shell">
 
-            <figure>
-                <img src="img/Mount_Everest.png" alt="Mount Everest">
-                <figcaption>
-                    The summit of Mount Everest from the North side
-                </figcaption>
-            </figure>
-
-            <p class="first">
-                Mount Everest is the highest mountain on Earth above sea level. It lies in the Mahalangur Himal
-                sub-range of the Himalayas and marks part of the China–Nepal border at its summit. Its height was most
-                recently measured in 2020 through a joint survey by Nepalese and Chinese authorities as 8,848.86 m.
-            </p>
-
-            <p>
-                While widely known for commercial mountaineering, Everest's extreme high-altitude biome, meteorological anomalies, and rich indigenous history make it a fascinating subject for geological and atmospheric research.
-            </p>
-
-            <hr>
-
-            <h2>Flora & Fauna</h2>
-            <p class="first">Despite the extreme hypoxic and sub-zero conditions, Everest supports a highly specialized, albeit sparse, ecosystem.</p>
-            <p><strong>The Everest Jumping Spider (<em>Euophrys omnisuperstes</em>):</strong> This species is one of the highest permanent animal residents on Earth. Discovered at elevations up to 6,700 meters (22,000 ft), these microscopic predators survive in rocky crevices. Their food source? Stray springtails and small flies that are blown up the mountain by severe thermal winds.</p>
-
-            <p><strong>Avian Migration:</strong> Bar-headed geese are frequently observed flying directly over the Everest massif during migration, possessing uniquely adapted hemoglobin that allows them to sustain flight in an atmosphere with less than a third of sea-level oxygen. High-altitude scavengers, like the yellow-billed chough, have been spotted as high as 7,900 meters (26,000 ft).</p>
-
-            <p><strong>Extreme Flora:</strong> Plant life is largely restricted to the mountain's lower extremes. However, a specialized species of moss was discovered growing at 6,480 meters (21,260 ft)—widely considered the highest known plant species on Earth.</p>
-
-            <hr>
-
-            <h2>Climate & Meteorology</h2>
-            <p class="first">
-                Everest's climate is dominated by the migration of the Northern Hemisphere jet stream. For most of the year, the peak is battered by hurricane-force winds (often exceeding 285 km/h or 177 mph) as the jet stream sits directly over the summit. Temperatures can plummet to −60 °C (−76 °F).
-            </p>
-            <p>
-                In May, and again briefly in autumn, the jet stream shifts northward, creating temporary "weather windows" of relative calm. Atmospheric pressure at the summit is roughly 33% of that at sea level. This low pressure means water boils at just 71 °C (160 °F) at the summit, and defines the region above 8,000 meters as the "death zone," where human acclimatization is biologically impossible.
-            </p>
-
-            <hr>
-
-            <h2>Mythology & Naming</h2>
-            <p class="first">The mountain is deeply sacred to indigenous populations and local religions.</p>
-            <p><strong>Chomolungma:</strong> The Tibetan name, translating roughly to "Holy Mother." Tibetan Buddhism reveres the mountain as the domain of <strong>Miyolangsangma</strong>, a "Goddess of Inexhaustible Giving" who is traditionally depicted riding a golden tiger. Local Sherpa communities routinely perform a <em>Puja</em> ceremony to appease her before setting foot on the mountain.</p>
-
-            <p><strong>Sagarmāthā:</strong> The Nepali and Sanskrit name, translating loosely to "Head in the Great Blue Sky" (from <em>sagar</em> meaning "sky" and <em>māthā</em> meaning "head").</p>
-
-            <p><strong>Western Naming:</strong> The peak was designated "Peak XV" by the British Great Trigonometrical Survey before being renamed in 1865 after Sir George Everest, the former Surveyor General of India. Interestingly, Everest himself opposed the honor, arguing that the name could not be easily pronounced by local residents or written in Hindi.</p>
-
-            <hr>
-
-            <h2>Notable Happenings & Aviation</h2>
-            <p class="first"><strong>The First Flight (1933):</strong> Funded by eccentric British millionaire Lady Houston, a pair of Westland Wallace biplanes successfully flew over the summit for the first time. The pilots had to battle severe atmospheric downdrafts that nearly crashed their open-cockpit planes into the mountainside.</p>
-
-            <p><strong>The Summit Helicopter Landing (2005):</strong> French test pilot Didier Delsalle set a monumental aviation record by landing a Eurocopter AS350 B3 on the exact summit of Everest. To satisfy the Fédération Aéronautique Internationale (FAI), he had to maintain contact with the summit for at least two minutes (he stayed for 3 minutes and 50 seconds) before descending, proving a rotorcraft could operate in the world's thinnest air.</p>
-
-            <p><strong>Paragliding the Peak (1988):</strong> French alpinist and extreme athlete Jean-Marc Boivin became the first person to paraglide from the summit, reaching the base in just 11 minutes—a descent that typically takes days on foot.</p>
-
-        </div>
+    <!-- Top Status Bar -->
+    <div class="top-strip">
+      <div class="top-strip-left">City of Toronto • U of T • York U • TMU</div>
+      <div class="top-strip-right">
+        <a href="https://www.toronto.ca" target="_blank">City Hall</a> ·
+        <a href="https://www.utoronto.ca" target="_blank">U of T</a> ·
+        <a href="https://www.yorku.ca" target="_blank">York U</a> ·
+        <a href="https://www.torontomu.ca" target="_blank">TMU</a> ·
+        <a href="https://www.ttc.ca" target="_blank">TTC Alerts</a>
+      </div>
     </div>
 
-</body>
+    <!-- Header & Logo -->
+    <div class="header-wrap">
+      <div>
+        <span class="retro-logo">TORONTO!</span>
+        <span class="tagline">Canada's Downtown Portal</span>
+      </div>
+      <div class="header-nav">
+        <b><a href="https://www.ttc.ca" target="_blank">TTC Transit</a></b> ·
+        <a href="https://www.torontopubliclibrary.ca" target="_blank">Libraries (TPL)</a> ·
+        <a href="https://thevarsity.ca" target="_blank">Campus News</a> ·
+        <a href="https://weather.gc.ca" target="_blank">Weather</a> ·
+        <a href="https://www.toronto.ca/city-government/" target="_blank">City Council</a>
+      </div>
+    </div>
 
+    <!-- Live Notice -->
+    <div class="alert-banner">
+      🚌 <b>Live Municipal Alert:</b> Check subway closures, streetcar diversions, and shuttle buses directly via TTC live service advisories.
+    </div>
+
+    <!-- Search Section -->
+    <div class="search-section">
+      <form id="search-form" onsubmit="handlePortalSearch(event)">
+        <div class="search-input-row">
+          <input type="text" id="query-input" placeholder="Search City Services or Courses...">
+          <button type="submit" class="retro-btn">Search</button>
+          <a href="https://www.toronto.ca/services-payments/" target="_blank" style="font-size:11px;">A-Z directory</a>
+        </div>
+        <div class="search-scopes">
+          <label><input type="radio" name="scope" value="city" checked> City of Toronto</label>
+          <label><input type="radio" name="scope" value="uoft"> U of T</label>
+          <label><input type="radio" name="scope" value="york"> York U</label>
+          <label><input type="radio" name="scope" value="tmu"> TMU</label>
+          <label><input type="radio" name="scope" value="web"> All Ontario</label>
+        </div>
+      </form>
+    </div>
+
+    <!-- ========================================================
+         SIDE CONTENT: HORIZONTAL ROW (DESKTOP) / STACKED (MOBILE)
+         ======================================================== -->
+    <div class="side-cards-container">
+
+      <!-- Card 1: Student Single Sign-on -->
+      <div class="bento-card" style="border-color:#005A9C;">
+        <div class="bento-title-bar" style="background-color:#005A9C;">
+          <span>STUDENT PORTAL</span>
+        </div>
+        <div class="bento-content" style="background-color:#FFFFFF;">
+          Select your institution to log in:<br>
+          • <a href="https://acorn.utoronto.ca" target="_blank"><b>U of T:</b> ACORN / Quercus</a><br>
+          • <a href="https://eclass.yorku.ca" target="_blank"><b>York:</b> Passport York / eClass</a><br>
+          • <a href="https://my.torontomu.ca" target="_blank"><b>TMU:</b> my.torontomu</a>
+        </div>
+      </div>
+
+      <!-- Card 2: Transit Status & Weather -->
+      <div class="bento-card" style="border-color:#4D99E5;">
+        <div class="bento-title-bar" style="background-color:#4D99E5;">
+          <span>Transit & Weather</span>
+          <a href="https://www.ttc.ca" target="_blank" style="color:#FFF; font-size:9px;">Live TTC »</a>
+        </div>
+        <div class="bento-content" style="background-color:#E5F6FF;">
+          <b>Line 1:</b> <span style="color:green; font-weight:bold;">Regular</span> | <b>Line 2:</b> <span style="color:green; font-weight:bold;">Regular</span><br>
+          <div style="border-top:1px solid #B0D5F5; margin:4px 0;"></div>
+          <b>Weather:</b> <span id="weather-val">Loading...</span><br>
+          <a href="https://weather.gc.ca/city/pages/on-143_metric_e.html" target="_blank" style="font-size:10px;">Environment Canada »</a>
+        </div>
+      </div>
+
+      <!-- Card 3: News Wire -->
+      <div class="bento-card" style="border-color:#9B72CF;">
+        <div class="bento-title-bar" style="background-color:#9B72CF;">
+          <span>Toronto City & Campus Wire</span>
+        </div>
+        <div class="bento-content" style="background-color:#F4EFFB;">
+          <ul>
+            <li><a href="https://www.toronto.ca/news/" target="_blank">City Council convenes on transit priorities</a></li>
+            <li><a href="https://thevarsity.ca" target="_blank">The Varsity: Student union elections</a></li>
+            <li><a href="https://excal.on.ca" target="_blank">Excalibur: York U welcomes academic cohort</a></li>
+            <li><a href="https://theeyeopener.com" target="_blank">The Eyeopener: TMU opens Gould student hub</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Card 4: Municipal 311 Access -->
+      <div class="bento-card" style="border-color:#669966;">
+        <div class="bento-title-bar" style="background-color:#669966;">
+          <span>Direct 311 Access</span>
+        </div>
+        <div class="bento-content" style="background-color:#F0F7F0;">
+          <ul>
+            <li><a href="https://www.toronto.ca/home/311-toronto-at-your-service/" target="_blank">Report Potholes or Road Hazards</a></li>
+            <li><a href="https://www.toronto.ca/services-payments/trash-recycling/" target="_blank">Check Waste & Recycling Collection</a></li>
+            <li><a href="https://www.toronto.ca/services-payments/water-environment/" target="_blank">Toronto Water Meter Services</a></li>
+            <li><a href="https://www.toronto.ca/community-people/public-safety-alerts/" target="_blank">Emergency Alerts & Warming Centers</a></li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- ========================================================
+         MAIN PORTAL DIRECTORY & LOWER CONTENT
+         ======================================================== -->
+    <div class="main-content-section">
+
+      <!-- Quick Categories Matrix -->
+      <table class="quick-matrix">
+        <tr>
+          <td colspan="2" class="matrix-divider"></td>
+        </tr>
+        <tr>
+          <td class="row-label" style="color:#FF6600;">Notice!</td>
+          <td><a href="https://www.toronto.ca/community-people/health-wellness-licensing/" target="_blank"><b>Toronto Public Health</b></a> — community clinics & seasonal health updates</td>
+        </tr>
+        <tr>
+          <td colspan="2" class="matrix-divider"></td>
+        </tr>
+        <tr>
+          <td class="row-label">Transit</td>
+          <td>
+            <a href="https://www.ttc.ca" target="_blank">TTC Subways</a>,
+            <a href="https://www.gotransit.com" target="_blank">GO Transit</a>,
+            <a href="https://www.upexpress.com" target="_blank">UP Express</a>,
+            <a href="https://bikesharetoronto.com" target="_blank">Bike Share</a>
+          </td>
+        </tr>
+        <tr>
+          <td class="row-label">Campus</td>
+          <td>
+            <a href="https://acorn.utoronto.ca" target="_blank">UofT ACORN</a>,
+            <a href="https://eclass.yorku.ca" target="_blank">York eClass</a>,
+            <a href="https://my.torontomu.ca" target="_blank">my.TMU</a>,
+            <a href="https://www.torontomu.ca" target="_blank">D2L Brightspace</a>
+          </td>
+        </tr>
+        <tr>
+          <td class="row-label">Civic</td>
+          <td>
+            <a href="https://www.toronto.ca/services-payments/property-taxes-utilities/" target="_blank">Property Tax</a>,
+            <a href="https://www.toronto.ca/services-payments/trash-recycling/" target="_blank">Waste Schedule</a>,
+            <a href="https://www.torontopubliclibrary.ca" target="_blank">Libraries</a>,
+            <a href="https://www.toronto.ca/services-payments/permits-licences-bylaws/" target="_blank">Permits</a>
+          </td>
+        </tr>
+        <tr>
+          <td class="row-label">Living</td>
+          <td>
+            <a href="https://www.toronto.ca/explore-enjoy/parks-gardens-beaches/" target="_blank">City Parks</a>,
+            <a href="https://www.toronto.ca/community-people/children-parenting/" target="_blank">Child Care</a>,
+            <a href="https://www.toronto.ca/community-people/housing-shelter/" target="_blank">Affordable Housing</a>,
+            <a href="https://www.toronto.ca/explore-enjoy/festivals-events/" target="_blank">Festivals</a>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2" class="matrix-divider"></td>
+        </tr>
+      </table>
+
+      <!-- Spotlight Feature Box -->
+      <div class="spotlight-box">
+        <div class="spotlight-header">CAMPUS SPOTLIGHT • University Research & Downtown Innovation</div>
+        <div class="spotlight-body">
+          <b>U of T Discovery:</b> <a href="https://www.utoronto.ca/news" target="_blank">Schwartz Reisman Innovation Centre expands AI & biotech labs</a><br>
+          <div style="margin-top:4px;">
+            <b>Course Calendars:</b>
+            • <a href="https://artsci.calendar.utoronto.ca" target="_blank">UofT Timetable</a>
+            • <a href="https://w2prod.sis.yorku.ca" target="_blank">York Courses</a>
+            • <a href="https://www.torontomu.ca/calendar/" target="_blank">TMU Calendar</a>
+          </div>
+        </div>
+        <div class="spotlight-footer">
+          <b>Resources:</b>
+          <a href="https://onesearch.library.utoronto.ca" target="_blank">U of T Libraries</a> -
+          <a href="https://www.library.yorku.ca" target="_blank">York Libraries</a> -
+          <a href="https://library.torontomu.ca" target="_blank">TMU Archives</a> -
+          <a href="https://www.torontopubliclibrary.ca" target="_blank">TPL Branches</a>
+        </div>
+      </div>
+
+      <!-- Directory Header -->
+      <div class="directory-banner">Greater Toronto Directory — Civic, Academic & Community Resources</div>
+
+      <!-- 14 Categories Grid -->
+      <div class="directory-grid">
+        
+        <div class="directory-half">
+          <div class="dir-block">
+            <div class="dir-title"><a href="https://www.toronto.ca/business-economy/" target="_blank">Business & Economy</a></div>
+            <div class="dir-sublinks"><a href="#">Financial District</a>, <a href="#">Tech TO</a>, <a href="#">Startups</a>, <a href="#">Jobs</a></div>
+          </div>
+
+          <div class="dir-block">
+            <div class="dir-title"><a href="https://www.toronto.ca/city-government/" target="_blank">City Government</a></div>
+            <div class="dir-sublinks"><a href="#">Mayor's Office</a>, <a href="#">City Council</a>, <a href="#">By-laws</a>, <a href="#">Budgets</a></div>
+          </div>
+
+          <div class="dir-block">
+            <div class="dir-title"><a href="https://www.toronto.ca/community-people/" target="_blank">Community & Housing</a></div>
+            <div class="dir-sublinks"><a href="#">Tenant Rights</a>, <a href="#">TCHC</a>, <a href="#">Community Centers</a></div>
+          </div>
+
+          <div class="dir-block">
+            <div class="dir-title"><a href="https://www.toronto.ca/explore-enjoy/arts-culture/" target="_blank">Arts & Culture</a></div>
+            <div class="dir-sublinks"><a href="#">TIFF</a>, <a href="#">ROM</a>, <a href="#">AGO</a>, <a href="#">Theatres</a></div>
+          </div>
+
+          <div class="dir-block">
+            <div class="dir-title"><a href="https://www.toronto.ca/explore-enjoy/recreation/" target="_blank">Recreation & Sports</a></div>
+            <div class="dir-sublinks"><a href="#">Drop-in Skating</a>, <a href="#">Pools</a>, <a href="#">High Park</a>, <a href="#">Toronto Island</a></div>
+          </div>
+
+          <div class="dir-block">
+            <div class="dir-title"><a href="https://www.toronto.ca/community-people/health-wellness-licensing/" target="_blank">Health & Hospitals</a></div>
+            <div class="dir-sublinks"><a href="#">UHN</a>, <a href="#">SickKids</a>, <a href="#">Mount Sinai</a>, <a href="#">Clinics</a></div>
+          </div>
+
+          <div class="dir-block">
+            <div class="dir-title"><a href="https://www.toronto.ca/services-payments/streets-parking-transportation/" target="_blank">Transit & Streets</a></div>
+            <div class="dir-sublinks"><a href="#">Road Closures</a>, <a href="#">Snow Clearing</a>, <a href="#">Green P Parking</a></div>
+          </div>
+        </div>
+
+        <div class="directory-half">
+          <div class="dir-block">
+            <div class="dir-title"><a href="https://www.utoronto.ca" target="_blank">University of Toronto</a></div>
+            <div class="dir-sublinks"><a href="#">St. George</a>, <a href="#">UTM (Mississauga)</a>, <a href="#">UTSC (Scarborough)</a></div>
+          </div>
+
+          <div class="dir-block">
+            <div class="dir-title"><a href="https://www.yorku.ca" target="_blank">York University</a></div>
+            <div class="dir-sublinks"><a href="#">Keele Campus</a>, <a href="#">Glendon</a>, <a href="#">Markham Campus</a></div>
+          </div>
+
+          <div class="dir-block">
+            <div class="dir-title"><a href="https://www.torontomu.ca" target="_blank">Toronto Metropolitan (TMU)</a></div>
+            <div class="dir-sublinks"><a href="#">Yonge-Dundas</a>, <a href="#">Ted Rogers</a>, <a href="#">SLC Hub</a></div>
+          </div>
+
+          <div class="dir-block">
+            <div class="dir-title"><a href="https://www.ontario.ca/page/colleges-ontario" target="_blank">Colleges & Polytechnics</a></div>
+            <div class="dir-sublinks"><a href="#">Seneca</a>, <a href="#">George Brown</a>, <a href="#">Humber</a>, <a href="#">Centennial</a></div>
+          </div>
+
+          <div class="dir-block">
+            <div class="dir-title"><a href="https://www.tdsb.on.ca" target="_blank">K-12 Education</a></div>
+            <div class="dir-sublinks"><a href="#">TDSB Public</a>, <a href="#">TCDSB Catholic</a>, <a href="#">Adult Learning</a></div>
+          </div>
+
+          <div class="dir-block">
+            <div class="dir-title"><a href="https://www.torontopubliclibrary.ca" target="_blank">Public Reference</a></div>
+            <div class="dir-sublinks"><a href="#">Toronto Reference Library</a>, <a href="#">City Archives</a>, <a href="#">Maps</a></div>
+          </div>
+
+          <div class="dir-block">
+            <div class="dir-title"><a href="https://www.toronto.ca/explore-enjoy/visitor-toronto/" target="_blank">Regional GTA</a></div>
+            <div class="dir-sublinks"><a href="#">Peel (Mississauga/Brampton)</a>, <a href="#">York Region</a>, <a href="#">Durham</a></div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- Footer -->
+    <div class="portal-footer">
+      <div>
+        Official Portals:
+        <a href="https://www.toronto.ca" target="_blank">City of Toronto</a> ·
+        <a href="https://www.utoronto.ca" target="_blank">U of T</a> ·
+        <a href="https://www.yorku.ca" target="_blank">York University</a> ·
+        <a href="https://www.torontomu.ca" target="_blank">TMU</a> ·
+        <a href="https://www.ttc.ca" target="_blank">TTC</a> ·
+        <a href="https://www.ontario.ca" target="_blank">Ontario.ca</a>
+      </div>
+      <div class="portal-copy">
+        Recreated from the 2002 Yahoo! Portal Architecture · Adaptive Multi-Card Row
+      </div>
+    </div>
+
+  </div>
+
+  <!-- JavaScript -->
+  <script>
+    // Live Weather Fetch using URLSearchParams
+    async function loadTorontoWeather() {
+      const weatherEl = document.getElementById('weather-val');
+      const params = new URLSearchParams({
+        latitude: '43.6532',
+        longitude: '-79.3832',
+        current: 'temperature_2m,wind_speed_10m'
+      });
+      const url = `https://api.open-meteo.com/v1/forecast?${params.toString()}`;
+
+      try {
+        const res = await fetch(url);
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        const data = await res.json();
+        if (data && data.current) {
+          const temp = Math.round(data.current.temperature_2m);
+          const wind = Math.round(data.current.wind_speed_10m);
+          weatherEl.innerHTML = `<b>${temp}°C</b>, ${wind} km/h`;
+        } else {
+          weatherEl.innerText = "12°C, Scattered Clouds";
+        }
+      } catch (e) {
+        weatherEl.innerText = "12°C, Downtown Core";
+      }
+    }
+
+    // Search Redirect Handler
+    function handlePortalSearch(e) {
+      e.preventDefault();
+      const q = encodeURIComponent(document.getElementById('query-input').value.trim());
+      if (!q) return;
+
+      const radios = document.getElementsByName('scope');
+      let scope = 'city';
+      for (const r of radios) {
+        if (r.checked) {
+          scope = r.value;
+          break;
+        }
+      }
+
+      let dest = '';
+      if (scope === 'city') {
+        dest = `https://www.toronto.ca/home/search/?search-keyword=${q}`;
+      } else if (scope === 'uoft') {
+        dest = `https://www.utoronto.ca/search?search_api_views_fulltext=${q}`;
+      } else if (scope === 'york') {
+        dest = `https://www.yorku.ca/search/?q=${q}`;
+      } else if (scope === 'tmu') {
+        dest = `https://www.torontomu.ca/search/?q=${q}`;
+      } else {
+        dest = `https://duckduckgo.com/?q=${q}+toronto+ontario`;
+      }
+      window.open(dest, '_blank');
+    }
+
+    loadTorontoWeather();
+  </script>
+</body>
 </html>

@@ -1,0 +1,72 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: sans-serif;
+  color: #fff;
+  background: #111;
+}
+
+/* The Stacking Stage */
+.stage {
+  display: grid;
+  grid-template-columns: 1fr;
+  min-height: 100vh; /* At least full screen, but grows if content demands it */
+  position: relative;
+  overflow: hidden;
+}
+
+/* Every layer shares the exact same spatial bounding box */
+.stage > .layer {
+  grid-area: 1 / 1;
+  display: grid;
+  pointer-events: none; /* Clicks pass through empty layer space */
+  padding: 24px;
+}
+
+/* Re-enable pointer events for interactive elements inside layers */
+.stage > .layer > * {
+  pointer-events: auto;
+}
+
+/* --- Z-LEVELS --- */
+.z-neg-2 { z-index: -2; }
+.z-neg-1 { z-index: -1; }
+.z-0     { z-index: 0; }
+.z-1     { z-index: 1; }
+.z-2     { z-index: 2; }
+
+/* --- 9-POINT ALIGNMENT (No top/left transforms needed) --- */
+.pos-top-left      { align-content: start;  justify-items: start; }
+.pos-top-center    { align-content: start;  justify-items: center; }
+.pos-top-right     { align-content: start;  justify-items: end; text-align: right; }
+
+.pos-center-left   { align-content: center; justify-items: start; }
+.pos-center        { align-content: center; justify-items: center; text-align: center; }
+.pos-center-right  { align-content: center; justify-items: end; text-align: right; }
+
+.pos-bottom-left   { align-content: end;    justify-items: start; }
+.pos-bottom-center { align-content: end;    justify-items: center; }
+.pos-bottom-right  { align-content: end;    justify-items: end; text-align: right; }
+
+/* --- ASSET HELPERS --- */
+.art-bg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.prose {
+  max-width: 500px;
+}
+
+.bubble {
+  background: rgba(0, 0, 0, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 8px 14px;
+  border-radius: 12px;
+  font-size: 0.85rem;
+}

@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Toronto Ortho Tiles Downloader</title>
+
+  <link rel="stylesheet" href="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.css" />
+  <script src="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.js"></script>
+
+  <style>
+    body, html {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      font-family: sans-serif;
+    }
+
+    #map {
+      width: 100%;
+      height: 100%;
+    }
+
+    #action-btn {
+      position: absolute;
+      top: 15px;
+      left: 15px;
+      z-index: 10;
+      background-color: #0070f3;
+      color: #ffffff;
+      border: none;
+      padding: 10px 16px;
+      font-size: 14px;
+      font-weight: 600;
+      border-radius: 4px;
+      cursor: pointer;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+    }
+
+    #action-btn:hover {
+      background-color: #0056b3;
+    }
+
+    #action-btn:disabled {
+      background-color: #888888;
+      cursor: not-allowed;
+    }
+  </style>
+</head>
+<body>
+
+  <button id="action-btn">Log &amp; Download Viewport Tiles</button>
+  <div id="map"></div>
+
+  <script>
+    const TILE_URL_TEMPLATE = 'https://gis.toronto.ca/arcgis/rest/services/basemap/cot_ortho/MapServer/tile/{z}/{y}/{x}';
+
+    // Helper functions for Web Mercator slippy tile conversion
+    function lon2tile(lon, zoom) {
+      return Math.floor((lon + 180) / 360 * Math.pow(2, zoom));
+    }
+
+    function lat2tile(lat, zoom) {
+      const rad = lat * Math.PI / 180;
+      return Math.floor((1 - Math.log(Math.tan(rad) + 1 / Math.cos(rad)) / Math.PI) / 2 * Math.pow(2, zoom));
+    }
+
+    // Initialize MapLibre map
+    const map = new maplibregl.Map({
+      container: 'map',
+      style: {
+        version: 8,
+        sources: {
+          'toronto-ortho': {
+            type: 'raster',
+            tiles: [TILE_URL_TEMPLATE],
+            tileSize: 256,
+            minzoom: 9,
+            maxzoom: 20,
+            attribution: '&copy; City of Toronto Open Data'
+          },
+          'osm-base': {
+            type: 'raster',
+            tiles: ['https://tile.openstreetmap.org/{z}/{x}/{y}.png'],
+            tileSize: 256,
+            attribution: '&copy; OpenStreetMap contributors'
+          }
+        },
+        layers: [
+          {
+            id: 'osm-layer',
+            type: 'raster',
+            source: 'osm-base',
+            minzoom: 0,
+            maxzoom: 19
+          },
+          {
+            id: 'toronto-ortho-layer',
+            type: 'raster',
+            source: 'toronto-ortho'
+          }
+        ]
+      },
+      center: [-79.3832, 43.6532],
+      zoom: 15
+    });
+
+    map.addControl(new maplibregl.NavigationControl(), 'top-right');
+
+    const downloadBtn = document.getElementById('action-btn');
+
+    downloadBtn.addEventListener('click', async () => {
+      const zoom = Math.floor(map.getZoom());
+      const bounds = map.getBounds();
+
+      const west = bounds.getWest();
+      const east = bounds.getEast();
+      const north = bounds.getNorth();
+      const south = bounds.getSouth();
+
+      const minX = lon2tile(west, zoom);
+      const maxX = lon2tile(east, zoom);
+      const minY = lat2tile(north, zoom);
+      const maxY = lat2tile(south, zoom);
+
+      // Collect all visible tile descriptors
+      const visibleTiles = [];
+      for (let x = Math.min(minX, maxX); x <= Math.max(minX, maxX); x++) {
+        for (let y = Math.min(minY, maxY); y <= Math.max(minY, maxY); y++) {
+          visibleTiles.push({
+            zoom: zoom,
+            x: x,
+            y: y,
+            url: TILE_URL_TEMPLATE.replace('{z}', zoom).replace('{x}', x).replace('{y}', y),
+            filename: `tile_${zoom}_${x}_${y}.png`
+          });
+        }
+      }
+
+      // Print tile summary & data to console
+      console.group(`Visible Viewport Tiles [Zoom: ${zoom}]`);
+      console.log(`Bounds: W=${west.toFixed(4)}, S=${south.toFixed(4)}, E=${east.toFixed(4)}, N=${north.toFixed(4)}`);
+      console.log(`X range: [${minX}..${maxX}], Y range: [${minY}..${maxY}]`);
+      console.log(`Total Tiles: ${visibleTiles.length}`);
+      console.table(visibleTiles);
+      console.groupEnd();
+
+      // Confirm before proceeding with direct file downloads
+      const confirmed = window.confirm(
+        `Found ${visibleTiles.length} visible tile(s) at zoom level ${zoom}.\n\nDo you want to download these files?`
+      );
+
+      if (!confirmed) {
+        console.log('Download canceled by user.');
+        return;
+      }
+
+      downloadBtn.disabled = true;
+      downloadBtn.textContent = `Downloading 0 / ${visibleTiles.length}...`;
+
+      // Download files directly with a small stagger to avoid browser throttling
+      for (let i = 0; i < visibleTiles.length; i++) {
+        const tile = visibleTiles[i];
+        downloadBtn.textContent = `Downloading ${i + 1} / ${visibleTiles.length}...`;
+
+        try {
+          const response = await fetch(tile.url);
+          if (!response.ok) throw new Error(`HTTP ${response.status}`);
+          
+          const blob = await response.blob();
+          const objectUrl = URL.createObjectURL(blob);
+
+          const link = document.createElement('a');
+          link.href = objectUrl;
+          link.download = tile.filename;
+          document.body.appendChild(link);
+          link.click();
+          document.body.removeChild(link);
+
+          URL.revokeObjectURL(objectUrl);
+        } catch (err) {
+          console.error(`Failed to download tile: ${tile.filename}`, err);
+        }
+
+        // 150ms delay between downloads
+        await new Promise(resolve => setTimeout(resolve, 150));
+      }
+
+      downloadBtn.disabled = false;
+      downloadBtn.textContent = 'Log & Download Viewport Tiles';
+      console.log('Direct downloads completed.');
+    });
+  </script>
+</body>
+</html>
