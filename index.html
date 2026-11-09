@@ -52,6 +52,19 @@
       font-weight: bold;
     }
 
+    /* Standard 468x60 Top Web Banner */
+    .top-ad-banner {
+      text-align: center;
+      margin: 6px auto 8px auto;
+    }
+    .top-ad-banner img {
+      width: 468px;
+      height: 60px;
+      max-width: 100%;
+      border: 1px solid #999999;
+      display: inline-block;
+    }
+
     /* Logo & Nav Header */
     .header-wrap {
       text-align: center;
@@ -126,19 +139,17 @@
       white-space: nowrap;
     }
 
-    /* ========================================================
-       SIDE CONTENT: HORIZONTAL ROW ON DESKTOP, STACKED ON MOBILE 
-       ======================================================== */
+    /* Bento Cards Row */
     .side-cards-container {
       display: flex;
-      flex-direction: row;       /* Horizontal by default on desktop */
+      flex-direction: row;
       gap: 10px;
       margin-bottom: 12px;
       align-items: stretch;
     }
     .bento-card {
-      flex: 1;                   /* Equal width columns across the horizontal row */
-      min-width: 0;              /* Prevents overflow breaking flex child width */
+      flex: 1;
+      min-width: 0;
       display: flex;
       flex-direction: column;
       border: 1px solid #CCCCCC;
@@ -157,13 +168,27 @@
     .bento-content {
       padding: 6px 8px;
       font-size: 11px;
-      flex-grow: 1;              /* Cards expand to match heights cleanly */
+      flex-grow: 1;
     }
     .bento-content ul {
       margin-left: 16px;
     }
     .bento-content li {
       margin-bottom: 3px;
+    }
+
+    /* Card Layout with Square Thumbnail (Flex row) */
+    .thumb-layout {
+      display: flex;
+      gap: 6px;
+      align-items: flex-start;
+    }
+    .card-thumb {
+      width: 52px;
+      height: 52px;
+      border: 1px solid #AAAAAA;
+      flex-shrink: 0;
+      object-fit: cover;
     }
 
     /* Main Directory / Lower Content Section */
@@ -186,7 +211,7 @@
       border-bottom: 1px solid #EEEEEE;
     }
 
-    /* Spotlight Feature Box */
+    /* Spotlight Feature Box with Floated Editorial Image */
     .spotlight-box {
       border: 1px solid #005A9C;
       background-color: #005A9C;
@@ -204,6 +229,18 @@
       background-color: #F0F4FA;
       padding: 8px;
       font-size: 11px;
+      overflow: hidden; /* Clearfix for float */
+    }
+    .spotlight-img {
+      float: right;
+      width: 150px;
+      height: 95px;
+      object-fit: cover;
+      margin-left: 10px;
+      margin-bottom: 4px;
+      border: 1px solid #7799BB;
+      padding: 1px;
+      background: #FFFFFF;
     }
     .spotlight-footer {
       background-color: #D9E5F3;
@@ -212,7 +249,7 @@
       font-size: 10px;
     }
 
-    /* Directory Bar & 14-Subject Grid */
+    /* Directory Main Area + Side Skyscraper Ad */
     .directory-banner {
       background-color: #FFE8BA;
       border: 1px solid #E0CE9A;
@@ -223,8 +260,13 @@
       padding: 3px;
       margin-bottom: 6px;
     }
+    .directory-layout-wrap {
+      display: flex;
+      gap: 12px;
+    }
     .directory-grid {
       display: flex;
+      flex: 1;
       gap: 12px;
       font-size: 11px;
       line-height: 1.4;
@@ -239,10 +281,38 @@
     .dir-title {
       font-weight: bold;
       font-size: 12px;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+    .dir-icon {
+      width: 14px;
+      height: 14px;
+      vertical-align: middle;
+      flex-shrink: 0;
     }
     .dir-sublinks {
       font-size: 10px;
       color: #333333;
+      padding-left: 18px;
+    }
+
+    /* Right Skyscraper Ad (120x240) */
+    .skyscraper-col {
+      width: 120px;
+      flex-shrink: 0;
+      text-align: center;
+    }
+    .skyscraper-col img {
+      width: 120px;
+      height: 240px;
+      border: 1px solid #CCCCCC;
+      display: block;
+    }
+    .ad-tag {
+      font-size: 9px;
+      color: #999999;
+      margin-bottom: 2px;
     }
 
     /* Footer */
@@ -259,17 +329,32 @@
       margin-top: 4px;
     }
 
-    /* ========================================================
-       MOBILE BREAKPOINT: STACK SIDE CARDS VERTICALLY (ONE AFTER ANOTHER)
-       ======================================================== */
+    /* Responsive adjustments */
     @media (max-width: 768px) {
       .side-cards-container {
-        flex-direction: column;  /* Stack cards vertically */
+        flex-direction: column;
         gap: 8px;
+      }
+      .directory-layout-wrap {
+        flex-direction: column;
       }
       .directory-grid {
         flex-direction: column;
         gap: 0;
+      }
+      .skyscraper-col {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 8px;
+      }
+      .spotlight-img {
+        float: none;
+        width: 100%;
+        height: auto;
+        max-height: 150px;
+        margin: 0 0 8px 0;
       }
       .top-strip {
         flex-direction: column;
@@ -277,9 +362,6 @@
       }
       .search-input-row input[type="text"] {
         width: 100%;
-      }
-      .search-scopes {
-        gap: 6px;
       }
     }
   </style>
@@ -298,6 +380,13 @@
         <a href="https://www.torontomu.ca" target="_blank">TMU</a> ·
         <a href="https://www.ttc.ca" target="_blank">TTC Alerts</a>
       </div>
+    </div>
+
+    <!-- Retro Banner Ad (468x60) -->
+    <div class="top-ad-banner">
+      <a href="https://www.toronto.ca" target="_blank">
+        <img src="https://images.unsplash.com/photo-1507992781348-310259076fa0?w=468&h=60&fit=crop" alt="Explore Toronto Skyline Banner">
+      </a>
     </div>
 
     <!-- Header & Logo -->
@@ -338,49 +427,55 @@
       </form>
     </div>
 
-    <!-- ========================================================
-         SIDE CONTENT: HORIZONTAL ROW (DESKTOP) / STACKED (MOBILE)
-         ======================================================== -->
+    <!-- Side Content Cards Row with Thumbnails -->
     <div class="side-cards-container">
 
-      <!-- Card 1: Student Single Sign-on -->
+      <!-- Card 1: Student Portal -->
       <div class="bento-card" style="border-color:#005A9C;">
         <div class="bento-title-bar" style="background-color:#005A9C;">
           <span>STUDENT PORTAL</span>
         </div>
         <div class="bento-content" style="background-color:#FFFFFF;">
-          Select your institution to log in:<br>
-          • <a href="https://acorn.utoronto.ca" target="_blank"><b>U of T:</b> ACORN / Quercus</a><br>
-          • <a href="https://eclass.yorku.ca" target="_blank"><b>York:</b> Passport York / eClass</a><br>
-          • <a href="https://my.torontomu.ca" target="_blank"><b>TMU:</b> my.torontomu</a>
+          <div class="thumb-layout">
+            <img class="card-thumb" src="https://images.unsplash.com/photo-1541339907198-e08756dedf3f?w=60&h=60&fit=crop" alt="Campus">
+            <div>
+              Select your portal:<br>
+              • <a href="https://acorn.utoronto.ca" target="_blank"><b>U of T:</b> ACORN</a><br>
+              • <a href="https://eclass.yorku.ca" target="_blank"><b>York:</b> eClass</a><br>
+              • <a href="https://my.torontomu.ca" target="_blank"><b>TMU:</b> my.tmu</a>
+            </div>
+          </div>
         </div>
       </div>
 
-      <!-- Card 2: Transit Status & Weather -->
+      <!-- Card 2: Transit & Weather -->
       <div class="bento-card" style="border-color:#4D99E5;">
         <div class="bento-title-bar" style="background-color:#4D99E5;">
           <span>Transit & Weather</span>
           <a href="https://www.ttc.ca" target="_blank" style="color:#FFF; font-size:9px;">Live TTC »</a>
         </div>
         <div class="bento-content" style="background-color:#E5F6FF;">
-          <b>Line 1:</b> <span style="color:green; font-weight:bold;">Regular</span> | <b>Line 2:</b> <span style="color:green; font-weight:bold;">Regular</span><br>
-          <div style="border-top:1px solid #B0D5F5; margin:4px 0;"></div>
-          <b>Weather:</b> <span id="weather-val">Loading...</span><br>
-          <a href="https://weather.gc.ca/city/pages/on-143_metric_e.html" target="_blank" style="font-size:10px;">Environment Canada »</a>
+          <div class="thumb-layout">
+            <img class="card-thumb" src="https://images.unsplash.com/photo-1517649763962-0c623266ddc0?w=60&h=60&fit=crop" alt="Transit">
+            <div>
+              <b>Line 1:</b> <span style="color:green; font-weight:bold;">Regular</span><br>
+              <b>Line 2:</b> <span style="color:green; font-weight:bold;">Regular</span><br>
+              <b>Weather:</b> <span id="weather-val">Loading...</span>
+            </div>
+          </div>
         </div>
       </div>
 
       <!-- Card 3: News Wire -->
       <div class="bento-card" style="border-color:#9B72CF;">
         <div class="bento-title-bar" style="background-color:#9B72CF;">
-          <span>Toronto City & Campus Wire</span>
+          <span>City & Campus Wire</span>
         </div>
         <div class="bento-content" style="background-color:#F4EFFB;">
           <ul>
-            <li><a href="https://www.toronto.ca/news/" target="_blank">City Council convenes on transit priorities</a></li>
-            <li><a href="https://thevarsity.ca" target="_blank">The Varsity: Student union elections</a></li>
-            <li><a href="https://excal.on.ca" target="_blank">Excalibur: York U welcomes academic cohort</a></li>
-            <li><a href="https://theeyeopener.com" target="_blank">The Eyeopener: TMU opens Gould student hub</a></li>
+            <li><a href="https://www.toronto.ca/news/" target="_blank">Council convenes on transit budget</a></li>
+            <li><a href="https://thevarsity.ca" target="_blank">Varsity: Campus union elections</a></li>
+            <li><a href="https://theeyeopener.com" target="_blank">Eyeopener: TMU opens Gould hub</a></li>
           </ul>
         </div>
       </div>
@@ -392,33 +487,26 @@
         </div>
         <div class="bento-content" style="background-color:#F0F7F0;">
           <ul>
-            <li><a href="https://www.toronto.ca/home/311-toronto-at-your-service/" target="_blank">Report Potholes or Road Hazards</a></li>
-            <li><a href="https://www.toronto.ca/services-payments/trash-recycling/" target="_blank">Check Waste & Recycling Collection</a></li>
-            <li><a href="https://www.toronto.ca/services-payments/water-environment/" target="_blank">Toronto Water Meter Services</a></li>
-            <li><a href="https://www.toronto.ca/community-people/public-safety-alerts/" target="_blank">Emergency Alerts & Warming Centers</a></li>
+            <li><a href="https://www.toronto.ca/home/311-toronto-at-your-service/" target="_blank">Potholes & Hazards</a></li>
+            <li><a href="https://www.toronto.ca/services-payments/trash-recycling/" target="_blank">Waste Pickup Schedules</a></li>
+            <li><a href="https://www.toronto.ca/community-people/public-safety-alerts/" target="_blank">Warming Centers & Alerts</a></li>
           </ul>
         </div>
       </div>
 
     </div>
 
-    <!-- ========================================================
-         MAIN PORTAL DIRECTORY & LOWER CONTENT
-         ======================================================== -->
+    <!-- Lower Content Section -->
     <div class="main-content-section">
 
-      <!-- Quick Categories Matrix -->
+      <!-- Quick Matrix -->
       <table class="quick-matrix">
-        <tr>
-          <td colspan="2" class="matrix-divider"></td>
-        </tr>
+        <tr><td colspan="2" class="matrix-divider"></td></tr>
         <tr>
           <td class="row-label" style="color:#FF6600;">Notice!</td>
           <td><a href="https://www.toronto.ca/community-people/health-wellness-licensing/" target="_blank"><b>Toronto Public Health</b></a> — community clinics & seasonal health updates</td>
         </tr>
-        <tr>
-          <td colspan="2" class="matrix-divider"></td>
-        </tr>
+        <tr><td colspan="2" class="matrix-divider"></td></tr>
         <tr>
           <td class="row-label">Transit</td>
           <td>
@@ -433,39 +521,20 @@
           <td>
             <a href="https://acorn.utoronto.ca" target="_blank">UofT ACORN</a>,
             <a href="https://eclass.yorku.ca" target="_blank">York eClass</a>,
-            <a href="https://my.torontomu.ca" target="_blank">my.TMU</a>,
-            <a href="https://www.torontomu.ca" target="_blank">D2L Brightspace</a>
+            <a href="https://my.torontomu.ca" target="_blank">my.TMU</a>
           </td>
         </tr>
-        <tr>
-          <td class="row-label">Civic</td>
-          <td>
-            <a href="https://www.toronto.ca/services-payments/property-taxes-utilities/" target="_blank">Property Tax</a>,
-            <a href="https://www.toronto.ca/services-payments/trash-recycling/" target="_blank">Waste Schedule</a>,
-            <a href="https://www.torontopubliclibrary.ca" target="_blank">Libraries</a>,
-            <a href="https://www.toronto.ca/services-payments/permits-licences-bylaws/" target="_blank">Permits</a>
-          </td>
-        </tr>
-        <tr>
-          <td class="row-label">Living</td>
-          <td>
-            <a href="https://www.toronto.ca/explore-enjoy/parks-gardens-beaches/" target="_blank">City Parks</a>,
-            <a href="https://www.toronto.ca/community-people/children-parenting/" target="_blank">Child Care</a>,
-            <a href="https://www.toronto.ca/community-people/housing-shelter/" target="_blank">Affordable Housing</a>,
-            <a href="https://www.toronto.ca/explore-enjoy/festivals-events/" target="_blank">Festivals</a>
-          </td>
-        </tr>
-        <tr>
-          <td colspan="2" class="matrix-divider"></td>
-        </tr>
+        <tr><td colspan="2" class="matrix-divider"></td></tr>
       </table>
 
-      <!-- Spotlight Feature Box -->
+      <!-- Spotlight Feature with Floated Image -->
       <div class="spotlight-box">
         <div class="spotlight-header">CAMPUS SPOTLIGHT • University Research & Downtown Innovation</div>
         <div class="spotlight-body">
-          <b>U of T Discovery:</b> <a href="https://www.utoronto.ca/news" target="_blank">Schwartz Reisman Innovation Centre expands AI & biotech labs</a><br>
-          <div style="margin-top:4px;">
+          <img class="spotlight-img" src="https://images.unsplash.com/photo-1526778548025-fa2f459cd5c1?w=200&h=120&fit=crop" alt="Toronto Innovation Lab">
+          <b>U of T Discovery:</b> <a href="https://www.utoronto.ca/news" target="_blank">Schwartz Reisman Innovation Centre expands AI & biotech labs</a>.<br>
+          Facilities across the MaRS Discovery District and partner hospitals continue expanding clinical trials, machine learning research, and clean-tech entrepreneurship downtown.
+          <div style="margin-top:6px;">
             <b>Course Calendars:</b>
             • <a href="https://artsci.calendar.utoronto.ca" target="_blank">UofT Timetable</a>
             • <a href="https://w2prod.sis.yorku.ca" target="_blank">York Courses</a>
@@ -484,81 +553,87 @@
       <!-- Directory Header -->
       <div class="directory-banner">Greater Toronto Directory — Civic, Academic & Community Resources</div>
 
-      <!-- 14 Categories Grid -->
-      <div class="directory-grid">
-        
-        <div class="directory-half">
-          <div class="dir-block">
-            <div class="dir-title"><a href="https://www.toronto.ca/business-economy/" target="_blank">Business & Economy</a></div>
-            <div class="dir-sublinks"><a href="#">Financial District</a>, <a href="#">Tech TO</a>, <a href="#">Startups</a>, <a href="#">Jobs</a></div>
+      <!-- Directory Grid + Skyscraper Sidebar Layout -->
+      <div class="directory-layout-wrap">
+
+        <div class="directory-grid">
+          
+          <div class="directory-half">
+            <div class="dir-block">
+              <div class="dir-title">
+                <img class="dir-icon" src="https://img.icons8.com/material-sharp/24/000000/briefcase.png" alt="">
+                <a href="https://www.toronto.ca/business-economy/" target="_blank">Business & Economy</a>
+              </div>
+              <div class="dir-sublinks"><a href="#">Financial District</a>, <a href="#">Tech TO</a>, <a href="#">Jobs</a></div>
+            </div>
+
+            <div class="dir-block">
+              <div class="dir-title">
+                <img class="dir-icon" src="https://img.icons8.com/material-sharp/24/000000/bank.png" alt="">
+                <a href="https://www.toronto.ca/city-government/" target="_blank">City Government</a>
+              </div>
+              <div class="dir-sublinks"><a href="#">Mayor's Office</a>, <a href="#">City Council</a>, <a href="#">Budgets</a></div>
+            </div>
+
+            <div class="dir-block">
+              <div class="dir-title">
+                <img class="dir-icon" src="https://img.icons8.com/material-sharp/24/000000/home.png" alt="">
+                <a href="https://www.toronto.ca/community-people/" target="_blank">Community & Housing</a>
+              </div>
+              <div class="dir-sublinks"><a href="#">Tenant Rights</a>, <a href="#">TCHC</a>, <a href="#">Centers</a></div>
+            </div>
+
+            <div class="dir-block">
+              <div class="dir-title">
+                <img class="dir-icon" src="https://img.icons8.com/material-sharp/24/000000/theatre-mask.png" alt="">
+                <a href="https://www.toronto.ca/explore-enjoy/arts-culture/" target="_blank">Arts & Culture</a>
+              </div>
+              <div class="dir-sublinks"><a href="#">TIFF</a>, <a href="#">ROM</a>, <a href="#">AGO</a>, <a href="#">Theatres</a></div>
+            </div>
+
+            <div class="dir-block">
+              <div class="dir-title">
+                <img class="dir-icon" src="https://img.icons8.com/material-sharp/24/000000/subway.png" alt="">
+                <a href="https://www.toronto.ca/services-payments/streets-parking-transportation/" target="_blank">Transit & Streets</a>
+              </div>
+              <div class="dir-sublinks"><a href="#">Road Closures</a>, <a href="#">Snow Clearing</a>, <a href="#">Green P</a></div>
+            </div>
           </div>
 
-          <div class="dir-block">
-            <div class="dir-title"><a href="https://www.toronto.ca/city-government/" target="_blank">City Government</a></div>
-            <div class="dir-sublinks"><a href="#">Mayor's Office</a>, <a href="#">City Council</a>, <a href="#">By-laws</a>, <a href="#">Budgets</a></div>
+          <div class="directory-half">
+            <div class="dir-block">
+              <div class="dir-title">
+                <img class="dir-icon" src="https://img.icons8.com/material-sharp/24/000000/graduation-cap.png" alt="">
+                <a href="https://www.utoronto.ca" target="_blank">University of Toronto</a>
+              </div>
+              <div class="dir-sublinks"><a href="#">St. George</a>, <a href="#">UTM</a>, <a href="#">UTSC</a></div>
+            </div>
+
+            <div class="dir-block">
+              <div class="dir-title">
+                <img class="dir-icon" src="https://img.icons8.com/material-sharp/24/000000/graduation-cap.png" alt="">
+                <a href="https://www.yorku.ca" target="_blank">York University</a>
+              </div>
+              <div class="dir-sublinks"><a href="#">Keele Campus</a>, <a href="#">Glendon</a>, <a href="#">Markham</a></div>
+            </div>
+
+            <div class="dir-block">
+              <div class="dir-title">
+                <img class="dir-icon" src="https://img.icons8.com/material-sharp/24/000000/graduation-cap.png" alt="">
+                <a href="https://www.torontomu.ca" target="_blank">Toronto Metropolitan (TMU)</a>
+              </div>
+              <div class="dir-sublinks"><a href="#">Yonge-Dundas</a>, <a href="#">Ted Rogers</a>, <a href="#">SLC</a></div>
+            </div>
+
+            <div class="dir-block">
+              <div class="dir-title">
+                <img class="dir-icon" src="https://img.icons8.com/material-sharp/24/000000/book.png" alt="">
+                <a href="https://www.torontopubliclibrary.ca" target="_blank">Public Reference</a>
+              </div>
+              <div class="dir-sublinks"><a href="#">Toronto Reference Library</a>, <a href="#">Archives</a></div>
+            </div>
           </div>
 
-          <div class="dir-block">
-            <div class="dir-title"><a href="https://www.toronto.ca/community-people/" target="_blank">Community & Housing</a></div>
-            <div class="dir-sublinks"><a href="#">Tenant Rights</a>, <a href="#">TCHC</a>, <a href="#">Community Centers</a></div>
-          </div>
-
-          <div class="dir-block">
-            <div class="dir-title"><a href="https://www.toronto.ca/explore-enjoy/arts-culture/" target="_blank">Arts & Culture</a></div>
-            <div class="dir-sublinks"><a href="#">TIFF</a>, <a href="#">ROM</a>, <a href="#">AGO</a>, <a href="#">Theatres</a></div>
-          </div>
-
-          <div class="dir-block">
-            <div class="dir-title"><a href="https://www.toronto.ca/explore-enjoy/recreation/" target="_blank">Recreation & Sports</a></div>
-            <div class="dir-sublinks"><a href="#">Drop-in Skating</a>, <a href="#">Pools</a>, <a href="#">High Park</a>, <a href="#">Toronto Island</a></div>
-          </div>
-
-          <div class="dir-block">
-            <div class="dir-title"><a href="https://www.toronto.ca/community-people/health-wellness-licensing/" target="_blank">Health & Hospitals</a></div>
-            <div class="dir-sublinks"><a href="#">UHN</a>, <a href="#">SickKids</a>, <a href="#">Mount Sinai</a>, <a href="#">Clinics</a></div>
-          </div>
-
-          <div class="dir-block">
-            <div class="dir-title"><a href="https://www.toronto.ca/services-payments/streets-parking-transportation/" target="_blank">Transit & Streets</a></div>
-            <div class="dir-sublinks"><a href="#">Road Closures</a>, <a href="#">Snow Clearing</a>, <a href="#">Green P Parking</a></div>
-          </div>
-        </div>
-
-        <div class="directory-half">
-          <div class="dir-block">
-            <div class="dir-title"><a href="https://www.utoronto.ca" target="_blank">University of Toronto</a></div>
-            <div class="dir-sublinks"><a href="#">St. George</a>, <a href="#">UTM (Mississauga)</a>, <a href="#">UTSC (Scarborough)</a></div>
-          </div>
-
-          <div class="dir-block">
-            <div class="dir-title"><a href="https://www.yorku.ca" target="_blank">York University</a></div>
-            <div class="dir-sublinks"><a href="#">Keele Campus</a>, <a href="#">Glendon</a>, <a href="#">Markham Campus</a></div>
-          </div>
-
-          <div class="dir-block">
-            <div class="dir-title"><a href="https://www.torontomu.ca" target="_blank">Toronto Metropolitan (TMU)</a></div>
-            <div class="dir-sublinks"><a href="#">Yonge-Dundas</a>, <a href="#">Ted Rogers</a>, <a href="#">SLC Hub</a></div>
-          </div>
-
-          <div class="dir-block">
-            <div class="dir-title"><a href="https://www.ontario.ca/page/colleges-ontario" target="_blank">Colleges & Polytechnics</a></div>
-            <div class="dir-sublinks"><a href="#">Seneca</a>, <a href="#">George Brown</a>, <a href="#">Humber</a>, <a href="#">Centennial</a></div>
-          </div>
-
-          <div class="dir-block">
-            <div class="dir-title"><a href="https://www.tdsb.on.ca" target="_blank">K-12 Education</a></div>
-            <div class="dir-sublinks"><a href="#">TDSB Public</a>, <a href="#">TCDSB Catholic</a>, <a href="#">Adult Learning</a></div>
-          </div>
-
-          <div class="dir-block">
-            <div class="dir-title"><a href="https://www.torontopubliclibrary.ca" target="_blank">Public Reference</a></div>
-            <div class="dir-sublinks"><a href="#">Toronto Reference Library</a>, <a href="#">City Archives</a>, <a href="#">Maps</a></div>
-          </div>
-
-          <div class="dir-block">
-            <div class="dir-title"><a href="https://www.toronto.ca/explore-enjoy/visitor-toronto/" target="_blank">Regional GTA</a></div>
-            <div class="dir-sublinks"><a href="#">Peel (Mississauga/Brampton)</a>, <a href="#">York Region</a>, <a href="#">Durham</a></div>
-          </div>
         </div>
 
       </div>
@@ -583,9 +658,7 @@
 
   </div>
 
-  <!-- JavaScript -->
   <script>
-    // Live Weather Fetch using URLSearchParams
     async function loadTorontoWeather() {
       const weatherEl = document.getElementById('weather-val');
       const params = new URLSearchParams({
@@ -601,17 +674,15 @@
         const data = await res.json();
         if (data && data.current) {
           const temp = Math.round(data.current.temperature_2m);
-          const wind = Math.round(data.current.wind_speed_10m);
-          weatherEl.innerHTML = `<b>${temp}°C</b>, ${wind} km/h`;
+          weatherEl.innerHTML = `<b>${temp}°C</b>`;
         } else {
-          weatherEl.innerText = "12°C, Scattered Clouds";
+          weatherEl.innerText = "12°C";
         }
       } catch (e) {
-        weatherEl.innerText = "12°C, Downtown Core";
+        weatherEl.innerText = "12°C";
       }
     }
 
-    // Search Redirect Handler
     function handlePortalSearch(e) {
       e.preventDefault();
       const q = encodeURIComponent(document.getElementById('query-input').value.trim());

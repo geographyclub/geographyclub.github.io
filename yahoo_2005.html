@@ -1,538 +1,540 @@
-<!DOCTYPE html>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Yahoo!</title>
-  <style>
+  <style type="text/css">
     * {
       box-sizing: border-box;
-      margin: 0;
-      padding: 0;
     }
     body {
-      background-color: #FFFFFF;
+      background-color: #ffffff;
       color: #000000;
       font-family: Arial, Helvetica, sans-serif;
       font-size: 12px;
-      line-height: 1.3;
+      line-height: 1.35;
+      margin: 0;
+      padding: 6px 8px;
     }
     a {
-      color: #002BB8;
+      color: #0000cc;
       text-decoration: underline;
     }
+    a:visited {
+      color: #551a8b;
+    }
     a:hover {
-      color: #FF0000;
+      color: #ff0000;
     }
-
-    /* Page Canvas */
-    .page-container {
-      width: 980px;
+    .wrapper {
+      max-width: 750px;
       margin: 0 auto;
-      padding: 6px 10px;
+      text-align: left;
     }
 
-    /* Top Utility Strip */
-    .top-bar {
+    /* Top Strip */
+    .top-strip {
       display: flex;
       justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 6px;
       font-size: 11px;
-      padding-bottom: 6px;
-      border-bottom: 1px solid #E5E5E5;
-    }
-    .top-bar a {
-      margin-left: 8px;
+      margin-bottom: 8px;
+      padding-bottom: 4px;
+      border-bottom: 1px solid #eeeeee;
     }
 
-    /* Header & Brand */
-    .header-area {
+    /* Header & Search */
+    .header-layout {
       display: flex;
       align-items: center;
-      padding: 10px 0 12px 0;
+      gap: 16px;
+      margin-bottom: 10px;
+      flex-wrap: wrap;
     }
-    .logo-container {
-      width: 175px;
-    }
-    .yahoo-logo {
-      font-family: 'Arial Black', Impact, sans-serif;
-      font-size: 36px;
-      color: #7B0099; /* Era-defining Yahoo! Purple */
+    .logo-font {
+      font-family: 'Times New Roman', Georgia, serif;
+      font-size: 38px;
+      font-weight: 900;
+      color: #cc0000;
       letter-spacing: -2px;
       text-decoration: none;
-      font-weight: 900;
+      display: inline-block;
+      text-shadow: 1px 1px 0px #ffd0d0;
     }
-    .yahoo-logo sup {
-      font-size: 14px;
-      letter-spacing: normal;
-    }
-
-    /* Centered Search Bento Container */
-    .search-bento {
+    .search-wrapper {
       flex: 1;
-      max-width: 620px;
-      margin-left: 20px;
+      min-width: 280px;
     }
-    .search-tabs {
-      display: flex;
-      gap: 2px;
-      margin-bottom: -1px;
-    }
-    .search-tab {
-      padding: 4px 10px;
+    .search-tab-bar {
       font-size: 11px;
       font-weight: bold;
-      background: #ECE9D8;
-      border: 1px solid #999;
-      border-bottom: none;
+      margin-bottom: 4px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .search-tab-active {
+      color: #000000;
+      border-bottom: 2px solid #ff9900;
+      padding-bottom: 1px;
+    }
+    .search-tab-bar a {
+      color: #0000cc;
       text-decoration: none;
-      color: #333;
     }
-    .search-tab.active {
-      background: #4682B4;
-      color: #FFF;
-      border-color: #315C80;
+    .search-tab-bar a:hover {
+      text-decoration: underline;
     }
-    .search-bar-wrap {
-      background: #F0F4FA;
-      border: 2px solid #4682B4;
-      padding: 6px 8px;
+    .search-form-row {
       display: flex;
       align-items: center;
+      gap: 4px;
+      flex-wrap: wrap;
     }
-    .search-input {
+    .search-input-box {
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 14px;
+      padding: 3px 5px;
       flex: 1;
-      height: 24px;
-      font-size: 13px;
-      padding: 2px 6px;
-      border: 1px solid #7F9DB9;
+      min-width: 180px;
+      border: 1px solid #7f9db9;
     }
-    .search-btn {
-      height: 26px;
-      padding: 0 12px;
+    .btn-search {
+      font-family: Arial, Helvetica, sans-serif;
       font-size: 12px;
       font-weight: bold;
-      background: #2565AE;
-      color: #FFF;
-      border: 1px solid #104177;
-      margin-left: 6px;
+      background: #ece9d8;
+      border: 2px outset #ffffff;
+      padding: 3px 8px;
       cursor: pointer;
     }
-    .search-sublinks {
-      font-size: 11px;
-      margin-top: 3px;
-    }
 
-    /* 3-Column Bento Grid Layout */
-    .portal-grid {
+    /* Main 3-Column Responsive Grid */
+    .main-grid {
       display: flex;
+      flex-direction: row;
       gap: 12px;
-      margin-top: 10px;
+      align-items: flex-start;
     }
 
-    /* Common Box Style */
-    .bento-card {
-      border: 1px solid #B5C7DE;
-      background-color: #FFFFFF;
-      margin-bottom: 12px;
-    }
-    .bento-header {
-      background: linear-gradient(to bottom, #EDF3FA 0%, #D4E1F1 100%);
-      border-bottom: 1px solid #B5C7DE;
-      padding: 4px 8px;
-      font-size: 11px;
-      font-weight: bold;
-      color: #0E3663;
-      display: flex;
-      justify-content: space-between;
-    }
-    .bento-body {
-      padding: 8px;
-    }
-
-    /* Column 1: Services Directory (Left) */
-    .col-left {
-      width: 175px;
+    /* Column 1: Left Vertical Services */
+    .left-col {
+      width: 145px;
       flex-shrink: 0;
+      font-size: 11px;
+      border-right: 1px solid #dcdcdc;
+      padding-right: 10px;
+    }
+    .service-head {
+      font-weight: bold;
+      color: #333333;
+      border-bottom: 1px solid #cccccc;
+      padding-bottom: 2px;
+      margin-top: 6px;
+      margin-bottom: 4px;
+      font-size: 11px;
     }
     .service-list {
-      list-style: none;
-      font-size: 11px;
+      list-style-type: none;
+      margin: 0 0 8px 0;
+      padding: 0;
+      line-height: 1.45;
     }
-    .service-list li {
-      padding: 2px 0;
-      border-bottom: 1px dotted #E5E5E5;
-      display: flex;
-      align-items: center;
-      gap: 5px;
+    .service-list li a {
+      color: #0000cc;
+      text-decoration: none;
     }
-    .service-list li:last-child {
-      border-bottom: none;
-    }
-    .bullet-icon {
-      width: 8px;
-      height: 8px;
-      display: inline-block;
-      background-color: #5185BA;
-      border-radius: 2px;
+    .service-list li a:hover {
+      text-decoration: underline;
     }
 
-    /* Column 2: Lead News / Carousel (Center) */
-    .col-center {
+    /* Column 2: Center Content & Lead Story */
+    .center-col {
       flex: 1;
+      min-width: 0;
     }
-    .news-tabs {
-      display: flex;
-      border-bottom: 2px solid #5487B9;
-      margin-bottom: 8px;
-    }
-    .news-tab-item {
-      padding: 4px 8px;
-      font-size: 11px;
-      font-weight: bold;
-      text-decoration: none;
-      background: #ECE9D8;
-      color: #333;
-      margin-right: 2px;
-    }
-    .news-tab-item.active {
-      background: #5487B9;
-      color: #FFF;
-    }
-    .lead-story {
-      display: flex;
-      gap: 12px;
+    .featured-box {
+      border: 1px solid #b5c7de;
+      background-color: #f5f8fc;
+      padding: 8px 10px;
       margin-bottom: 10px;
+      font-size: 12px;
     }
-    .lead-thumb {
-      width: 140px;
-      height: 95px;
-      background: #2565AE;
-      color: #FFF;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      font-size: 11px;
+    .lead-story-title {
       font-weight: bold;
-      border: 1px solid #999;
-      flex-shrink: 0;
-    }
-    .lead-copy h3 {
-      font-size: 14px;
-      font-weight: bold;
-      line-height: 1.25;
+      font-size: 13px;
       margin-bottom: 4px;
     }
-    .lead-copy p {
+    .lead-story-body {
+      display: flex;
+      gap: 8px;
+      align-items: flex-start;
+    }
+    .lead-story-thumb {
+      width: 82px;
+      height: 60px;
+      background: #cccccc;
+      border: 1px solid #999999;
+      object-fit: cover;
+      flex-shrink: 0;
+    }
+    .story-bullets {
+      margin: 8px 0 0 0;
+      padding-left: 18px;
       font-size: 11px;
-      color: #444;
+      line-height: 1.4;
+    }
+    .lifestyle-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 11px;
+      margin-bottom: 8px;
+    }
+    .lifestyle-table td {
+      vertical-align: top;
+      padding: 4px 6px 4px 0;
+    }
+
+    /* Web Directory Section */
+    .dir-sec-title {
+      font-size: 11px;
+      font-weight: bold;
+      color: #444444;
+      background-color: #eeeeee;
+      padding: 3px 6px;
+      margin-top: 8px;
+      margin-bottom: 6px;
+      border: 1px solid #dddddd;
+    }
+    .dir-grid {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    .dir-grid td {
+      font-size: 11px;
+      vertical-align: top;
+      padding-bottom: 6px;
+    }
+
+    /* Column 3: Right Sidebar */
+    .right-col {
+      width: 185px;
+      flex-shrink: 0;
+      border-left: 1px solid #dcdcdc;
+      padding-left: 10px;
+      font-size: 11px;
+    }
+    .side-box {
+      border: 1px solid #ccddee;
+      margin-bottom: 10px;
+    }
+    .side-box-title {
+      background-color: #e6f0fa;
+      padding: 4px 6px;
+      font-weight: bold;
+      font-size: 11px;
+      color: #003366;
+      border-bottom: 1px solid #ccddee;
+    }
+    .side-box-content {
+      padding: 6px;
+      font-size: 11px;
       line-height: 1.35;
     }
 
-    .news-headlines-list {
-      list-style-type: square;
-      margin-left: 18px;
-      font-size: 11px;
-    }
-    .news-headlines-list li {
-      margin-bottom: 4px;
-    }
-
-    /* Column 3: Utility & Commercial Bento Boxes (Right) */
-    .col-right {
-      width: 260px;
-      flex-shrink: 0;
-    }
-    .login-box-inputs {
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
-      font-size: 11px;
-    }
-    .login-box-inputs input[type="text"],
-    .login-box-inputs input[type="password"] {
-      border: 1px solid #7F9DB9;
-      padding: 2px 4px;
-      font-size: 11px;
-    }
-    .signin-btn {
-      background: #FFE882;
-      border: 1px solid #C49F12;
-      font-weight: bold;
-      padding: 3px;
-      cursor: pointer;
-    }
-
-    /* Weather box inner display */
-    .weather-row {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      font-size: 11px;
-    }
-    .weather-temp {
-      font-size: 20px;
-      font-weight: bold;
-      color: #C00;
-    }
-
-    /* Trending tags */
-    .trending-list {
-      list-style: none;
-      font-size: 11px;
-    }
-    .trending-list li {
-      padding: 2px 0;
-    }
-
     /* Footer */
-    .portal-footer {
-      border-top: 1px solid #CCCCCC;
-      margin-top: 15px;
-      padding: 12px 0;
-      text-align: center;
+    .intl-links {
+      margin-top: 12px;
+      border-top: 1px solid #cccccc;
+      padding-top: 6px;
       font-size: 11px;
+      text-align: center;
+      line-height: 1.45;
+    }
+    .footer-links {
+      font-size: 11px;
+      color: #555555;
+      text-align: center;
+      margin-top: 10px;
+      line-height: 1.5;
+    }
+
+    /* Mobile Breakpoint (< 768px) */
+    @media (max-width: 768px) {
+      .header-layout {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 6px;
+      }
+      .search-wrapper {
+        width: 100%;
+      }
+      .main-grid {
+        flex-direction: column;
+      }
+      .center-col {
+        order: 1;
+        width: 100%;
+      }
+      .right-col {
+        order: 2;
+        width: 100%;
+        border-left: none;
+        padding-left: 0;
+        border-top: 1px solid #dcdcdc;
+        padding-top: 10px;
+      }
+      .left-col {
+        order: 3;
+        width: 100%;
+        border-right: none;
+        padding-right: 0;
+        border-top: 1px solid #dcdcdc;
+        padding-top: 10px;
+      }
+      .service-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px 12px;
+      }
+      .lifestyle-table, .dir-grid {
+        display: block;
+      }
+      .lifestyle-table tr, .dir-grid tr {
+        display: flex;
+        flex-direction: column;
+      }
+      .lifestyle-table td, .dir-grid td {
+        width: 100% !important;
+        padding-right: 0;
+      }
+      .lead-story-body {
+        flex-direction: column;
+      }
+      .lead-story-thumb {
+        width: 100%;
+        height: 130px;
+      }
     }
   </style>
 </head>
 <body>
 
-  <div class="page-container">
+<div class="wrapper">
 
-    <!-- Top Utility Bar -->
-    <div class="top-bar">
-      <div>
-        <b>Welcome!</b> <a href="#">Sign In</a> | New here? <a href="#">Sign Up</a>
+  <!-- Top Personal Strip & Sign In -->
+  <div class="top-strip">
+    <div>
+      <b><a href="https://my.yahoo.com">My Yahoo!</a></b> ·
+      <a href="https://mail.yahoo.com"><b>Yahoo! Mail</b></a> (1GB free) ·
+      <a href="https://messenger.yahoo.com">Messenger</a>
+    </div>
+    <div>
+      <a href="https://help.yahoo.com">Help</a> ·
+      Hi, <b>Guest</b> [<a href="https://login.yahoo.com">Sign In</a>]
+    </div>
+  </div>
+
+  <!-- Header: Logo, Search Tabs & Form -->
+  <div class="header-layout">
+    <div>
+      <a href="https://www.yahoo.com" style="text-decoration: none;">
+        <span class="logo-font">YAHOO!</span>
+      </a>
+    </div>
+    <div class="search-wrapper">
+      <div class="search-tab-bar">
+        <span class="search-tab-active">Web</span>
+        <span><a href="https://images.search.yahoo.com">Images</a></span>
+        <span><a href="https://video.search.yahoo.com">Video</a></span>
+        <span><a href="https://local.yahoo.com">Local</a></span>
+        <span><a href="https://shopping.yahoo.com">Shopping</a></span>
+        <span><a href="https://answers.yahoo.com"><b>Answers</b></a></span>
       </div>
-      <div>
-        <a href="#">My Yahoo!</a>
-        <a href="#">Yahoo! Mail</a>
-        <a href="#">Help</a>
-      </div>
+      <form action="https://search.yahoo.com/search" method="get" target="_blank" style="margin: 0; padding: 0;">
+        <div class="search-form-row">
+          <input type="text" name="p" class="search-input-box" value="">
+          <input type="submit" value="Yahoo! Search" class="btn-search">
+          <font size="-2"><a href="https://search.yahoo.com/web/advanced">Advanced</a></font>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Responsive 3-Column Section -->
+  <div class="main-grid">
+
+    <!-- Column 1: Services (Reorders underneath center content on mobile) -->
+    <div class="left-col">
+      <div class="service-head" style="margin-top: 0;">Services</div>
+      <ul class="service-list">
+        <li>• <a href="https://answers.yahoo.com"><b>Answers</b></a></li>
+        <li>• <a href="https://autos.yahoo.com">Autos</a></li>
+        <li>• <a href="https://finance.yahoo.com"><b>Finance</b></a></li>
+        <li>• <a href="https://games.yahoo.com">Games</a></li>
+        <li>• <a href="https://groups.yahoo.com">Groups</a></li>
+        <li>• <a href="https://hotjobs.yahoo.com">HotJobs</a></li>
+        <li>• <a href="https://maps.yahoo.com">Maps</a></li>
+        <li>• <a href="https://mobile.yahoo.com">Mobile</a></li>
+        <li>• <a href="https://movies.yahoo.com">Movies</a></li>
+        <li>• <a href="https://music.yahoo.com">Music</a></li>
+        <li>• <a href="https://personals.yahoo.com">Personals</a></li>
+        <li>• <a href="https://realestate.yahoo.com">Real Estate</a></li>
+        <li>• <a href="https://shopping.yahoo.com">Shopping</a></li>
+        <li>• <a href="https://sports.yahoo.com"><b>Sports</b></a></li>
+        <li>• <a href="https://travel.yahoo.com">Travel</a></li>
+        <li>• <a href="https://tv.yahoo.com">TV</a></li>
+        <li>• <a href="https://yellowpages.yahoo.com">Yellow Pages</a></li>
+        <li>• <a href="https://everything.yahoo.com"><b>All Services...</b></a></li>
+      </ul>
+
+      <div class="service-head">Marketplace</div>
+      <ul class="service-list">
+        <li>• <a href="https://auctions.yahoo.com">Auctions</a></li>
+        <li>• <a href="https://geocities.yahoo.com">GeoCities Web Site</a></li>
+        <li>• <a href="https://broadband.yahoo.com">DSL from $14.95/mo</a></li>
+        <li>• <a href="https://music.yahoo.com">Unlimited Music $4.99</a></li>
+      </ul>
     </div>
 
-    <!-- Header / Brand Area -->
-    <div class="header-area">
-      <div class="logo-container">
-        <a href="#" class="yahoo-logo">YAHOO!<sup>®</sup></a>
+    <!-- Column 2: Lead Story, Editorial, Directory -->
+    <div class="center-col">
+      
+      <!-- Top Story Card -->
+      <div class="featured-box">
+        <div class="lead-story-title">
+          <a href="https://news.yahoo.com">Supreme Court nomination hearings begin on Capitol Hill</a>
+        </div>
+        <div class="lead-story-body">
+          <img class="lead-story-thumb" src="https://images.unsplash.com/photo-1541872703-74c5e44368f9?w=120&h=90&fit=crop" alt="News Image">
+          <div>
+            Senate lawmakers prepare questions on constitutional law and civil rights as the confirmation process opens for the new court term.
+          </div>
+        </div>
+        <ul class="story-bullets">
+          <li><a href="https://news.yahoo.com">Gulf Coast recovery continues one month after Rita and Katrina</a></li>
+          <li><a href="https://news.yahoo.com">Oil prices drop below $66 a barrel amid refinery restarts</a></li>
+          <li><a href="https://sports.yahoo.com">MLB: Pennant race heats up in final regular season weekend</a></li>
+        </ul>
       </div>
 
-      <!-- Tabbed Bento Search -->
-      <div class="search-bento">
-        <div class="search-tabs">
-          <a href="#" class="search-tab active">Web</a>
-          <a href="#" class="search-tab">Images</a>
-          <a href="#" class="search-tab">Video</a>
-          <a href="#" class="search-tab">Local</a>
-          <a href="#" class="search-tab">News</a>
-          <a href="#" class="search-tab">Shopping</a>
-        </div>
-        <div class="search-bar-wrap">
-          <input type="text" class="search-input" value="digital camera reviews">
-          <button class="search-btn">Yahoo! Search</button>
-        </div>
-        <div class="search-sublinks">
-          Popular: <a href="#">iPod Nano</a> · <a href="#">Gas Prices</a> · <a href="#">Hurricane Season</a> · <a href="#">American Idol</a>
-        </div>
-      </div>
-    </div>
+      <!-- Highlights Matrix -->
+      <table class="lifestyle-table">
+        <tr>
+          <td width="50%">
+            <b>Entertainment & Pop</b><br>
+            • <a href="https://movies.yahoo.com">Fall movie preview: Harry Potter, King Kong</a><br>
+            • <a href="https://music.yahoo.com">Watch exclusive video premieres on LAUNCH</a><br>
+            • <a href="https://tv.yahoo.com">Lost Season 2 premiere breaks viewer records</a>
+          </td>
+          <td width="50%">
+            <b>Everyday Life & Tech</b><br>
+            • <a href="https://tech.yahoo.com">Apple announces iPod with color display</a><br>
+            • <a href="https://health.yahoo.com">Seasonal flu shot tips and clinic locator</a><br>
+            • <a href="https://travel.yahoo.com">Fall foliage drives and budget weekend getaways</a>
+          </td>
+        </tr>
+      </table>
 
-    <!-- Main 3-Column Portal Container -->
-    <div class="portal-grid">
-
-      <!-- COLUMN 1: SERVICES DIRECTORY -->
-      <div class="col-left">
-        <div class="bento-card">
-          <div class="bento-header">SERVICES</div>
-          <div class="bento-body">
-            <ul class="service-list">
-              <li><span class="bullet-icon"></span><a href="#"><b>Yahoo! Mail</b></a></li>
-              <li><span class="bullet-icon"></span><a href="#"><b>Messenger</b></a></li>
-              <li><span class="bullet-icon"></span><a href="#">Autos</a></li>
-              <li><span class="bullet-icon"></span><a href="#">Finance</a></li>
-              <li><span class="bullet-icon"></span><a href="#">Games</a></li>
-              <li><span class="bullet-icon"></span><a href="#">GeoCities</a></li>
-              <li><span class="bullet-icon"></span><a href="#">Groups</a></li>
-              <li><span class="bullet-icon"></span><a href="#">HotJobs</a></li>
-              <li><span class="bullet-icon"></span><a href="#">Maps & Driving</a></li>
-              <li><span class="bullet-icon"></span><a href="#">Movies</a></li>
-              <li><span class="bullet-icon"></span><a href="#">Music & Radio</a></li>
-              <li><span class="bullet-icon"></span><a href="#">Personals</a></li>
-              <li><span class="bullet-icon"></span><a href="#">Real Estate</a></li>
-              <li><span class="bullet-icon"></span><a href="#">Shopping</a></li>
-              <li><span class="bullet-icon"></span><a href="#">Sports</a></li>
-              <li><span class="bullet-icon"></span><a href="#">Travel</a></li>
-              <li><span class="bullet-icon"></span><a href="#">Yellow Pages</a></li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="bento-card">
-          <div class="bento-header">EXPLORE YAHOO!</div>
-          <div class="bento-body" style="font-size:11px;">
-            <a href="#"><b>Yahoo! 360°</b></a><br>Create personal blogs and photo spaces.<br><br>
-            <a href="#"><b>Yahoo! Answers</b></a><br>Ask questions, get answers from real people!
-          </div>
-        </div>
-      </div>
-
-      <!-- COLUMN 2: CENTER LEAD STORIES & CAROUSEL -->
-      <div class="col-center">
-
-        <!-- News Bento Box with Tabs -->
-        <div class="bento-card">
-          <div class="news-tabs">
-            <a href="#" class="news-tab-item active">In The News</a>
-            <a href="#" class="news-tab-item">Entertainment</a>
-            <a href="#" class="news-tab-item">Sports</a>
-            <a href="#" class="news-tab-item">Business</a>
-          </div>
-
-          <div class="bento-body">
-            <!-- Featured Story with Era Mock Graphic -->
-            <div class="lead-story">
-              <div class="lead-thumb">
-                <span>[ PHOTO DISPATCH ]</span>
-                <span style="font-size:9px; font-weight:normal; margin-top:4px;">REUTERS WIRE</span>
-              </div>
-              <div class="lead-copy">
-                <h3><a href="#">Space Shuttle Discovery Returns to Flight</a></h3>
-                <p>NASA conducts crucial thermal tile inspections while docking with the International Space Station on STS-114 mission. <a href="#">Full Coverage »</a></p>
-              </div>
-            </div>
-
-            <!-- Bulleted News Wire Feed -->
-            <ul class="news-headlines-list">
-              <li><a href="#">Crude oil prices touch new record high near $60 a barrel</a></li>
-              <li><a href="#">London transit security tightens following emergency alerts</a></li>
-              <li><a href="#">Tour de France: Lance Armstrong extends lead through the Alps</a></li>
-              <li><a href="#">Box Office: 'War of the Worlds' dominates holiday weekend rankings</a></li>
-            </ul>
-          </div>
-        </div>
-
-        <!-- Entertainment / Feature Bento Box -->
-        <div class="bento-card">
-          <div class="bento-header">
-            <span>ENTERTAINMENT & CULTURE</span>
-            <a href="#">More »</a>
-          </div>
-          <div class="bento-body">
-            <table width="100%" cellpadding="0" cellspacing="0" border="0" style="font-size:11px;">
-              <tr valign="top">
-                <td width="50%" style="padding-right:8px;">
-                  <b>Movie Showtimes</b><br>
-                  Find trailers, critic ratings, and tickets in your local zip code.<br>
-                  <a href="#">Batman Begins</a> | <a href="#">Madagascar</a>
-                </td>
-                <td width="50%">
-                  <b>Yahoo! Music</b><br>
-                  Watch high-speed music videos and launch customized LAUNCHcast radio stations.<br>
-                  <a href="#">Listen now »</a>
-                </td>
-              </tr>
-            </table>
-          </div>
-        </div>
-
-        <!-- Web Directory Index Bento -->
-        <div class="bento-card">
-          <div class="bento-header">YAHOO! WEB DIRECTORY</div>
-          <div class="bento-body" style="font-size: 11px;">
-            <a href="#">Arts</a> ·
-            <a href="#">Business</a> ·
-            <a href="#">Computers</a> ·
-            <a href="#">Education</a> ·
-            <a href="#">Entertainment</a> ·
-            <a href="#">Government</a> ·
-            <a href="#">Health</a> ·
-            <a href="#">News</a> ·
-            <a href="#">Recreation</a> ·
-            <a href="#">Reference</a> ·
-            <a href="#">Regional</a> ·
-            <a href="#">Science</a> ·
-            <a href="#">Society</a>
-          </div>
-        </div>
-
-      </div>
-
-      <!-- COLUMN 3: RIGHT BENTO WIDGETS -->
-      <div class="col-right">
-
-        <!-- Mail Bento Box -->
-        <div class="bento-card">
-          <div class="bento-header">YAHOO! MAIL</div>
-          <div class="bento-body">
-            <div class="login-box-inputs">
-              <label>Yahoo! ID: <input type="text"></label>
-              <label>Password: <input type="password"></label>
-              <button class="signin-btn">Sign In</button>
-            </div>
-            <div style="font-size:10px; margin-top:6px; color:#666;">
-              New 1GB Storage • Spam Guard Protected
-            </div>
-          </div>
-        </div>
-
-        <!-- Weather Box -->
-        <div class="bento-card">
-          <div class="bento-header">
-            <span>WEATHER</span>
-            <a href="#">Edit City</a>
-          </div>
-          <div class="bento-body">
-            <div class="weather-row">
-              <div>
-                <b>New York, NY</b><br>
-                Partly Cloudy
-              </div>
-              <div class="weather-temp">78°</div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Marketplace Bento Box -->
-        <div class="bento-card">
-          <div class="bento-header">MARKETPLACE</div>
-          <div class="bento-body">
-            <ul style="list-style-type:square; margin-left:16px; font-size:11px;">
-              <li><a href="#">Compare refi mortgage rates »</a></li>
-              <li><a href="#">HotJobs: Post your resume free</a></li>
-              <li><a href="#">Yahoo! Personals: Meet singles</a></li>
-              <li><a href="#">Travel: Summer flight discounts</a></li>
-            </ul>
-          </div>
-        </div>
-
-        <!-- Trending Searches Bento Box -->
-        <div class="bento-card">
-          <div class="bento-header">POPULAR SEARCHES</div>
-          <div class="bento-body">
-            <ol class="trending-list" style="margin-left:18px;">
-              <li><a href="#">Harry Potter 6</a></li>
-              <li><a href="#">Kelly Clarkson</a></li>
-              <li><a href="#">Brad Pitt</a></li>
-              <li><a href="#">Sudoku Puzzles</a></li>
-              <li><a href="#">Google Earth</a></li>
-            </ol>
-          </div>
-        </div>
-
-      </div>
+      <!-- Directory Snapshot -->
+      <div class="dir-sec-title">Yahoo! Web Directory</div>
+      <table class="dir-grid">
+        <tr>
+          <td width="50%">
+            <b><a href="https://dir.yahoo.com/Arts/">Arts</a></b>: <font color="#555555">Design, Music, Literature</font><br>
+            <b><a href="https://dir.yahoo.com/Business_and_Economy/">Business</a></b>: <font color="#555555">Jobs, Investments, Real Estate</font><br>
+            <b><a href="https://dir.yahoo.com/Computers_and_Internet/">Computers</a></b>: <font color="#555555">Internet, Software, Hardware</font><br>
+            <b><a href="https://dir.yahoo.com/Education/">Education</a></b>: <font color="#555555">Colleges, K-12, Libraries</font>
+          </td>
+          <td width="50%">
+            <b><a href="https://dir.yahoo.com/Entertainment/">Entertainment</a></b>: <font color="#555555">Movies, TV, Humor</font><br>
+            <b><a href="https://dir.yahoo.com/Government/">Government</a></b>: <font color="#555555">Elections, Military, Law</font><br>
+            <b><a href="https://dir.yahoo.com/Health/">Health</a></b>: <font color="#555555">Medicine, Fitness, Diseases</font><br>
+            <b><a href="https://dir.yahoo.com/Regional/">Regional</a></b>: <font color="#555555">Countries, US States, Cities</font>
+          </td>
+        </tr>
+      </table>
 
     </div>
 
-    <!-- Portal Footer -->
-    <div class="portal-footer">
-      <p>
-        <a href="#">Copyright © 2005 Yahoo! Inc.</a> All rights reserved. ·
-        <a href="#">Privacy Policy</a> ·
-        <a href="#">Terms of Service</a> ·
-        <a href="#">About Yahoo!</a>
-      </p>
+    <!-- Column 3: Markets, Weather, Buzz -->
+    <div class="right-col">
+
+      <!-- Markets Box -->
+      <div class="side-box">
+        <div class="side-box-title">Financial Markets</div>
+        <div class="side-box-content">
+          <form action="https://finance.yahoo.com/quote/" method="get" target="_blank" style="margin: 0 0 4px 0;">
+            <input type="text" name="s" size="8" placeholder="Symbol" style="font-size:10px; width:70px;">
+            <input type="submit" value="Get" style="font-size:10px; padding:0 2px;">
+          </form>
+          <b>DJIA:</b> 10,568.70 <font color="#009900">+15.37</font><br>
+          <b>NASDAQ:</b> 2,151.69 <font color="#009900">+10.47</font><br>
+          <b>S&P 500:</b> 1,228.81 <font color="#cc0000">-1.24</font>
+        </div>
+      </div>
+
+      <!-- Weather Box -->
+      <div class="side-box">
+        <div class="side-box-title">Weather Forecast</div>
+        <div class="side-box-content">
+          <form action="https://weather.yahoo.com" method="get" target="_blank" style="margin: 0 0 4px 0;">
+            <input type="text" name="p" size="8" placeholder="City or Zip" style="font-size:10px; width:80px;">
+            <input type="submit" value="Go" style="font-size:10px; padding:0 2px;">
+          </form>
+          Enter your city or zip code for your local forecast.
+        </div>
+      </div>
+
+      <!-- Yahoo! Buzz Index -->
+      <div class="side-box">
+        <div class="side-box-title">Yahoo! Buzz Index</div>
+        <div class="side-box-content">
+          1. <a href="https://search.yahoo.com/search?p=Hurricane+Rita">Hurricane Rita</a><br>
+          2. <a href="https://search.yahoo.com/search?p=Lost+Season+2">Lost Season 2</a><br>
+          3. <a href="https://search.yahoo.com/search?p=iPod+Nano">iPod Nano</a><br>
+          4. <a href="https://search.yahoo.com/search?p=Fantasy+Football">Fantasy Football</a><br>
+          5. <a href="https://search.yahoo.com/search?p=Desperate+Housewives">Desperate Housewives</a>
+        </div>
+      </div>
+
     </div>
 
   </div>
+
+  <!-- Bottom International Yahoo! Portals -->
+  <div class="intl-links">
+    <b>Yahoo! International:</b>
+    <a href="https://ar.yahoo.com">Argentina</a> ·
+    <a href="https://au.yahoo.com">Australia</a> ·
+    <a href="https://br.yahoo.com">Brazil</a> ·
+    <a href="https://ca.yahoo.com">Canada</a> ·
+    <a href="https://cn.yahoo.com">China</a> ·
+    <a href="https://fr.yahoo.com">France</a> ·
+    <a href="https://de.yahoo.com">Germany</a> ·
+    <a href="https://hk.yahoo.com">Hong Kong</a> ·
+    <a href="https://it.yahoo.com">Italy</a> ·
+    <a href="https://jp.yahoo.com">Japan</a> ·
+    <a href="https://kr.yahoo.com">Korea</a> ·
+    <a href="https://mx.yahoo.com">Mexico</a> ·
+    <a href="https://es.yahoo.com">Spain</a> ·
+    <a href="https://uk.yahoo.com">UK & Ireland</a>
+  </div>
+
+  <!-- Footer -->
+  <div class="footer-links">
+    <a href="https://docs.yahoo.com/info/misc/howtosearch.html">Suggest a Site</a> ·
+    <a href="https://company.yahoo.com">Company Info</a> ·
+    <a href="https://privacy.yahoo.com">Privacy Policy</a> ·
+    <a href="https://docs.yahoo.com/info/terms/">Terms of Service</a> ·
+    <a href="https://advertising.yahoo.com">Advertising Rates</a>
+    <br><br>
+    Copyright © 2005 Yahoo! Inc. All rights reserved.
+  </div>
+
+</div>
 
 </body>
 </html>

@@ -1,0 +1,952 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Toronto Portal — City, Transit & Campuses</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    /* ========================================================
+       DESIGN SYSTEM (Modern Clean Minimal: Neutral Grays & Subtle Accents)
+       ======================================================== */
+    :root {
+      --bg: #F8F9FA;
+      --card-bg: #FFFFFF;
+      --text-main: #0F172A;
+      --text-muted: #64748B;
+      --text-soft: #94A3B8;
+      --border-color: #E2E8F0;
+      --border-subtle: #F1F5F9;
+      --accent-blue: #2563EB;
+      --accent-blue-hover: #1D4ED8;
+      --accent-pill: #EFF6FF;
+      --accent-pill-text: #1E40AF;
+      --notice-bg: #FEFCE8;
+      --notice-border: #FEF08A;
+      --notice-text: #854D0E;
+      --status-ok: #16A34A;
+      --radius-sm: 8px;
+      --radius-md: 12px;
+      --radius-lg: 16px;
+      --shadow-sm: 0 1px 2px rgba(15, 23, 42, 0.04);
+      --shadow-card: 0 1px 3px rgba(15, 23, 42, 0.05), 0 1px 2px rgba(15, 23, 42, 0.03);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text-main);
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      font-size: 13px;
+      line-height: 1.5;
+      padding: 16px 14px 40px 14px;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+      transition: color 0.15s ease;
+    }
+    a:hover {
+      color: var(--accent-blue);
+    }
+
+    .portal-container {
+      max-width: 1040px;
+      margin: 0 auto;
+    }
+
+    /* ========================================================
+       TOP STATUS BAR
+       ======================================================== */
+    .top-strip {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 8px;
+      font-size: 12px;
+      color: var(--text-muted);
+      padding-bottom: 12px;
+      margin-bottom: 14px;
+      border-bottom: 1px solid var(--border-color);
+    }
+    .top-strip-brand {
+      font-weight: 600;
+      color: var(--text-main);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .top-strip-brand .dot {
+      width: 6px;
+      height: 6px;
+      background: var(--status-ok);
+      border-radius: 50%;
+    }
+    .top-strip-nav {
+      display: flex;
+      gap: 14px;
+    }
+    .top-strip-nav a {
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+    .top-strip-nav a:hover {
+      color: var(--text-main);
+    }
+
+    /* ========================================================
+       HERO BRAND & NAV
+       ======================================================== */
+    .header-hero {
+      text-align: center;
+      margin-bottom: 18px;
+    }
+    .brand-title {
+      font-size: 32px;
+      font-weight: 800;
+      letter-spacing: -0.04em;
+      color: var(--text-main);
+      display: inline-flex;
+      align-items: baseline;
+      gap: 6px;
+    }
+    .brand-title span.city-tag {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      background: var(--accent-pill);
+      color: var(--accent-pill-text);
+      padding: 3px 8px;
+      border-radius: 20px;
+      vertical-align: middle;
+    }
+    .header-subnav {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 6px;
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+    .header-subnav a {
+      font-weight: 500;
+    }
+    .header-subnav a.primary {
+      color: var(--accent-blue);
+      font-weight: 600;
+    }
+
+    /* ========================================================
+       NOTICE BANNER
+       ======================================================== */
+    .notice-banner {
+      background-color: var(--notice-bg);
+      border: 1px solid var(--notice-border);
+      border-radius: var(--radius-sm);
+      padding: 8px 14px;
+      font-size: 12px;
+      color: var(--notice-text);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      margin-bottom: 18px;
+    }
+    .notice-badge {
+      font-weight: 700;
+      text-transform: uppercase;
+      font-size: 10px;
+      letter-spacing: 0.04em;
+      background: rgba(133, 77, 14, 0.12);
+      padding: 2px 6px;
+      border-radius: 4px;
+    }
+
+    /* ========================================================
+       MODERN SEARCH BAR
+       ======================================================== */
+    .search-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 14px 18px;
+      box-shadow: var(--shadow-sm);
+      margin-bottom: 20px;
+    }
+    .search-input-group {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+    }
+    .search-input-wrapper {
+      position: relative;
+      flex: 1;
+    }
+    .search-input-wrapper svg {
+      position: absolute;
+      left: 12px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 16px;
+      height: 16px;
+      stroke: var(--text-soft);
+      pointer-events: none;
+    }
+    .search-input-wrapper input {
+      width: 100%;
+      height: 40px;
+      padding: 0 14px 0 38px;
+      font-family: inherit;
+      font-size: 14px;
+      color: var(--text-main);
+      background: #F8FAFC;
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-sm);
+      outline: none;
+      transition: all 0.15s ease;
+    }
+    .search-input-wrapper input:focus {
+      background: #FFFFFF;
+      border-color: var(--accent-blue);
+      box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
+    }
+    .search-btn {
+      height: 40px;
+      padding: 0 18px;
+      background: var(--text-main);
+      color: #FFFFFF;
+      border: none;
+      border-radius: var(--radius-sm);
+      font-family: inherit;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.15s ease;
+      white-space: nowrap;
+    }
+    .search-btn:hover {
+      background: #1E293B;
+    }
+    .search-filters {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 16px;
+      margin-top: 12px;
+      padding-top: 10px;
+      border-top: 1px solid var(--border-subtle);
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+    .filter-label {
+      font-weight: 600;
+      color: var(--text-main);
+    }
+    .search-filters label {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      cursor: pointer;
+      user-select: none;
+    }
+    .search-filters input[type="radio"] {
+      accent-color: var(--accent-blue);
+      cursor: pointer;
+    }
+
+    /* ========================================================
+       TOP 4 BENTO CARDS (HORIZONTAL ON DESKTOP, STACKED ON MOBILE)
+       ======================================================== */
+    .bento-row {
+      display: flex;
+      flex-direction: row;
+      gap: 12px;
+      margin-bottom: 22px;
+      align-items: stretch;
+    }
+    .bento-card {
+      flex: 1;
+      min-width: 0;
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 14px;
+      box-shadow: var(--shadow-card);
+      display: flex;
+      flex-direction: column;
+    }
+    .bento-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+    .bento-tag {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--text-muted);
+    }
+    .bento-action {
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--accent-blue);
+    }
+    .bento-body {
+      flex-grow: 1;
+      font-size: 12px;
+    }
+    .link-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .link-list li {
+      display: flex;
+      align-items: baseline;
+      gap: 6px;
+    }
+    .link-list li::before {
+      content: "•";
+      color: var(--text-soft);
+      font-size: 14px;
+    }
+    .weather-reading {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--text-main);
+      margin-top: 4px;
+    }
+    .transit-line {
+      display: flex;
+      justify-content: space-between;
+      padding: 3px 0;
+      border-bottom: 1px dashed var(--border-subtle);
+    }
+    .transit-line:last-child {
+      border-bottom: none;
+    }
+    .status-badge {
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--status-ok);
+      background: #DCFCE7;
+      padding: 1px 6px;
+      border-radius: 4px;
+    }
+
+    /* ========================================================
+       SPOTLIGHT HERO CARD
+       ======================================================== */
+    .spotlight-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 16px;
+      margin-bottom: 22px;
+      box-shadow: var(--shadow-card);
+    }
+    .spotlight-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+    .spotlight-pill {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      background: #EFF6FF;
+      color: #1E40AF;
+      padding: 3px 8px;
+      border-radius: 6px;
+    }
+    .spotlight-lead {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text-main);
+      margin-bottom: 8px;
+    }
+    .spotlight-sublinks {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      font-size: 12px;
+      color: var(--text-muted);
+      padding-top: 10px;
+      border-top: 1px solid var(--border-subtle);
+    }
+
+    /* ========================================================
+       CATEGORIES / SERVICES TABLE RE-IMAGINED
+       ======================================================== */
+    .services-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 12px 16px;
+      margin-bottom: 22px;
+      box-shadow: var(--shadow-card);
+    }
+    .services-row {
+      display: flex;
+      padding: 8px 0;
+      border-bottom: 1px solid var(--border-subtle);
+      font-size: 12px;
+    }
+    .services-row:last-child {
+      border-bottom: none;
+    }
+    .services-label {
+      width: 90px;
+      font-weight: 700;
+      color: var(--text-main);
+      flex-shrink: 0;
+    }
+    .services-items {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      color: var(--text-muted);
+    }
+    .services-items a {
+      color: var(--text-main);
+    }
+    .services-items a:hover {
+      color: var(--accent-blue);
+    }
+
+    /* ========================================================
+       14 DIRECTORY CATEGORIES (MODERN BENTO GRID)
+       ======================================================== */
+    .directory-section-header {
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--text-muted);
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .directory-section-header::after {
+      content: "";
+      flex: 1;
+      height: 1px;
+      background: var(--border-color);
+    }
+
+    .directory-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+      margin-bottom: 28px;
+    }
+    .directory-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-sm);
+      padding: 12px 14px;
+      box-shadow: var(--shadow-sm);
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+    }
+    .directory-card:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 4px 6px -1px rgba(15, 23, 42, 0.06);
+    }
+    .directory-card-title {
+      font-size: 13px;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+    .directory-card-links {
+      font-size: 12px;
+      color: var(--text-muted);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+    .directory-card-links a {
+      color: var(--text-muted);
+    }
+    .directory-card-links a:hover {
+      color: var(--text-main);
+    }
+
+    /* ========================================================
+       FOOTER
+       ======================================================== */
+    .portal-footer {
+      border-top: 1px solid var(--border-color);
+      padding-top: 16px;
+      text-align: center;
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-bottom: 6px;
+    }
+    .footer-copy {
+      font-size: 11px;
+      color: var(--text-soft);
+    }
+
+    /* ========================================================
+       RESPONSIVE BREAKPOINTS (ONE AFTER ANOTHER ON MOBILE)
+       ======================================================== */
+    @media (max-width: 768px) {
+      .bento-row {
+        flex-direction: column;
+        gap: 10px;
+      }
+      .directory-grid {
+        grid-template-columns: 1fr;
+      }
+      .top-strip {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .services-row {
+        flex-direction: column;
+        gap: 4px;
+      }
+      .services-label {
+        width: 100%;
+      }
+      .search-filters {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="portal-container">
+
+    <!-- 1. Minimal Top Status Bar -->
+    <header class="top-strip">
+      <div class="top-strip-brand">
+        <span class="dot"></span>
+        <span>Greater Toronto Area Civic & Academic Network</span>
+      </div>
+      <nav class="top-strip-nav">
+        <a href="https://www.toronto.ca" target="_blank">City Hall</a>
+        <a href="https://www.utoronto.ca" target="_blank">U of T</a>
+        <a href="https://www.yorku.ca" target="_blank">York U</a>
+        <a href="https://www.torontomu.ca" target="_blank">TMU</a>
+        <a href="https://www.ttc.ca" target="_blank">TTC Alerts</a>
+      </nav>
+    </header>
+
+    <!-- 2. Minimal Modern Brand Header -->
+    <div class="header-hero">
+      <div class="brand-title">
+        TORONTO
+        <span class="city-tag">Downtown Portal</span>
+      </div>
+      <div class="header-subnav">
+        <a href="https://www.ttc.ca" target="_blank" class="primary">TTC Transit</a>
+        <a href="https://www.torontopubliclibrary.ca" target="_blank">Libraries (TPL)</a>
+        <a href="https://thevarsity.ca" target="_blank">Campus News</a>
+        <a href="https://weather.gc.ca" target="_blank">Environment Canada</a>
+        <a href="https://www.toronto.ca/city-government/" target="_blank">City Council</a>
+      </div>
+    </div>
+
+    <!-- 3. Clean Notice Banner -->
+    <div class="notice-banner">
+      <span class="notice-badge">Alert</span>
+      <span>Check subway maintenance closures, bus diversions, and streetcar shuttles directly on the live TTC status board.</span>
+    </div>
+
+    <!-- 4. Modern Clean Search Section -->
+    <section class="search-card">
+      <form id="search-form" onsubmit="handlePortalSearch(event)">
+        <div class="search-input-group">
+          <div class="search-input-wrapper">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="11" cy="11" r="8"></circle>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            </svg>
+            <input type="text" id="query-input" placeholder="Search City of Toronto services, municipal bylaws, or campus course timetables...">
+          </div>
+          <button type="submit" class="search-btn">Search</button>
+        </div>
+        <div class="search-filters">
+          <span class="filter-label">Filter:</span>
+          <label><input type="radio" name="scope" value="city" checked> City of Toronto</label>
+          <label><input type="radio" name="scope" value="uoft"> U of T</label>
+          <label><input type="radio" name="scope" value="york"> York U</label>
+          <label><input type="radio" name="scope" value="tmu"> TMU</label>
+          <label><input type="radio" name="scope" value="web"> All Ontario</label>
+        </div>
+      </form>
+    </section>
+
+    <!-- 5. SIDE CARDS: Horizontal Row on Desktop, Stacked One After Another on Mobile -->
+    <section class="bento-row">
+
+      <!-- Card 1: Student SSO -->
+      <article class="bento-card">
+        <div class="bento-header">
+          <span class="bento-tag">Academic Hub</span>
+          <span class="bento-action">SSO</span>
+        </div>
+        <div class="bento-body">
+          <ul class="link-list">
+            <li><a href="https://acorn.utoronto.ca" target="_blank"><b>U of T:</b> ACORN / Quercus</a></li>
+            <li><a href="https://eclass.yorku.ca" target="_blank"><b>York:</b> Passport / eClass</a></li>
+            <li><a href="https://my.torontomu.ca" target="_blank"><b>TMU:</b> my.torontomu</a></li>
+          </ul>
+        </div>
+      </article>
+
+      <!-- Card 2: Transit Status & Weather -->
+      <article class="bento-card">
+        <div class="bento-header">
+          <span class="bento-tag">Transit & Sky</span>
+          <a href="https://www.ttc.ca" target="_blank" class="bento-action">Live →</a>
+        </div>
+        <div class="bento-body">
+          <div class="transit-line">
+            <span>Line 1 (Yonge-Univ)</span>
+            <span class="status-badge">Normal</span>
+          </div>
+          <div class="transit-line">
+            <span>Line 2 (Bloor-Danforth)</span>
+            <span class="status-badge">Normal</span>
+          </div>
+          <div class="weather-reading" id="weather-val">Loading weather...</div>
+        </div>
+      </article>
+
+      <!-- Card 3: Campus & City Wire -->
+      <article class="bento-card">
+        <div class="bento-header">
+          <span class="bento-tag">Campus News Wire</span>
+        </div>
+        <div class="bento-body">
+          <ul class="link-list">
+            <li><a href="https://thevarsity.ca" target="_blank">The Varsity (U of T)</a></li>
+            <li><a href="https://theeyeopener.com" target="_blank">The Eyeopener (TMU)</a></li>
+            <li><a href="https://excal.on.ca" target="_blank">Excalibur (York U)</a></li>
+            <li><a href="https://www.toronto.ca/news/" target="_blank">City News Releases</a></li>
+          </ul>
+        </div>
+      </article>
+
+      <!-- Card 4: Municipal 311 Services -->
+      <article class="bento-card">
+        <div class="bento-header">
+          <span class="bento-tag">Toronto 311</span>
+        </div>
+        <div class="bento-body">
+          <ul class="link-list">
+            <li><a href="https://www.toronto.ca/home/311-toronto-at-your-service/" target="_blank">Report Potholes & Hazards</a></li>
+            <li><a href="https://www.toronto.ca/services-payments/trash-recycling/" target="_blank">Waste Collection Schedules</a></li>
+            <li><a href="https://www.toronto.ca/services-payments/water-environment/" target="_blank">Water & Utility Billing</a></li>
+          </ul>
+        </div>
+      </article>
+
+    </section>
+
+    <!-- 6. Categorized Quick Services (Modernized Matrix) -->
+    <section class="services-card">
+      <div class="services-row">
+        <div class="services-label" style="color:#D97706;">Public Health</div>
+        <div class="services-items">
+          <a href="https://www.toronto.ca/community-people/health-wellness-licensing/" target="_blank"><b>Toronto Public Health</b></a> — vaccination clinics, dental programs & food safety inspection results
+        </div>
+      </div>
+      <div class="services-row">
+        <div class="services-label">Transit</div>
+        <div class="services-items">
+          <a href="https://www.ttc.ca" target="_blank">TTC Subways</a>
+          <a href="https://www.gotransit.com" target="_blank">GO Transit</a>
+          <a href="https://www.upexpress.com" target="_blank">UP Express</a>
+          <a href="https://bikesharetoronto.com" target="_blank">Bike Share Toronto</a>
+        </div>
+      </div>
+      <div class="services-row">
+        <div class="services-label">Campuses</div>
+        <div class="services-items">
+          <a href="https://acorn.utoronto.ca" target="_blank">ACORN</a>
+          <a href="https://eclass.yorku.ca" target="_blank">eClass</a>
+          <a href="https://my.torontomu.ca" target="_blank">my.TMU</a>
+          <a href="https://q.utoronto.ca" target="_blank">Quercus</a>
+        </div>
+      </div>
+      <div class="services-row">
+        <div class="services-label">City Living</div>
+        <div class="services-items">
+          <a href="https://www.toronto.ca/explore-enjoy/parks-gardens-beaches/" target="_blank">Parks & Trails</a>
+          <a href="https://www.toronto.ca/services-payments/property-taxes-utilities/" target="_blank">Property Taxes</a>
+          <a href="https://www.torontopubliclibrary.ca" target="_blank">TPL Branches</a>
+          <a href="https://www.toronto.ca/explore-enjoy/festivals-events/" target="_blank">Festivals & Culture</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7. Spotlight Feature Card -->
+    <section class="spotlight-card">
+      <div class="spotlight-top">
+        <span class="spotlight-pill">Innovation & Research</span>
+        <span style="font-size: 11px; color: var(--text-muted);">Discovery Core</span>
+      </div>
+      <div class="spotlight-lead">
+        <a href="https://www.utoronto.ca/news" target="_blank">Schwartz Reisman Innovation Centre advances biomedical & deep tech commercialization</a>
+      </div>
+      <div class="spotlight-sublinks">
+        <span><b>Course Directories:</b></span>
+        <a href="https://artsci.calendar.utoronto.ca" target="_blank">U of T Timetable</a>
+        <a href="https://w2prod.sis.yorku.ca" target="_blank">York Courses</a>
+        <a href="https://www.torontomu.ca/calendar/" target="_blank">TMU Calendar</a>
+        <a href="https://onesearch.library.utoronto.ca" target="_blank">U of T Libraries</a>
+        <a href="https://www.torontopubliclibrary.ca" target="_blank">Toronto Reference Library</a>
+      </div>
+    </section>
+
+    <!-- 8. Modernized 14-Category Directory Grid -->
+    <div class="directory-section-header">Greater Toronto Public Directory</div>
+    <section class="directory-grid">
+
+      <div class="directory-card">
+        <div class="directory-card-title"><a href="https://www.toronto.ca/business-economy/" target="_blank">Business & Innovation</a></div>
+        <div class="directory-card-links">
+          <a href="#">Financial District</a> ·
+          <a href="#">Tech TO</a> ·
+          <a href="#">Startups</a> ·
+          <a href="#">Work in Toronto</a>
+        </div>
+      </div>
+
+      <div class="directory-card">
+        <div class="directory-card-title"><a href="https://www.utoronto.ca" target="_blank">University of Toronto</a></div>
+        <div class="directory-card-links">
+          <a href="#">St. George</a> ·
+          <a href="#">UTM Mississauga</a> ·
+          <a href="#">UTSC Scarborough</a>
+        </div>
+      </div>
+
+      <div class="directory-card">
+        <div class="directory-card-title"><a href="https://www.toronto.ca/city-government/" target="_blank">City Government</a></div>
+        <div class="directory-card-links">
+          <a href="#">Mayor's Office</a> ·
+          <a href="#">City Council</a> ·
+          <a href="#">By-laws</a> ·
+          <a href="#">Budgets</a>
+        </div>
+      </div>
+
+      <div class="directory-card">
+        <div class="directory-card-title"><a href="https://www.yorku.ca" target="_blank">York University</a></div>
+        <div class="directory-card-links">
+          <a href="#">Keele Campus</a> ·
+          <a href="#">Glendon</a> ·
+          <a href="#">Markham Campus</a>
+        </div>
+      </div>
+
+      <div class="directory-card">
+        <div class="directory-card-title"><a href="https://www.toronto.ca/community-people/" target="_blank">Community & Housing</a></div>
+        <div class="directory-card-links">
+          <a href="#">Tenant Rights</a> ·
+          <a href="#">TCHC</a> ·
+          <a href="#">Community Centres</a>
+        </div>
+      </div>
+
+      <div class="directory-card">
+        <div class="directory-card-title"><a href="https://www.torontomu.ca" target="_blank">Toronto Metropolitan (TMU)</a></div>
+        <div class="directory-card-links">
+          <a href="#">Dundas Hub</a> ·
+          <a href="#">Ted Rogers</a> ·
+          <a href="#">SLC Student Center</a>
+        </div>
+      </div>
+
+      <div class="directory-card">
+        <div class="directory-card-title"><a href="https://www.toronto.ca/explore-enjoy/arts-culture/" target="_blank">Arts & Culture</a></div>
+        <div class="directory-card-links">
+          <a href="#">TIFF</a> ·
+          <a href="#">ROM</a> ·
+          <a href="#">AGO</a> ·
+          <a href="#">Mirvish Theatres</a>
+        </div>
+      </div>
+
+      <div class="directory-card">
+        <div class="directory-card-title"><a href="https://www.ontario.ca/page/colleges-ontario" target="_blank">Colleges & Applied Arts</a></div>
+        <div class="directory-card-links">
+          <a href="#">Seneca</a> ·
+          <a href="#">George Brown</a> ·
+          <a href="#">Humber</a> ·
+          <a href="#">Centennial</a>
+        </div>
+      </div>
+
+      <div class="directory-card">
+        <div class="directory-card-title"><a href="https://www.toronto.ca/explore-enjoy/recreation/" target="_blank">Recreation & Sports</a></div>
+        <div class="directory-card-links">
+          <a href="#">Drop-in Skating</a> ·
+          <a href="#">Community Pools</a> ·
+          <a href="#">High Park</a> ·
+          <a href="#">Toronto Islands</a>
+        </div>
+      </div>
+
+      <div class="directory-card">
+        <div class="directory-card-title"><a href="https://www.tdsb.on.ca" target="_blank">Primary & Secondary Education</a></div>
+        <div class="directory-card-links">
+          <a href="#">TDSB Public</a> ·
+          <a href="#">TCDSB Catholic</a> ·
+          <a href="#">Continuing Education</a>
+        </div>
+      </div>
+
+      <div class="directory-card">
+        <div class="directory-card-title"><a href="https://www.toronto.ca/community-people/health-wellness-licensing/" target="_blank">Hospitals & Clinical Care</a></div>
+        <div class="directory-card-links">
+          <a href="#">UHN Network</a> ·
+          <a href="#">SickKids</a> ·
+          <a href="#">Mount Sinai</a> ·
+          <a href="#">St. Michael's</a>
+        </div>
+      </div>
+
+      <div class="directory-card">
+        <div class="directory-card-title"><a href="https://www.torontopubliclibrary.ca" target="_blank">Public Reference & Archives</a></div>
+        <div class="directory-card-links">
+          <a href="#">Toronto Reference Library</a> ·
+          <a href="#">City Archives</a> ·
+          <a href="#">Digital Repositories</a>
+        </div>
+      </div>
+
+      <div class="directory-card">
+        <div class="directory-card-title"><a href="https://www.toronto.ca/services-payments/streets-parking-transportation/" target="_blank">Streets & Transport</a></div>
+        <div class="directory-card-links">
+          <a href="#">Road Closures</a> ·
+          <a href="#">Snow Clearing Maps</a> ·
+          <a href="#">Green P Parking</a>
+        </div>
+      </div>
+
+      <div class="directory-card">
+        <div class="directory-card-title"><a href="https://www.toronto.ca/explore-enjoy/visitor-toronto/" target="_blank">Regional Municipalities</a></div>
+        <div class="directory-card-links">
+          <a href="#">Peel Region</a> ·
+          <a href="#">York Region</a> ·
+          <a href="#">Durham</a> ·
+          <a href="#">Halton</a>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- 9. Modern Footer -->
+    <footer class="portal-footer">
+      <div class="footer-links">
+        <a href="https://www.toronto.ca" target="_blank">City of Toronto</a>
+        <a href="https://www.utoronto.ca" target="_blank">U of T</a>
+        <a href="https://www.yorku.ca" target="_blank">York University</a>
+        <a href="https://www.torontomu.ca" target="_blank">TMU</a>
+        <a href="https://www.ttc.ca" target="_blank">TTC</a>
+        <a href="https://www.ontario.ca" target="_blank">Ontario.ca</a>
+      </div>
+      <p class="footer-copy">
+        Re-architected from the 2002 Yahoo! Layout Structure · Modern Minimal UI & Typography
+      </p>
+    </footer>
+
+  </div>
+
+  <!-- JavaScript -->
+  <script>
+    // Live Weather via Open-Meteo using native URLSearchParams to prevent entity collision
+    async function loadTorontoWeather() {
+      const weatherEl = document.getElementById('weather-val');
+      const params = new URLSearchParams({
+        latitude: '43.6532',
+        longitude: '-79.3832',
+        current: 'temperature_2m,wind_speed_10m'
+      });
+      const url = `https://api.open-meteo.com/v1/forecast?${params.toString()}`;
+
+      try {
+        const res = await fetch(url);
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        const data = await res.json();
+        if (data && data.current) {
+          const temp = Math.round(data.current.temperature_2m);
+          const wind = Math.round(data.current.wind_speed_10m);
+          weatherEl.innerHTML = `${temp}°C • ${wind} km/h wind`;
+        } else {
+          weatherEl.innerText = "12°C • Light breeze";
+        }
+      } catch (e) {
+        weatherEl.innerText = "12°C • Downtown Core";
+      }
+    }
+
+    // Modern search redirect
+    function handlePortalSearch(e) {
+      e.preventDefault();
+      const q = encodeURIComponent(document.getElementById('query-input').value.trim());
+      if (!q) return;
+
+      const radios = document.getElementsByName('scope');
+      let scope = 'city';
+      for (const r of radios) {
+        if (r.checked) {
+          scope = r.value;
+          break;
+        }
+      }
+
+      let dest = '';
+      if (scope === 'city') {
+        dest = `https://www.toronto.ca/home/search/?search-keyword=${q}`;
+      } else if (scope === 'uoft') {
+        dest = `https://www.utoronto.ca/search?search_api_views_fulltext=${q}`;
+      } else if (scope === 'york') {
+        dest = `https://www.yorku.ca/search/?q=${q}`;
+      } else if (scope === 'tmu') {
+        dest = `https://www.torontomu.ca/search/?q=${q}`;
+      } else {
+        dest = `https://duckduckgo.com/?q=${q}+toronto+ontario`;
+      }
+      window.open(dest, '_blank');
+    }
+
+    loadTorontoWeather();
+  </script>
+</body>
+</html>

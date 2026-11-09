@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Yahoo! - September 2002 Edition (Mobile Friendly)</title>
+  <style>
+    :root {
+      --yahoo-purple: #330077;
+      --yahoo-red: #cc0000;
+      --link-blue: #0000de;
+      --bg-gray: #eeeeee;
+      --border-gray: #cccccc;
+      --table-border: #b0b0b0;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 13px;
+      line-height: 1.35;
+      color: #000;
+      background-color: #ffffff;
+      padding: 6px;
+    }
+
+    a {
+      color: var(--link-blue);
+      text-decoration: underline;
+    }
+
+    a:visited {
+      color: #551a8b;
+    }
+
+    /* Top Utility Bar */
+    .top-bar {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 6px;
+      border-bottom: 1px solid var(--border-gray);
+      padding-bottom: 6px;
+      margin-bottom: 8px;
+      font-size: 11px;
+    }
+
+    .top-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    /* Logo & Search Header */
+    .header-area {
+      text-align: center;
+      margin-bottom: 10px;
+    }
+
+    .logo {
+      font-family: "Georgia", serif;
+      font-size: 34px;
+      font-weight: 900;
+      color: var(--yahoo-red);
+      letter-spacing: -1px;
+      text-decoration: none;
+      display: inline-block;
+      margin-bottom: 6px;
+    }
+
+    .search-box {
+      background: #f5f5f5;
+      border: 1px solid var(--border-gray);
+      padding: 8px;
+      border-radius: 4px;
+      max-width: 580px;
+      margin: 0 auto;
+    }
+
+    .search-form {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      justify-content: center;
+      margin-bottom: 6px;
+    }
+
+    .search-input {
+      flex: 1 1 200px;
+      padding: 6px 8px;
+      font-size: 14px;
+      border: 1px solid #7f9db9;
+    }
+
+    .btn-search {
+      padding: 6px 14px;
+      font-size: 13px;
+      font-weight: bold;
+      background: #e0e0e0;
+      border: 1px solid #707070;
+      cursor: pointer;
+    }
+
+    .search-options {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 12px;
+      font-size: 11px;
+    }
+
+    /* Main Services Bar (Mail, Messenger, etc.) */
+    .quick-services {
+      background: #ffffcc;
+      border: 1px solid #cccc66;
+      padding: 6px 8px;
+      text-align: center;
+      font-size: 12px;
+      margin-bottom: 10px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    .quick-services a {
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    .quick-services a:hover {
+      text-decoration: underline;
+    }
+
+    /* Multi-column layout switching to 1-col on mobile */
+    .layout-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 10px;
+    }
+
+    @media (min-width: 768px) {
+      .layout-grid {
+        grid-template-columns: 200px 1fr 240px;
+      }
+    }
+
+    /* Box Containers */
+    .box {
+      border: 1px solid var(--table-border);
+      background: #fff;
+      margin-bottom: 10px;
+    }
+
+    .box-header {
+      background: #dcdcdc;
+      padding: 4px 8px;
+      font-weight: bold;
+      font-size: 12px;
+      border-bottom: 1px solid var(--table-border);
+    }
+
+    .box-content {
+      padding: 8px;
+      font-size: 12px;
+    }
+
+    .box-content ul {
+      list-style-type: square;
+      padding-left: 18px;
+      margin-top: 4px;
+    }
+
+    .box-content li {
+      margin-bottom: 4px;
+    }
+
+    /* Directory Categories */
+    .category-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 10px;
+    }
+
+    @media (min-width: 480px) {
+      .category-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    .category-item {
+      font-size: 12px;
+    }
+
+    .category-title {
+      font-weight: bold;
+      font-size: 13px;
+      display: block;
+      margin-bottom: 2px;
+    }
+
+    .sub-links {
+      color: #555;
+      font-size: 11px;
+    }
+
+    .sub-links a {
+      color: #333;
+      text-decoration: none;
+    }
+
+    .sub-links a:hover {
+      text-decoration: underline;
+    }
+
+    /* In the News / Personal Assistant */
+    .news-headline {
+      font-weight: bold;
+      color: #990000;
+      margin-bottom: 4px;
+    }
+
+    /* Footer */
+    footer {
+      border-top: 1px solid var(--border-gray);
+      margin-top: 14px;
+      padding: 10px 0;
+      text-align: center;
+      font-size: 11px;
+      color: #666;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 8px;
+      margin-bottom: 6px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Helper Bar -->
+  <header class="top-bar">
+    <div class="top-links">
+      <a href="#">Yahoo! Companion</a> •
+      <a href="#">Help</a>
+    </div>
+    <div class="top-links">
+      <a href="#">Personalize</a> •
+      <a href="#">Sign In</a>
+    </div>
+  </header>
+
+  <!-- Yahoo! Logo and Search -->
+  <section class="header-area">
+    <a href="#" class="logo">YAHOO!</a>
+
+    <div class="search-box">
+      <form class="search-form" onsubmit="return false;">
+        <input type="text" class="search-input" placeholder="Search the Web...">
+        <button type="submit" class="btn-search">Search</button>
+      </form>
+      <div class="search-options">
+        <label><input type="radio" name="st" checked> the Web</label>
+        <label><input type="radio" name="st"> Yellow Pages</label>
+        <label><input type="radio" name="st"> Images</label>
+        <label><input type="radio" name="st"> Directory</label>
+        <a href="#">Advanced</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Quick Services (Yellow Bar) -->
+  <nav class="quick-services">
+    <a href="#">Mail</a>
+    <a href="#">Messenger</a>
+    <a href="#">Chat</a>
+    <a href="#">Finance</a>
+    <a href="#">Sports</a>
+    <a href="#">News</a>
+    <a href="#">Travel</a>
+    <a href="#">Auctions</a>
+    <a href="#">Games</a>
+    <a href="#">Personals</a>
+  </nav>
+
+  <!-- Responsive Layout Grid -->
+  <main class="layout-grid">
+
+    <!-- Left Column: Personal Assistant & Shopping -->
+    <aside>
+      <div class="box">
+        <div class="box-header">Personal Assistant</div>
+        <div class="box-content">
+          <p><a href="#"><b>Sign In</b></a> to get customized news, weather, and free email.</p>
+          <ul style="margin-top:6px;">
+            <li><a href="#">Address Book</a></li>
+            <li><a href="#">Calendar</a></li>
+            <li><a href="#">My Yahoo!</a></li>
+            <li><a href="#">Yahoo! Photos</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="box">
+        <div class="box-header">Shop & Save</div>
+        <div class="box-content">
+          <ul>
+            <li><a href="#">Auctions</a> - Coins, Cars, Sports</li>
+            <li><a href="#">Autos</a> - Buy, Sell, Research</li>
+            <li><a href="#">Real Estate</a> - Rentals, Mortgages</li>
+            <li><a href="#">Shopping</a> - Apparel, Electronics</li>
+            <li><a href="#">Yellow Pages</a> - Maps & Directions</li>
+          </ul>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Center Column: Directory Categories -->
+    <section>
+      <div class="box">
+        <div class="box-header">Web Directory</div>
+        <div class="box-content category-grid">
+
+          <div class="category-item">
+            <a href="#" class="category-title">Business & Economy</a>
+            <span class="sub-links">
+              <a href="#">B2B</a>, <a href="#">Finance</a>, <a href="#">Shopping</a>, <a href="#">Jobs</a>
+            </span>
+          </div>
+
+          <div class="category-item">
+            <a href="#" class="category-title">Computers & Internet</a>
+            <span class="sub-links">
+              <a href="#">Software</a>, <a href="#">Web</a>, <a href="#">Games</a>, <a href="#">Tech News</a>
+            </span>
+          </div>
+
+          <div class="category-item">
+            <a href="#" class="category-title">News & Media</a>
+            <span class="sub-links">
+              <a href="#">Newspapers</a>, <a href="#">TV</a>, <a href="#">Radio</a>, <a href="#">Magazines</a>
+            </span>
+          </div>
+
+          <div class="category-item">
+            <a href="#" class="category-title">Entertainment</a>
+            <span class="sub-links">
+              <a href="#">Movies</a>, <a href="#">Music</a>, <a href="#">Humor</a>, <a href="#">Celebrities</a>
+            </span>
+          </div>
+
+          <div class="category-item">
+            <a href="#" class="category-title">Recreation & Sports</a>
+            <span class="sub-links">
+              <a href="#">Baseball</a>, <a href="#">Football</a>, <a href="#">Outdoors</a>, <a href="#">Travel</a>
+            </span>
+          </div>
+
+          <div class="category-item">
+            <a href="#" class="category-title">Health</a>
+            <span class="sub-links">
+              <a href="#">Medicine</a>, <a href="#">Diseases</a>, <a href="#">Fitness</a>, <a href="#">Nutrition</a>
+            </span>
+          </div>
+
+          <div class="category-item">
+            <a href="#" class="category-title">Society & Culture</a>
+            <span class="sub-links">
+              <a href="#">People</a>, <a href="#">Environment</a>, <a href="#">Religion</a>, <a href="#">Genealogy</a>
+            </span>
+          </div>
+
+          <div class="category-item">
+            <a href="#" class="category-title">Education</a>
+            <span class="sub-links">
+              <a href="#">Colleges</a>, <a href="#">K-12</a>, <a href="#">Distance Learning</a>
+            </span>
+          </div>
+
+          <div class="category-item">
+            <a href="#" class="category-title">Government</a>
+            <span class="sub-links">
+              <a href="#">Elections</a>, <a href="#">Military</a>, <a href="#">Law</a>, <a href="#">Taxes</a>
+            </span>
+          </div>
+
+          <div class="category-item">
+            <a href="#" class="category-title">Regional</a>
+            <span class="sub-links">
+              <a href="#">Countries</a>, <a href="#">Regions</a>, <a href="#">US States</a>, <a href="#">Cities</a>
+            </span>
+          </div>
+
+          <div class="category-item">
+            <a href="#" class="category-title">Science</a>
+            <span class="sub-links">
+              <a href="#">Animals</a>, <a href="#">Astronomy</a>, <a href="#">Engineering</a>, <a href="#">Earth</a>
+            </span>
+          </div>
+
+          <div class="category-item">
+            <a href="#" class="category-title">Social Science</a>
+            <span class="sub-links">
+              <a href="#">Archaeology</a>, <a href="#">Economics</a>, <a href="#">Languages</a>
+            </span>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Right Column: In the News & Marketplace -->
+    <aside>
+      <div class="box">
+        <div class="box-header">In the News</div>
+        <div class="box-content">
+          <p class="news-headline">• U.N. weapons inspections debate continues</p>
+          <p class="news-headline">• Wall St. rallies on tech optimism</p>
+          <p class="news-headline">• Tropical Storm Lili threatens Gulf Coast</p>
+          <p class="news-headline">• Baseball: MLB postseason races tighten</p>
+          <ul style="margin-top: 6px;">
+            <li><a href="#">News Summary</a> • <a href="#">Photos</a></li>
+            <li><a href="#">Weather Forecast</a></li>
+            <li><a href="#">Stock Quotes</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="box">
+        <div class="box-header">Marketplace</div>
+        <div class="box-content">
+          <ul>
+            <li><a href="#">Yahoo! DSL</a> - High speed Internet from $29.95/mo</li>
+            <li><a href="#">Yahoo! Personals</a> - Meet compatible singles near you</li>
+            <li><a href="#">PayDirect</a> - Send money online safely</li>
+          </ul>
+        </div>
+      </div>
+    </aside>
+
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-links">
+      <a href="#">Copyright © 2002 Yahoo! Inc.</a>
+      <a href="#">All rights reserved.</a>
+      <a href="#">Privacy Policy</a>
+      <a href="#">Terms of Service</a>
+    </div>
+    <p>Yahoo! International: <a href="#">Canada</a> • <a href="#">UK</a> • <a href="#">Japan</a> • <a href="#">Germany</a> • <a href="#">France</a></p>
+  </footer>
+
+</body>
+</html>

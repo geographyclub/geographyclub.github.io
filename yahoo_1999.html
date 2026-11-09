@@ -1,169 +1,524 @@
-<!DOCTYPE html>
-<html>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en">
 <head>
-  <meta charset="utf-8">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Yahoo!</title>
+  <style type="text/css">
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      background-color: #ffffff;
+      color: #000000;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 12px;
+      line-height: 1.35;
+      margin: 0;
+      padding: 6px 8px;
+    }
+    a {
+      color: #0000cc;
+      text-decoration: underline;
+    }
+    a:visited {
+      color: #551a8b;
+    }
+    a:hover {
+      color: #ff0000;
+    }
+    .wrapper {
+      max-width: 650px;
+      margin: 0 auto;
+      text-align: left;
+    }
+
+    /* --- Image Utility & Specific Classes --- */
+    img {
+      border: 0;
+      vertical-align: middle;
+    }
+
+    /* Top/Mid standard web banner (468x60) */
+    .banner-container {
+      text-align: center;
+      margin: 6px auto 10px auto;
+    }
+    .img-banner {
+      width: 468px;
+      height: 60px;
+      max-width: 100%;
+      height: auto;
+      border: 1px solid #333333;
+      display: inline-block;
+    }
+
+    /* Main brand logo */
+    .img-logo {
+      height: 48px;
+      width: auto;
+      max-width: 100%;
+      vertical-align: middle;
+    }
+
+    /* Thumbnail previews for news & promo blocks */
+    .img-thumbnail {
+      width: 50px;
+      height: 50px;
+      object-fit: cover;
+      border: 1px solid #cccccc;
+      float: left;
+      margin: 0 6px 2px 0;
+    }
+
+    /* Small item thumbnails (Marketplace & Auctions) */
+    .img-thumb-small {
+      width: 24px;
+      height: 24px;
+      object-fit: cover;
+      border: 1px solid #bbbbbb;
+      vertical-align: middle;
+      margin-right: 4px;
+    }
+
+    /* Inline micro icons */
+    .img-icon {
+      width: 14px;
+      height: 14px;
+      vertical-align: -2px;
+      margin-right: 3px;
+    }
+
+    /* Sponsor badge images */
+    .img-sponsor-badge {
+      height: 20px;
+      width: auto;
+      vertical-align: middle;
+      margin-left: 4px;
+    }
+
+    /* Top Strip */
+    .top-strip {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 6px;
+      font-size: 11px;
+      margin-bottom: 6px;
+      padding-bottom: 4px;
+      border-bottom: 1px solid #eeeeee;
+    }
+
+    /* Logo & Header */
+    .header-center {
+      text-align: center;
+      margin-bottom: 6px;
+    }
+    .top-nav-links {
+      font-size: 11px;
+      margin-top: 6px;
+      line-height: 1.5;
+    }
+
+    /* Promo Alert Box */
+    .top-promo {
+      background-color: #ffffcc;
+      border: 1px solid #cccc99;
+      padding: 4px 8px;
+      font-size: 11px;
+      text-align: center;
+      margin: 6px 0;
+    }
+
+    /* Services Matrix */
+    .services-summary {
+      font-size: 11px;
+      text-align: center;
+      line-height: 1.5;
+      margin-bottom: 8px;
+    }
+
+    /* Search Form */
+    .search-box {
+      text-align: center;
+      margin-bottom: 10px;
+    }
+    .search-input-row {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 4px;
+      flex-wrap: wrap;
+      margin-bottom: 4px;
+    }
+    .search-input {
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 13px;
+      padding: 3px 5px;
+      width: 280px;
+      max-width: 100%;
+      border: 1px solid #7f9db9;
+    }
+    .search-btn {
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 12px;
+      font-weight: bold;
+      background-color: #ece9d8;
+      border: 2px outset #ffffff;
+      padding: 2px 8px;
+      cursor: pointer;
+    }
+    .search-radios {
+      font-size: 11px;
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    /* 2-Column Directory Layout */
+    .directory-grid {
+      display: flex;
+      gap: 16px;
+      margin-top: 4px;
+    }
+    .directory-col {
+      flex: 1;
+      min-width: 0;
+    }
+    .cat-block {
+      margin-bottom: 10px;
+    }
+    .dir-cat {
+      font-size: 13px;
+      font-weight: bold;
+      color: #0000cc;
+    }
+    .dir-sub {
+      font-size: 11px;
+      color: #333333;
+      margin-top: 1px;
+      line-height: 1.35;
+    }
+
+    /* Dividers */
+    .bar-divider {
+      background-color: #6699cc;
+      height: 2px;
+      line-height: 2px;
+      margin: 10px 0;
+    }
+
+    /* News, Marketplace & Quotes Section */
+    .news-grid {
+      display: flex;
+      gap: 12px;
+    }
+    .news-col {
+      flex: 1;
+      min-width: 0;
+      font-size: 11px;
+    }
+    .news-title {
+      background-color: #e5e5e5;
+      font-weight: bold;
+      font-size: 11px;
+      padding: 2px 4px;
+      margin-bottom: 4px;
+      border: 1px solid #cccccc;
+    }
+    .news-col ul {
+      margin: 0;
+      padding-left: 16px;
+      line-height: 1.4;
+    }
+
+    /* Clearfix for thumbnail float */
+    .clearfix::after {
+      content: "";
+      display: table;
+      clear: both;
+    }
+
+    /* Regional & Sponsor */
+    .regional-links {
+      font-size: 11px;
+      text-align: center;
+      line-height: 1.5;
+    }
+    .sponsor-bar {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      margin: 6px 0;
+      font-size: 11px;
+    }
+
+    /* Footer */
+    .footer-links {
+      font-size: 11px;
+      color: #333333;
+      text-align: center;
+      margin-top: 6px;
+      line-height: 1.6;
+    }
+
+    /* Mobile Breakpoint (< 600px) */
+    @media (max-width: 600px) {
+      .top-strip {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+      .directory-grid {
+        flex-direction: column;
+        gap: 0;
+      }
+      .news-grid {
+        flex-direction: column;
+        gap: 10px;
+      }
+      .news-col {
+        border-left: none !important;
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+      }
+      .search-input {
+        width: 100%;
+      }
+    }
+  </style>
 </head>
-<body bgcolor="#FFFFFF" text="#000000" link="#0000CC" vlink="#551A8B" alink="#FF0000">
+<body>
 
-  <!-- Top Help / Navigation -->
-  <center>
-    <font size="-1">
-      <a href="#">What's New</a> ·
-      <a href="#">Check Email</a> ·
-      <a href="#">Yahoo! Mail</a> <i>free email for life</i>
-    </font>
-  </center>
-  <br>
+<div class="wrapper">
 
-  <!-- Yahoo! Logo -->
-  <center>
-    <font face="times new roman, times, serif" size="+4" color="#CC0000"><b><i>YAHOO!</i></b></font><br>
-    <font size="-1">
-      <a href="#">My Yahoo!</a> ·
-      <a href="#">Chat</a> ·
-      <a href="#">News</a> ·
-      <a href="#">Finance</a> ·
-      <a href="#">Sports</a> ·
-      <a href="#">Weather</a>
-    </font>
-  </center>
-  <br>
+  <!-- Top Personalization Strip -->
+  <div class="top-strip">
+    <div>
+      <a href="https://edit.yahoo.com/config/eval_register"><b>What's New</b></a> ·
+      <a href="https://my.yahoo.com"><b>My Yahoo!</b></a> ·
+      <a href="https://calendar.yahoo.com">Get Local</a>
+    </div>
+    <div>
+      <a href="https://mail.yahoo.com"><b>Yahoo! Mail</b> - free email for life</a> ·
+      <a href="https://help.yahoo.com">Help</a>
+    </div>
+  </div>
 
-  <!-- Search Form -->
-  <center>
-    <form action="#" method="get">
-      <input type="text" name="p" size="30" value="">
-      <input type="submit" value="Search">
-      <font size="-1"><a href="#">advanced search</a></font>
-      <br>
-      <font size="-1">
-        <input type="radio" name="scope" value="web" checked> The Web
-        <input type="radio" name="scope" value="dir"> Yahoo! Directory
-        <input type="radio" name="scope" value="news"> News
-      </font>
+  <!-- Top 468x60 Classic Banner Ad -->
+  <div class="banner-container">
+    <a href="https://shopping.yahoo.com">
+      <img src="https://picsum.photos/468/60?random=1" alt="Special Online Shopping Offer" class="img-banner">
+    </a>
+  </div>
+
+  <!-- Logo and Header Links -->
+  <div class="header-center">
+    <a href="https://www.yahoo.com" style="text-decoration: none;">
+      <!-- Vintage Yahoo! Logo Image -->
+      <img src="https://upload.wikimedia.org/wikipedia/commons/b/b9/Yahoo%21_logo_%281995-2009%29.svg" alt="Yahoo!" class="img-logo">
+    </a>
+    <div class="top-nav-links">
+      <a href="https://shopping.yahoo.com"><b>Shopping</b></a> - 
+      <a href="https://auctions.yahoo.com"><b>Auctions</b></a> - 
+      <a href="https://classifieds.yahoo.com"><b>Classifieds</b></a> - 
+      <a href="https://yellowpages.yahoo.com">Yellow Pages</a> - 
+      <a href="https://travel.yahoo.com">Travel</a> - 
+      <a href="https://maps.yahoo.com">Maps</a> - 
+      <a href="https://movies.yahoo.com">Media</a> - 
+      <a href="https://news.yahoo.com">News</a> - 
+      <a href="https://sports.yahoo.com">Sports</a> - 
+      <a href="https://finance.yahoo.com">Stock Quotes</a>
+    </div>
+  </div>
+
+  <!-- Promotional Alert Box with Thumbnail -->
+  <div class="top-promo">
+    <img src="https://picsum.photos/24/24?random=2" alt="Auctions Icon" class="img-thumb-small">
+    <b>Yahoo! Auctions:</b>
+    <a href="https://auctions.yahoo.com">Pokémon</a>,
+    <a href="https://auctions.yahoo.com">Beanie Babies</a>,
+    <a href="https://auctions.yahoo.com">Star Wars Episode 1</a>,
+    <a href="https://auctions.yahoo.com">Antiques</a>
+    —
+    <a href="https://wallet.yahoo.com"><b>Yahoo! Wallet</b></a>
+  </div>
+
+  <!-- Services Navigation -->
+  <div class="services-summary">
+    <b>Connect:</b> <a href="https://chat.yahoo.com">Chat</a> · <a href="https://clubs.yahoo.com">Clubs</a> · <a href="https://games.yahoo.com">Games</a> · <a href="https://geocities.yahoo.com">GeoCities</a> · <a href="https://greetings.yahoo.com">Greetings</a> · <a href="https://mail.yahoo.com">Mail</a> · <a href="https://members.yahoo.com">Members</a> · <a href="https://messenger.yahoo.com">Messenger</a> · <a href="https://personals.yahoo.com">Personals</a> · <a href="https://people.yahoo.com">People Search</a><br>
+    <b>Organize:</b> <a href="https://calendar.yahoo.com">Calendar</a> · <a href="https://briefcase.yahoo.com">Briefcase</a> · <a href="https://my.yahoo.com">My Yahoo!</a> · <a href="https://notepad.yahoo.com">Notepad</a> · <a href="https://alerts.yahoo.com">Alerts</a> · <a href="https://companion.yahoo.com">Companion</a> · <a href="https://billpay.yahoo.com">Bill Pay</a>
+  </div>
+
+  <!-- Search Section -->
+  <div class="search-box">
+    <form action="https://search.yahoo.com/search" method="get" target="_blank" style="margin: 0; padding: 0;">
+      <div class="search-input-row">
+        <input type="text" name="p" class="search-input" value="">
+        <input type="submit" value="Search" class="search-btn">
+        <font size="-1"> <a href="https://search.yahoo.com/search/options">advanced search</a></font>
+      </div>
+      <div class="search-radios">
+        <label><input type="radio" name="scope" value="all" checked> The Web</label>
+        <label><input type="radio" name="scope" value="yahoo"> Yahoo! Directory Only</label>
+        <label><input type="radio" name="scope" value="news"> News Stories</label>
+      </div>
     </form>
-  </center>
+  </div>
 
-  <!-- Service Strip -->
-  <center>
-    <font size="-1">
-      <a href="#">Yellow Pages</a> ·
-      <a href="#">White Pages</a> ·
-      <a href="#">Maps</a> ·
-      <a href="#">Classifieds</a> ·
-      <a href="#">Personals</a> ·
-      <a href="#">Games</a> ·
-      <a href="#">Shopping</a>
-    </font>
-  </center>
-  <br>
+  <!-- 14 Canonical Directory Categories -->
+  <div class="directory-grid">
+    <!-- Left Column -->
+    <div class="directory-col">
+      <div class="cat-block">
+        <div class="dir-cat"><a href="https://dir.yahoo.com/Arts/">Arts & Humanities</a></div>
+        <div class="dir-sub"><a href="#">Literature</a>, <a href="#">Photography</a>, <a href="#">Architecture</a>...</div>
+      </div>
+      <div class="cat-block">
+        <div class="dir-cat"><a href="https://dir.yahoo.com/Business_and_Economy/">Business & Economy</a></div>
+        <div class="dir-sub"><a href="#">Companies</a>, <a href="#">Finance</a>, <a href="#">Jobs</a>, <a href="#">Small Business</a>...</div>
+      </div>
+      <div class="cat-block">
+        <div class="dir-cat"><a href="https://dir.yahoo.com/Computers_and_Internet/">Computers & Internet</a></div>
+        <div class="dir-sub"><a href="#">Internet</a>, <a href="#">WWW</a>, <a href="#">Software</a>, <a href="#">Hardware</a>...</div>
+      </div>
+      <div class="cat-block">
+        <div class="dir-cat"><a href="https://dir.yahoo.com/Education/">Education</a></div>
+        <div class="dir-sub"><a href="#">College and University</a>, <a href="#">K-12</a>, <a href="#">Distance Learning</a>...</div>
+      </div>
+      <div class="cat-block">
+        <div class="dir-cat"><a href="https://dir.yahoo.com/Entertainment/">Entertainment</a></div>
+        <div class="dir-sub"><a href="#">Cool Links</a>, <a href="#">Movies</a>, <a href="#">Humor</a>, <a href="#">Music</a>, <a href="#">MP3</a>...</div>
+      </div>
+      <div class="cat-block">
+        <div class="dir-cat"><a href="https://dir.yahoo.com/Government/">Government</a></div>
+        <div class="dir-sub"><a href="#">Elections</a>, <a href="#">Military</a>, <a href="#">Law</a>, <a href="#">Taxes</a>...</div>
+      </div>
+      <div class="cat-block">
+        <div class="dir-cat"><a href="https://dir.yahoo.com/Health/">Health</a></div>
+        <div class="dir-sub"><a href="#">Medicine</a>, <a href="#">Diseases</a>, <a href="#">Fitness</a>, <a href="#">Nutrition</a>...</div>
+      </div>
+    </div>
 
-  <!-- Main 14 Directory Categories (Classic Two-Column Table) -->
-  <table width="100%" border="0" cellpadding="2" cellspacing="0">
-    <tr valign="top">
-      
-      <!-- Left Column -->
-      <td width="50%">
-        <p>
-          <font size="+0"><b><a href="#">Arts & Humanities</a></b></font><br>
-          <font size="-1"><a href="#">Literature</a>, <a href="#">Photography</a>...</font>
-        </p>
+    <!-- Right Column -->
+    <div class="directory-col">
+      <div class="cat-block">
+        <div class="dir-cat"><a href="https://dir.yahoo.com/News_and_Media/">News & Media</a></div>
+        <div class="dir-sub"><a href="#">Full Coverage</a>, <a href="#">Newspapers</a>, <a href="#">TV</a>, <a href="#">Radio</a>...</div>
+      </div>
+      <div class="cat-block">
+        <div class="dir-cat"><a href="https://dir.yahoo.com/Recreation_and_Sports/">Recreation & Sports</a></div>
+        <div class="dir-sub"><a href="#">Sports</a>, <a href="#">Travel</a>, <a href="#">Autos</a>, <a href="#">Outdoors</a>, <a href="#">Baseball</a>...</div>
+      </div>
+      <div class="cat-block">
+        <div class="dir-cat"><a href="https://dir.yahoo.com/Reference/">Reference</a></div>
+        <div class="dir-sub"><a href="#">Libraries</a>, <a href="#">Dictionaries</a>, <a href="#">Quotations</a>...</div>
+      </div>
+      <div class="cat-block">
+        <div class="dir-cat"><a href="https://dir.yahoo.com/Regional/">Regional</a></div>
+        <div class="dir-sub"><a href="#">Countries</a>, <a href="#">Regions</a>, <a href="#">US States</a>, <a href="#">Cities</a>...</div>
+      </div>
+      <div class="cat-block">
+        <div class="dir-cat"><a href="https://dir.yahoo.com/Science/">Science</a></div>
+        <div class="dir-sub"><a href="#">Biology</a>, <a href="#">Astronomy</a>, <a href="#">Engineering</a>, <a href="#">Space</a>...</div>
+      </div>
+      <div class="cat-block">
+        <div class="dir-cat"><a href="https://dir.yahoo.com/Social_Science/">Social Science</a></div>
+        <div class="dir-sub"><a href="#">Archaeology</a>, <a href="#">Economics</a>, <a href="#">Languages</a>...</div>
+      </div>
+      <div class="cat-block">
+        <div class="dir-cat"><a href="https://dir.yahoo.com/Society_and_Culture/">Society & Culture</a></div>
+        <div class="dir-sub"><a href="#">People</a>, <a href="#">Environment</a>, <a href="#">Religion</a>, <a href="#">Holidays</a>...</div>
+      </div>
+    </div>
+  </div>
 
-        <p>
-          <font size="+0"><b><a href="#">Business & Economy</a></b></font><br>
-          <font size="-1"><a href="#">Companies</a>, <a href="#">Finance</a>, <a href="#">Jobs</a>...</font>
-        </p>
+  <div class="bar-divider"></div>
 
-        <p>
-          <font size="+0"><b><a href="#">Computers & Internet</a></b></font><br>
-          <font size="-1"><a href="#">Internet</a>, <a href="#">WWW</a>, <a href="#">Software</a>, <a href="#">Games</a>...</font>
-        </p>
+  <!-- News, Marketplace & Quotes (Responsive Row/Stack) -->
+  <div class="news-grid">
+    <!-- In The News with Headline Thumbnail -->
+    <div class="news-col clearfix" style="flex: 1.2;">
+      <div class="news-title">In The News</div>
+      <ul>
+        <li><a href="https://news.yahoo.com">Tech shares rally on internet commerce boom</a></li>
+        <li><a href="https://news.yahoo.com">NATO airstrikes hit Belgrade targets</a></li>
+        <li><a href="https://news.yahoo.com">Kobe, Lakers advance in NBA playoffs</a></li>
+        <li><a href="https://sports.yahoo.com">Kentucky Derby post positions set</a></li>
+      </ul>
+    </div>
 
-        <p>
-          <font size="+0"><b><a href="#">Education</a></b></font><br>
-          <font size="-1"><a href="#">College and University</a>, <a href="#">K-12</a>...</font>
-        </p>
+    <!-- Marketplace -->
+    <div class="news-col" style="border-left: 1px solid #eeeeee; padding-left: 8px;">
+      <div class="news-title">Marketplace</div>
+      <div style="line-height: 1.45;">
+        • <a href="https://travel.yahoo.com">Spring vacation fares from $89</a><br>
+        • <a href="https://shopping.yahoo.com">CDs, DVDs, Video Games & Toys</a><br>
+        • <a href="https://billpay.yahoo.com">Pay bills online with Yahoo!</a><br>
+        • <a href="https://geocities.yahoo.com">Build your free Web home page</a>
+      </div>
+    </div>
 
-        <p>
-          <font size="+0"><b><a href="#">Entertainment</a></b></font><br>
-          <font size="-1"><a href="#">Cool Links</a>, <a href="#">Movies</a>, <a href="#">Humor</a>, <a href="#">Music</a>...</font>
-        </p>
+    <!-- Quotes & Weather -->
+    <div class="news-col" style="border-left: 1px solid #eeeeee; padding-left: 8px;">
+      <div class="news-title">Quotes & Weather</div>
+      <form action="https://finance.yahoo.com/quote/" method="get" target="_blank" style="margin: 0 0 4px 0;">
+        <input type="text" name="s" size="8" placeholder="DJIA" style="font-size:10px; width:65px;">
+        <input type="submit" value="Quote" style="font-size:10px; padding:0 2px;">
+      </form>
+      <div style="line-height: 1.35;">
+        <b>DJIA:</b> 11,031.59 <font color="#009900">+72.10</font><br>
+        <b>NASDAQ:</b> 2,568.14 <font color="#009900">+18.42</font><br>
+        <b>S&P 500:</b> 1,345.00 <font color="#cc0000">-1.80</font>
+      </div>
+    </div>
+  </div>
 
-        <p>
-          <font size="+0"><b><a href="#">Government</a></b></font><br>
-          <font size="-1"><a href="#">Military</a>, <a href="#">Politics</a>, <a href="#">Law</a>, <a href="#">Taxes</a>...</font>
-        </p>
+  <div class="bar-divider"></div>
 
-        <p>
-          <font size="+0"><b><a href="#">Health</a></b></font><br>
-          <font size="-1"><a href="#">Medicine</a>, <a href="#">Diseases</a>, <a href="#">Drugs</a>, <a href="#">Fitness</a>...</font>
-        </p>
-      </td>
+  <!-- Regional Yahoo!s Navigation -->
+  <div class="regional-links">
+    <b>More Yahoo!s:</b>
+    <a href="https://au.yahoo.com">Australia & NZ</a> ·
+    <a href="https://ca.yahoo.com">Canada</a> ·
+    <a href="https://cn.yahoo.com">China</a> ·
+    <a href="https://dk.yahoo.com">Denmark</a> ·
+    <a href="https://fr.yahoo.com">France</a> ·
+    <a href="https://de.yahoo.com">Germany</a> ·
+    <a href="https://hk.yahoo.com">Hong Kong</a> ·
+    <a href="https://it.yahoo.com">Italy</a> ·
+    <a href="https://jp.yahoo.com">Japan</a> ·
+    <a href="https://kr.yahoo.com">Korea</a> ·
+    <a href="https://no.yahoo.com">Norway</a> ·
+    <a href="https://sg.yahoo.com">Singapore</a> ·
+    <a href="https://es.yahoo.com">Spain</a> ·
+    <a href="https://se.yahoo.com">Sweden</a> ·
+    <a href="https://tw.yahoo.com">Taiwan</a> ·
+    <a href="https://uk.yahoo.com">UK & Ireland</a>
+  </div>
 
-      <!-- Right Column -->
-      <td width="50%">
-        <p>
-          <font size="+0"><b><a href="#">News & Media</a></b></font><br>
-          <font size="-1"><a href="#">Full Coverage</a>, <a href="#">Newspapers</a>, <a href="#">TV</a>...</font>
-        </p>
+  <div class="bar-divider"></div>
 
-        <p>
-          <font size="+0"><b><a href="#">Recreation & Sports</a></b></font><br>
-          <font size="-1"><a href="#">Sports</a>, <a href="#">Travel</a>, <a href="#">Autos</a>, <a href="#">Outdoors</a>...</font>
-        </p>
+  <!-- Sponsor Badge with Official Logo Image -->
+  <div class="sponsor-bar">
+    <a href="https://www.visa.com"><small>Yahoo! prefers</small></a>
+    <img src="https://upload.wikimedia.org/wikipedia/commons/d/d6/Visa_2021.svg" alt="Visa" class="img-sponsor-badge">
+  </div>
 
-        <p>
-          <font size="+0"><b><a href="#">Reference</a></b></font><br>
-          <font size="-1"><a href="#">Libraries</a>, <a href="#">Dictionaries</a>, <a href="#">Quotations</a>...</font>
-        </p>
+  <!-- Footer -->
+  <div class="footer-links">
+    <a href="https://docs.yahoo.com/info/misc/howtosearch.html">How to Suggest a Site</a> - 
+    <a href="https://company.yahoo.com">Company Info</a> - 
+    <a href="https://privacy.yahoo.com">Privacy Policy</a> - 
+    <a href="https://docs.yahoo.com/info/contributors.html">Contributors</a> - 
+    <a href="https://careers.yahoo.com">Openings at Yahoo!</a>[cite: 1]
+    <br>
+    <font size="-2" color="#666666">Copyright © 1994-1999 Yahoo! Inc. All rights reserved.</font>
+  </div>
 
-        <p>
-          <font size="+0"><b><a href="#">Regional</a></b></font><br>
-          <font size="-1"><a href="#">Countries</a>, <a href="#">Regions</a>, <a href="#">US States</a>...</font>
-        </p>
-
-        <p>
-          <font size="+0"><b><a href="#">Science</a></b></font><br>
-          <font size="-1"><a href="#">CS</a>, <a href="#">Biology</a>, <a href="#">Astronomy</a>, <a href="#">Engineering</a>...</font>
-        </p>
-
-        <p>
-          <font size="+0"><b><a href="#">Social Science</a></b></font><br>
-          <font size="-1"><a href="#">Anthropology</a>, <a href="#">Sociology</a>, <a href="#">Economics</a>...</font>
-        </p>
-
-        <p>
-          <font size="+0"><b><a href="#">Society & Culture</a></b></font><br>
-          <font size="-1"><a href="#">People</a>, <a href="#">Environment</a>, <a href="#">Religion</a>...</font>
-        </p>
-      </td>
-
-    </tr>
-  </table>
-
-  <!-- Bottom Links & Global Sites -->
-  <hr size="1" width="100%">
-  <center>
-    <font size="-1">
-      Yahoo! International: 
-      <a href="#">Canada</a> ·
-      <a href="#">France</a> ·
-      <a href="#">Germany</a> ·
-      <a href="#">Japan</a> ·
-      <a href="#">UK & Ireland</a>
-    </font>
-    <br><br>
-    <font size="-1">
-      <a href="#">How to Suggest a Site</a> ·
-      <a href="#">Company Info</a> ·
-      <a href="#">Help</a>
-    </font>
-    <br><br>
-    <font size="-2">
-      Copyright © 1994-1998 Yahoo! Inc. All rights reserved.
-    </font>
-  </center>
+</div>
 
 </body>
 </html>
