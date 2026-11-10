@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Episteme — Academic Lookbook</title>
+  <title>The Toronto Portal</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600&family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500&display=swap" rel="stylesheet">
@@ -23,7 +23,7 @@
       line-height: 1.6;
     }
 
-    /* Simple, robust layout container */
+    /* Layout container */
     .container {
       width: 100%;
       max-width: 1080px;
@@ -112,6 +112,7 @@
 
     .hero-title em {
       color: #c49a6c;
+      font-style: italic;
     }
 
     .hero-stats {
@@ -135,7 +136,7 @@
       text-transform: uppercase;
     }
 
-    /* Auto-fit responsive cards without overflow risk */
+    /* Card grids */
     .grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -146,6 +147,10 @@
       background: #14161f;
       border: 1px solid rgba(244, 239, 230, 0.12);
       padding: 1.5rem;
+    }
+
+    .card p {
+      color: #b8b3a8;
     }
 
     /* 2. Capsule syllabus */
@@ -185,6 +190,15 @@
       margin-bottom: 1rem;
     }
 
+    .archive-meta {
+      font-size: 0.75rem;
+      color: #b8b3a8;
+    }
+
+    .curator-note {
+      font-size: 0.85rem;
+    }
+
     /* 4. Interactive field guide */
     .plate {
       background: #14161f;
@@ -192,6 +206,16 @@
       padding: 2rem 1.5rem;
       text-align: center;
       margin-bottom: 1.5rem;
+    }
+
+    .plate-label {
+      font-size: 0.75rem;
+      letter-spacing: 0.1em;
+      color: #c49a6c;
+    }
+
+    .plate-caption {
+      font-size: 0.8rem;
     }
 
     .plate-graphic {
@@ -226,6 +250,11 @@
       padding: 1rem;
     }
 
+    .hotspot-item p {
+      font-size: 0.8rem;
+      margin-top: 0.25rem;
+    }
+
     .hotspot-num {
       display: inline-block;
       width: 20px;
@@ -248,6 +277,11 @@
       line-height: 1.25;
       margin-bottom: 1rem;
       color: #fff;
+    }
+
+    .status-badge {
+      font-size: 0.8rem;
+      color: #c49a6c;
     }
 
     footer {
@@ -275,10 +309,10 @@
   <!-- 1. The Cover Spread -->
   <section>
     <div class="container">
-      <div class="hero-meta">Vol. IV / Special Collection — Fall Term 2026</div>
-      <h1 class="hero-title">Semiotics, Spatial Syntax, & the <em>Post-Digital</em> Anthropocene.</h1>
+      <div class="hero-meta">Special Edition — Fall 2026</div>
+      <h1 class="hero-title">So you want to study <em>Business Management</em> in Toronto?</h1>
       <p style="color: #b8b3a8; max-width: 600px;">
-        An editorial portal examining how human cultures delineate borders, generate spatial meaning, and structure physical memory.
+        A student's guide to the programs, the people and the city.
       </p>
       <div class="hero-stats">
         <div><strong>24</strong><span>Curated Texts</span></div>
@@ -298,21 +332,21 @@
           <div class="card-tag">Module 101 • 4 Weeks</div>
           <h3>Ontology of the Grid</h3>
           <div class="card-meta">Rosalind Krauss & Lewis Mumford</div>
-          <p style="color: #b8b3a8;">How modern architectural systems transformed from an aesthetic discipline into mechanisms of territorial control.</p>
+          <p>How modern architectural systems transformed from an aesthetic discipline into mechanisms of territorial control.</p>
           <div class="card-quote">"The grid declares modern space to be autonomous and autotelic."</div>
         </div>
-        <div class="card-card card">
+        <div class="card">
           <div class="card-tag">Module 204 • 3 Weeks</div>
           <h3>Simulacra & Ghost Maps</h3>
           <div class="card-meta">Jean Baudrillard & J.B. Harley</div>
-          <p style="color: #b8b3a8;">Investigating moments when cartography precedes territory and constructs artificial reality.</p>
+          <p>Investigating moments when cartography precedes territory and constructs artificial reality.</p>
           <div class="card-quote">"It is the map that engenders the territory..."</div>
         </div>
         <div class="card">
           <div class="card-tag">Module 310 • 5 Weeks</div>
           <h3>Feral Infrastructure</h3>
           <div class="card-meta">Anna Tsing & Keller Easterling</div>
-          <p style="color: #b8b3a8;">Mapping non-human agency and ecology within subsea cables and logistics free-zones.</p>
+          <p>Mapping non-human agency and ecology within subsea cables and logistics free-zones.</p>
           <div class="card-quote">"Infrastructure becomes visible primarily at the breakdown."</div>
         </div>
       </div>
@@ -329,30 +363,30 @@
           <div class="spine">
             <div class="card-tag">Foundational Source</div>
             <h3>The Production of Space</h3>
-            <div style="font-size: 0.75rem; color: #b8b3a8;">Henri Lefebvre (1974)</div>
+            <div class="archive-meta">Henri Lefebvre (1974)</div>
           </div>
-          <p style="color: #b8b3a8; font-size: 0.85rem;">
-            <strong>Curator Note:</strong> Crucial framework showing how modern capital constructs abstract space to override organic bodily tempo.
+          <p class="curator-note">
+            <strong style="color: #f4efe6;">Curator Note:</strong> Crucial framework showing how modern capital constructs abstract space to override organic bodily tempo.
           </p>
         </div>
         <div class="card">
           <div class="spine">
             <div class="card-tag">Counter-Argument</div>
             <h3>Dark Matters</h3>
-            <div style="font-size: 0.75rem; color: #b8b3a8;">Simone Browne (2015)</div>
+            <div class="archive-meta">Simone Browne (2015)</div>
           </div>
-          <p style="color: #b8b3a8; font-size: 0.85rem;">
-            <strong>Curator Note:</strong> Re-anchors biometric surveillance archives directly in 18th-century transatlantic chattel tracking.
+          <p class="curator-note">
+            <strong style="color: #f4efe6;">Curator Note:</strong> Re-anchors biometric surveillance archives directly in 18th-century transatlantic chattel tracking.
           </p>
         </div>
         <div class="card">
           <div class="spine">
             <div class="card-tag">Essential Essay</div>
             <h3>Walking in the City</h3>
-            <div style="font-size: 0.75rem; color: #b8b3a8;">Michel de Certeau (1980)</div>
+            <div class="archive-meta">Michel de Certeau (1980)</div>
           </div>
-          <p style="color: #b8b3a8; font-size: 0.85rem;">
-            <strong>Curator Note:</strong> Classic confrontation between totalitarian aerial oversight and pedestrian vernacular tactics.
+          <p class="curator-note">
+            <strong style="color: #f4efe6;">Curator Note:</strong> Classic confrontation between totalitarian aerial oversight and pedestrian vernacular tactics.
           </p>
         </div>
       </div>
@@ -366,26 +400,26 @@
       <h2 class="section-title">Archival Specimen Analysis</h2>
       
       <div class="plate">
-        <div style="font-size: 0.75rem; letter-spacing: 0.1em; color: #c49a6c;">FIG. 08 — PTOLEMAIC PROJECTION CODEX (1482)</div>
+        <div class="plate-label">FIG. 08 — PTOLEMAIC PROJECTION CODEX (1482)</div>
         <div class="plate-graphic"></div>
-        <p style="color: #b8b3a8; font-size: 0.8rem;">Parchment Plate with Latin and Venetian marginal notations</p>
+        <p class="plate-caption">Parchment Plate with Latin and Venetian marginal notations</p>
       </div>
 
       <ul class="hotspot-list">
         <li class="hotspot-item">
           <span class="hotspot-num">1</span>
           <strong>Terra Incognita</strong>
-          <p style="color: #b8b3a8; font-size: 0.8rem; margin-top: 0.25rem;">Hand-inked marginalia challenging the enclosed Indian Ocean model.</p>
+          <p>Hand-inked marginalia challenging the enclosed Indian Ocean model.</p>
         </li>
         <li class="hotspot-item">
           <span class="hotspot-num">2</span>
           <strong>Latitude Graduations</strong>
-          <p style="color: #b8b3a8; font-size: 0.8rem; margin-top: 0.25rem;">Early coordinate rules drafted in iron gall ink on calfskin vellum.</p>
+          <p>Early coordinate rules drafted in iron gall ink on calfskin vellum.</p>
         </li>
         <li class="hotspot-item">
           <span class="hotspot-num">3</span>
           <strong>Wind Compass</strong>
-          <p style="color: #b8b3a8; font-size: 0.8rem; margin-top: 0.25rem;">Classical 12-point compass demonstrating pre-magnetic wind theories.</p>
+          <p>Classical 12-point compass demonstrating pre-magnetic wind theories.</p>
         </li>
       </ul>
     </div>
@@ -400,12 +434,12 @@
         <div class="card">
           <div class="card-meta">Elena Vance — Algorithmic Geography</div>
           <div class="scholar-quote">"Platforms do not map territories; they shape spaces to satisfy their own geometry."</div>
-          <p style="font-size: 0.8rem; color: #c49a6c;">Seminar Transcript Available</p>
+          <p class="status-badge">Seminar Transcript Available</p>
         </div>
         <div class="card">
           <div class="card-meta">Kaveh Mansour — Media Archaeology</div>
           <div class="scholar-quote">"The historical archive is not a silent vault; it is an active transformer."</div>
-          <p style="font-size: 0.8rem; color: #c49a6c;">Pre-Print Dispatch Available</p>
+          <p class="status-badge">Pre-Print Dispatch Available</p>
         </div>
       </div>
     </div>
